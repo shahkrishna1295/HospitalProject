@@ -181,12 +181,32 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\EmergenciesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Data\HospitalProjectContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004011810509_initial.cs" />
+    <Compile Include="Migrations\202004011810509_initial.Designer.cs">
+      <DependentUpon>202004011810509_initial.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004011812157_two.cs" />
+    <Compile Include="Migrations\202004011812157_two.Designer.cs">
+      <DependentUpon>202004011812157_two.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004011919094_datetime.cs" />
+    <Compile Include="Migrations\202004011919094_datetime.Designer.cs">
+      <DependentUpon>202004011919094_datetime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004020040417_datetime1.cs" />
+    <Compile Include="Migrations\202004020040417_datetime1.Designer.cs">
+      <DependentUpon>202004020040417_datetime1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\EmergencyModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -248,6 +268,11 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Emergencies\Create.cshtml" />
+    <Content Include="Views\Emergencies\Delete.cshtml" />
+    <Content Include="Views\Emergencies\Details.cshtml" />
+    <Content Include="Views\Emergencies\Edit.cshtml" />
+    <Content Include="Views\Emergencies\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -264,6 +289,20 @@
     <None Include="packages.config" />
     <Content Include="Scripts\jquery-3.4.1.slim.min.map" />
     <Content Include="Scripts\jquery-3.4.1.min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202004011810509_initial.resx">
+      <DependentUpon>202004011810509_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004011812157_two.resx">
+      <DependentUpon>202004011812157_two.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004011919094_datetime.resx">
+      <DependentUpon>202004011919094_datetime.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004020040417_datetime1.resx">
+      <DependentUpon>202004020040417_datetime1.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

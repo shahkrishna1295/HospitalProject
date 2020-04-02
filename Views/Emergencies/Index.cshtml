@@ -1,0 +1,76 @@
+﻿@model IEnumerable<HospitalProject.Models.Emergency>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Emergency Procedures</h2>
+<p>
+    24-hour emergency room service is provided at a primary level by on-call physicians and is intended to meet severe medical needs that require the immediate care of a physician and hospital services. Patients presenting to the Emergency Department are triaged in accordance to the Canadian Triage & Acuity Scale (CTAS):
+    <ul>
+        <li style="background-color:blue; text-align:center; color:white">LEVEL I - RESUSCITATION</li>
+        <li style="background-color:red; text-align:center; color:white">LEVEL II - EMERGENCY</li>
+        <li style="background-color:yellow; text-align:center">LEVEL III - URGENT</li>
+        <li style="background-color:green; text-align:center">LEVEL IV - LESS URGENT</li>
+        <li style="background-color:ghostwhite; text-align:center">LEVEL V - NON URGENT</li>
+    </ul>
+</p>
+<div>
+    <form method="GET" action="/Emergencies/Index">
+        <ul>
+            <li> <button type="submit" value="Bleeding" name="searchkey" id="searchkey">Bleeding</button></li>
+            <li> <button type="submit" value="Beathing" name="searchkey" id="searchkey">Breathing</button></li>
+            <li> <button type="submit" value="Choking" name="searchkey" id="searchkey">Choking</button></li>
+            <li> <button type="submit" value="Fainting" name="searchkey" id="searchkey">Fainting</button></li>
+            <li> <button type="submit" value="Poison Control" name="searchkey" id="searchkey">Posion Control</button></li>
+            <li> <button type="submit" value="Suicide" name="searchkey" id="searchkey">Suicide</button></li>
+            <li> <button type="submit" value="Unconscious" name="searchkey" id="searchkey">Unconscious</button></li>
+            <li> <button type="submit" value="Virus" name="searchkey" id="searchkey">Virus</button></li>
+            <li> <button type="submit" value="Vomiting" name="searchkey" id="searchkey">Vomiting</button></li>
+            <li> <button type="submit" value="" name="searchkey" id="searchkey">Clear Filter</button></li>
+
+
+        </ul>
+    </form>
+</div>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Date.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Title)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Article)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Date.Date)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Title)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Article)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.EmergencyId })
+    </td>
+    <td>
+        @Html.ActionLink("Details", "Details", new { id = item.EmergencyId })
+    </td>
+    <td>
+        @Html.ActionLink("Delete", "Delete", new { id = item.EmergencyId })
+    </td>
+</tr>
+}
+
+</table>

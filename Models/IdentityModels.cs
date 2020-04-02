@@ -29,5 +29,7 @@ namespace HospitalProject.Models
         {
             return new ApplicationDbContext();
         }
+
+        public System.Data.Entity.DbSet<HospitalProject.Models.Emergency> Emergencies { get; set; }
     }
 }
