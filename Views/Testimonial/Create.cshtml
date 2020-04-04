@@ -1,0 +1,29 @@
+﻿@model HospitalProject.Models.TestimonialModel
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+<form>
+    <div class="form-horizontal">
+        <div>
+            <label>Title : </label>
+            <input type="text" name="testimonialTitle" id="testimonialTitle" />
+        </div>
+        <div>
+            <label>Name of Patient : </label>
+            <input type="text" name="patientName" id="patientName" />
+        </div>
+        <div>
+            <label>Message : </label>
+            <input type="text" name="testimonialMsg" id="testimonialMsg" />
+        </div>
+        <div>
+            <label>Image : </label>
+            <input type="file" name="testimonialImage" id="testimonialImage" />
+        </div>
+        <div>
+            <a href="thankVisitor.cshtml">Submit</a>
+        </div>
+    </div>
+</form>

@@ -25,7 +25,7 @@ namespace HospitalProject.Controllers
                 query = query + " where KeywordOne like '%" + searchkey + "%' or KeywordTwo like '%" + searchkey + "%' or KeywordThree like '%" + searchkey + "%'";
                 //Debug.WriteLine("The query is" + query);
             }
-            List<Emergency> Emergencies = db.Emergency.SqlQuery(query).ToList();
+            List<EmergencyModels> Emergencies = db.Emergency.SqlQuery(query).ToList();
             return View(Emergencies);
         }
 
@@ -36,7 +36,7 @@ namespace HospitalProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Emergency emergency = db.Emergency.Find(id);
+            EmergencyModels emergency = db.Emergency.Find(id);
             if (emergency == null)
             {
                 return HttpNotFound();
@@ -55,7 +55,7 @@ namespace HospitalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create([Bind(Include = "EmergencyId,Date,Title,Article,KeywordOne,KeywordTwo,KeywordThree")] Emergency emergency)
+        public ActionResult Create([Bind(Include = "EmergencyId,Date,Title,Article,KeywordOne,KeywordTwo,KeywordThree")] EmergencyModels emergency)
         {
             if (ModelState.IsValid)
             {
@@ -74,7 +74,7 @@ namespace HospitalProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Emergency emergency = db.Emergency.Find(id);
+            EmergencyModels emergency = db.Emergency.Find(id);
             if (emergency == null)
             {
                 return HttpNotFound();
@@ -87,7 +87,7 @@ namespace HospitalProject.Controllers
         // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit([Bind(Include = "EmergencyId,Date,Title,Article,KeywordOne,KeywordTwo,KeywordThree")] Emergency emergency)
+        public ActionResult Edit([Bind(Include = "EmergencyId,Date,Title,Article,KeywordOne,KeywordTwo,KeywordThree")] EmergencyModels emergency)
         {
             if (ModelState.IsValid)
             {
@@ -105,7 +105,7 @@ namespace HospitalProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            Emergency emergency = db.Emergency.Find(id);
+            EmergencyModels emergency = db.Emergency.Find(id);
             if (emergency == null)
             {
                 return HttpNotFound();
@@ -118,7 +118,7 @@ namespace HospitalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult DeleteConfirmed(int id)
         {
-            Emergency emergency = db.Emergency.Find(id);
+            EmergencyModels emergency = db.Emergency.Find(id);
             db.Emergency.Remove(emergency);
             db.SaveChanges();
             return RedirectToAction("Index");

@@ -1,0 +1,22 @@
+﻿@model HospitalProject.Models.TestimonialModel
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>StaffView</h2>
+<div class="row">
+    <div class="col-sm-2">Title</div>
+    <div class="col-sm-2">Name of Patient</div>
+    <div class="col-sm-2">Message</div>
+    <div class="col-sm-2">Attachment</div>
+    <div class="col-sm-2">Status</div>
+</div>
+foreach(var testimonial in Model){
+<div class="row">
+    <div class="col-sm-2">@Model.TestimonialTitle</div>
+    <div class="col-sm-2">@Model.NameOfPatient</div>
+    <div class="col-sm-2">@Model.TestimonialMessage</div>
+    <div class="col-sm-2">@Model.TestimonialAttachment</div>
+    <div class="col-sm-2">@Model.Status</div>
+</div>
+}

@@ -1,0 +1,29 @@
+﻿@model HospitalProject.Models.TestimonialModel
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+<form>
+    <div class="form-horizontal">
+        <div>
+            <label>Title : </label>
+            <input type="text" name="testimonialTitle" id="testimonialTitle" value="@Model.TestimonialTitle" />
+        </div>
+        <div>
+            <label>Name of Patient : </label>
+            <input type="text" name="patientName" id="patientName" value="@Model.NameOfPatient" />
+        </div>
+        <div>
+            <label>Message : </label>
+            <input type="text" name="testimonialMsg" id="testimonialMsg" value="@Model.TestimonalMessage" />
+        </div>
+        <div>
+            <label>Image : </label>
+            <input type="file" name="testimonialImage" id="testimonialImage" value="@Model.TestimonialAttachment" />
+        </div>
+        <div>
+            <a href="thankVisitor.cshtml">Submit</a>
+        </div>
+    </div>
+</form>

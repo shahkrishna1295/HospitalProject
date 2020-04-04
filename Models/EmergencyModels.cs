@@ -8,7 +8,7 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HospitalProject.Models
 {
-    public class Emergency
+    public class EmergencyModels
     {
         [Key]
         public int EmergencyId { get; set; }
