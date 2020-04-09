@@ -23,7 +23,9 @@ namespace HospitalProject.Data
         public System.Data.Entity.DbSet<HospitalProject.Models.EmergencyModels> Emergency { get; set; } 
         public System.Data.Entity.DbSet<HospitalProject.Models.TestimonialModel> Testimonial { get; set; } 
         public System.Data.Entity.DbSet<HospitalProject.Models.BranchModel> Branch { get; set; } 
-        public System.Data.Entity.DbSet<HospitalProject.Models.ServiceModel> Service { get; set; } 
+        public System.Data.Entity.DbSet<HospitalProject.Models.ServiceModel> Service { get; set; }
+
+        public System.Data.Entity.DbSet<HospitalProject.Models.JobModel> Job { get; set; }
 
     }
 }

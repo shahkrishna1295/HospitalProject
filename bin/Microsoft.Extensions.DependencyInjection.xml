@@ -14,7 +14,6 @@
             Initializes a new instance of the <see cref="T:Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory"/> class
             with default options.
             </summary>
-            <seealso cref="F:Microsoft.Extensions.DependencyInjection.ServiceProviderOptions.Default"/>
         </member>
         <member name="M:Microsoft.Extensions.DependencyInjection.DefaultServiceProviderFactory.#ctor(Microsoft.Extensions.DependencyInjection.ServiceProviderOptions)">
             <summary>
@@ -108,7 +107,7 @@
         </member>
         <member name="P:Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceCacheKey.Slot">
             <summary>
-            Reverse index of the service when resolved in <code>IEnumerable&lt;Type&gt;</code> where default instance gets slot 0.
+            Reverse index of the service when resolved in <c>IEnumerable&lt;Type&gt;</c> where default instance gets slot 0.
             For example for service collection
              IService Impl1
              IService Impl2
@@ -121,7 +120,7 @@
         </member>
         <member name="T:Microsoft.Extensions.DependencyInjection.ServiceLookup.ServiceCallSite">
             <summary>
-            Summary description for IServiceCallSite
+            Summary description for ServiceCallSite
             </summary>
         </member>
         <member name="T:Microsoft.Extensions.DependencyInjection.ServiceProvider">
@@ -154,7 +153,7 @@
         </member>
         <member name="P:Microsoft.Extensions.DependencyInjection.ServiceProviderOptions.ValidateOnBuild">
             <summary>
-            <c>true</c> to perform check verifying that all services can be created during <code>BuildServiceProvider</code> call; otherwise <c>false</c>. Defaults to <c>false</c>.
+            <c>true</c> to perform check verifying that all services can be created during <c>BuildServiceProvider</c> call; otherwise <c>false</c>. Defaults to <c>false</c>.
             NOTE: this check doesn't verify open generics services.
             </summary>
         </member>

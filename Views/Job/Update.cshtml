@@ -1,0 +1,32 @@
+﻿@model HospitalProject.Models.JobModel
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update @Model.JobTitle</h2>
+<div class="container">
+    <form method="POST" action="/Job/Update/@Model.JobID">
+        <div class="form-group">
+            <label for="JobTitle">Job Title:</label>
+            <input type="text" class="form-control" placeholder="Job Title" value="@Model.JobTitle" name="JobTitle" id="JobTitle">
+        </div>
+        <div class="form-group">
+            <label for="JobDepartmentName">Department Name:</label>
+            <input type="text" class="form-control" placeholder="Job Department Name" value="@Model.JobDepartmentName" id="JobDepartmentName" name="JobDepartmentName">
+        </div>
+        <div class="form-group">
+            <label for="JobPostedDate">Posted Date:</label>
+            <input type="datetime" class="form-control" value="@Model.JobPostedDate" id="JobPostedDate" name="JobPostedDate">
+        </div>
+        <div class="form-group">
+            <label for="JobDescription">Job Description:</label>
+            <textarea class="form-control" rows="5" id="JobDescription" name="JobDescription">@Model.JobDescription</textarea>
+        </div>
+        <div class="form-group">
+            <label for="JobRequirements">Job Requirements:</label>
+            <textarea class="form-control" id="JobRequirements" name="JobRequirements" rows="5">@Model.JobRequirements</textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+    </form>
+</div>

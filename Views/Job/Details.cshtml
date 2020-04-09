@@ -1,0 +1,35 @@
+﻿@model HospitalProject.Models.JobModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div class="container">
+    <div class="navbar">
+        <a class="navlink" href="/Job/List">Back to List</a>
+        <a class="navlink" href="/Job/Update/@Model.JobID ">Update</a>
+        <a class="navlink" href="/Job/Delete/@Model.JobID">Delete</a>
+    </div>
+    <div class="col-lg-12">
+        <div>
+            <strong>Job Title</strong>
+            <span>@Model.JobTitle</span>
+        </div>
+        <div>
+            <strong>Job Department Name</strong>
+            <span>@Model.JobDepartmentName</span>
+        </div>
+        <div>
+            <strong>Job Description</strong>
+            <span>@Model.JobDescription</span>
+        </div>
+        <div>
+            <strong>Job Posted Date</strong>
+            <span>@Model.JobPostedDate</span>
+        </div>
+        <div>
+            <strong>Job Requirements</strong>
+            <span>@Model.JobRequirements</span>
+        </div>
+    </div>
+</div>

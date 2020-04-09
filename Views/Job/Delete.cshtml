@@ -1,0 +1,14 @@
+﻿@model HospitalProject.Models.JobModel
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Are you sure you want to delete @Model.JobTitle?</h2>
+<div class="nav">
+    <a href="/Job/Show/@Model.JobID">Cancel</a>
+</div>
+<form method="POST" action="/Job/Delete/@Model.JobID">
+    <div>
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </div>
+</form>

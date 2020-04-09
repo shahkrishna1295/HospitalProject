@@ -543,6 +543,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\EmergenciesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\TestimonialController.cs" />
     <Compile Include="Data\HospitalProjectContext.cs" />
@@ -553,12 +554,21 @@
     <Compile Include="Migrations\202004040446273_initial.designer.cs">
       <DependentUpon>202004040446273_initial.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004081557479_first.cs" />
+    <Compile Include="Migrations\202004081557479_first.designer.cs">
+      <DependentUpon>202004081557479_first.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004081642485_job.cs" />
+    <Compile Include="Migrations\202004081642485_job.designer.cs">
+      <DependentUpon>202004081642485_job.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BranchModel.cs" />
     <Compile Include="Models\BranchXServiceViewModel.cs" />
     <Compile Include="Models\EmergencyModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
+    <Compile Include="Models\JobModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\ServiceModel.cs" />
     <Compile Include="Models\TestimonialModel.cs" />
@@ -632,6 +642,11 @@
     <Content Include="Views\Testimonial\ThankVisitor.cshtml" />
     <Content Include="Views\Testimonial\Delete.cshtml" />
     <Content Include="Views\Testimonial\Update.cshtml" />
+    <Content Include="Views\Job\Create.cshtml" />
+    <Content Include="Views\Job\List.cshtml" />
+    <Content Include="Views\Job\Update.cshtml" />
+    <Content Include="Views\Job\Details.cshtml" />
+    <Content Include="Views\Job\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -652,6 +667,12 @@
   <ItemGroup>
     <EmbeddedResource Include="Migrations\202004040446273_initial.resx">
       <DependentUpon>202004040446273_initial.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004081557479_first.resx">
+      <DependentUpon>202004081557479_first.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004081642485_job.resx">
+      <DependentUpon>202004081642485_job.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

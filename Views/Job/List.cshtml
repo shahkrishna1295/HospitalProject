@@ -1,0 +1,30 @@
+﻿@model List<HospitalProject.Models.JobModel>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+<div class="paginate">
+    @{
+        <a href="/Job/List?pagenum=@((int)ViewData["pagenum"]-1)&jobsearchkey=@ViewData["jobsearchkey"]">Prev</a>
+        @ViewData["pagesummary"]
+        <a href="/Job/List?pagenum=@((int)ViewData["pagenum"]+1)&jobsearchkey=@ViewData["jobsearchkey"]">Next</a>
+    }
+</div>
+<form action="/Job/List" method="GET">
+    <input type="text" name="jobsearchkey" id="jobsearchkey" />
+    <input type="submit" value="Search" />
+</form>
+@foreach(var job in Model){
+    <div class="card">
+        <div class="card-header"><a href="/Job/Details/@job.JobID">@job.JobTitle</a></div>
+        <div class="card-body">
+            <div>@job.JobPostedDate</div>
+            <div>@job.JobDepartmentName</div>
+            <div>@job.JobDescription</div>
+            <div>@job.JobRequirements</div>
+        </div>
+    </div>
+}
+
