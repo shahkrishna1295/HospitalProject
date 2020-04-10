@@ -4,6 +4,7 @@
         <name>Microsoft.Extensions.ObjectPool</name>
     </assembly>
     <members>
+<<<<<<< HEAD
         <member name="T:Microsoft.Extensions.ObjectPool.DefaultObjectPool`1">
             <summary>
             Default implementation of <see cref="T:Microsoft.Extensions.ObjectPool.ObjectPool`1"/>.
@@ -99,5 +100,7 @@
             </summary>
             <typeparam name="T">The type to create a pool for.</typeparam>
         </member>
+=======
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
     </members>
 </doc>

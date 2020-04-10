@@ -13,6 +13,7 @@
             <param name="includeGenericParameterNames"><c>true</c> to include generic parameter names.</param>
             <returns>The pretty printed type name.</returns>
         </member>
+<<<<<<< HEAD
         <member name="M:Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(System.Object,System.Object[])">
             <summary>
             Executes the configured method on <paramref name="target"/>. This can be used whether or not
@@ -69,6 +70,21 @@
             FSharp.Core.dll, because non-F# applications wouldn't use it. So all the references
             to FSharp types have to be constructed dynamically at runtime.
             </remarks>
+=======
+        <member name="T:Microsoft.Extensions.Internal.SecurityHelper">
+            <summary>
+            Helper code used when implementing authentication middleware
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Internal.SecurityHelper.MergeUserPrincipal(System.Security.Claims.ClaimsPrincipal,System.Security.Claims.ClaimsPrincipal)">
+            <summary>
+            Add all ClaimsIdentities from an additional ClaimPrincipal to the ClaimsPrincipal
+            Merges a new claims principal, placing all new identities first, and eliminating
+            any empty unauthenticated identities from context.User
+            </summary>
+            <param name="existingPrincipal">The <see cref="T:System.Security.Claims.ClaimsPrincipal"/> containing existing <see cref="T:System.Security.Claims.ClaimsIdentity"/>.</param>
+            <param name="additionalPrincipal">The <see cref="T:System.Security.Claims.ClaimsPrincipal"/> containing <see cref="T:System.Security.Claims.ClaimsIdentity"/> to be added.</param>
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.Extensions.Internal.PropertyHelper.#ctor(System.Reflection.PropertyInfo)">
             <summary>
@@ -206,6 +222,7 @@
              faster when the same type is used multiple times with ObjectToDictionary.
              </remarks>
         </member>
+<<<<<<< HEAD
         <member name="T:Microsoft.Extensions.Internal.SecurityHelper">
             <summary>
             Helper code used when implementing authentication middleware
@@ -219,6 +236,64 @@
             </summary>
             <param name="existingPrincipal">The <see cref="T:System.Security.Claims.ClaimsPrincipal"/> containing existing <see cref="T:System.Security.Claims.ClaimsIdentity"/>.</param>
             <param name="additionalPrincipal">The <see cref="T:System.Security.Claims.ClaimsPrincipal"/> containing <see cref="T:System.Security.Claims.ClaimsIdentity"/> to be added.</param>
+=======
+        <member name="M:Microsoft.Extensions.Internal.ObjectMethodExecutor.Execute(System.Object,System.Object[])">
+            <summary>
+            Executes the configured method on <paramref name="target"/>. This can be used whether or not
+            the configured method is asynchronous.
+            </summary>
+            <remarks>
+            Even if the target method is asynchronous, it's desirable to invoke it using Execute rather than
+            ExecuteAsync if you know at compile time what the return type is, because then you can directly
+            "await" that value (via a cast), and then the generated code will be able to reference the
+            resulting awaitable as a value-typed variable. If you use ExecuteAsync instead, the generated
+            code will have to treat the resulting awaitable as a boxed object, because it doesn't know at
+            compile time what type it would be.
+            </remarks>
+            <param name="target">The object whose method is to be executed.</param>
+            <param name="parameters">Parameters to pass to the method.</param>
+            <returns>The method return value.</returns>
+        </member>
+        <member name="M:Microsoft.Extensions.Internal.ObjectMethodExecutor.ExecuteAsync(System.Object,System.Object[])">
+            <summary>
+            Executes the configured method on <paramref name="target"/>. This can only be used if the configured
+            method is asynchronous.
+            </summary>
+            <remarks>
+            If you don't know at compile time the type of the method's returned awaitable, you can use ExecuteAsync,
+            which supplies an awaitable-of-object. This always works, but can incur several extra heap allocations
+            as compared with using Execute and then using "await" on the result value typecasted to the known
+            awaitable type. The possible extra heap allocations are for:
+            
+            1. The custom awaitable (though usually there's a heap allocation for this anyway, since normally
+               it's a reference type, and you normally create a new instance per call).
+            2. The custom awaiter (whether or not it's a value type, since if it's not, you need a new instance
+               of it, and if it is, it will have to be boxed so the calling code can reference it as an object).
+            3. The async result value, if it's a value type (it has to be boxed as an object, since the calling
+               code doesn't know what type it's going to be).
+            </remarks>
+            <param name="target">The object whose method is to be executed.</param>
+            <param name="parameters">Parameters to pass to the method.</param>
+            <returns>An object that you can "await" to get the method return value.</returns>
+        </member>
+        <member name="T:Microsoft.Extensions.Internal.ObjectMethodExecutorAwaitable">
+            <summary>
+            Provides a common awaitable structure that <see cref="M:Microsoft.Extensions.Internal.ObjectMethodExecutor.ExecuteAsync(System.Object,System.Object[])"/> can
+            return, regardless of whether the underlying value is a System.Task, an FSharpAsync, or an
+            application-defined custom awaitable.
+            </summary>
+        </member>
+        <member name="T:Microsoft.Extensions.Internal.ObjectMethodExecutorFSharpSupport">
+            <summary>
+            Helper for detecting whether a given type is FSharpAsync`1, and if so, supplying
+            an <see cref="T:System.Linq.Expressions.Expression"/> for mapping instances of that type to a C# awaitable.
+            </summary>
+            <remarks>
+            The main design goal here is to avoid taking a compile-time dependency on
+            FSharp.Core.dll, because non-F# applications wouldn't use it. So all the references
+            to FSharp types have to be constructed dynamically at runtime.
+            </remarks>
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="T:Microsoft.Extensions.DependencyInjection.ApplicationModelConventionExtensions">
             <summary>
@@ -464,6 +539,85 @@
             <see cref="T:Microsoft.Extensions.DependencyInjection.IMvcCoreBuilder"/> will be required.
             </remarks>
         </member>
+<<<<<<< HEAD
+=======
+        <member name="T:Microsoft.AspNetCore.Internal.RangeHelper">
+            <summary>
+            Provides a parser for the Range Header in an <see cref="P:Microsoft.AspNetCore.Http.HttpContext.Request"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Internal.RangeHelper.ParseRange(Microsoft.AspNetCore.Http.HttpContext,Microsoft.AspNetCore.Http.Headers.RequestHeaders,System.Int64,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Returns the normalized form of the requested range if the Range Header in the <see cref="P:Microsoft.AspNetCore.Http.HttpContext.Request"/> is valid.
+            </summary>
+            <param name="context">The <see cref="T:Microsoft.AspNetCore.Http.HttpContext"/> associated with the request.</param>
+            <param name="requestHeaders">The <see cref="T:Microsoft.AspNetCore.Http.Headers.RequestHeaders"/> associated with the given <paramref name="context"/>.</param>
+            <param name="length">The total length of the file representation requested.</param>
+            <param name="logger">The <see cref="T:Microsoft.Extensions.Logging.ILogger"/>.</param>
+            <returns>A boolean value which represents if the <paramref name="requestHeaders"/> contain a single valid 
+            range request. A <see cref="T:Microsoft.Net.Http.Headers.RangeItemHeaderValue"/> which represents the normalized form of the 
+            range parsed from the <paramref name="requestHeaders"/> or <c>null</c> if it cannot be normalized.</returns>
+            <remark>If the Range header exists but cannot be parsed correctly, or if the provided length is 0, then the range request cannot be satisfied (status 416). 
+            This results in (<c>true</c>,<c>null</c>) return values.</remark>
+        </member>
+        <member name="T:Microsoft.AspNetCore.Internal.ChunkingCookieManager">
+            <summary>
+            This handles cookies that are limited by per cookie length. It breaks down long cookies for responses, and reassembles them
+            from requests.
+            </summary>
+        </member>
+        <member name="F:Microsoft.AspNetCore.Internal.ChunkingCookieManager.DefaultChunkSize">
+            <summary>
+            The default maximum size of characters in a cookie to send back to the client.
+            </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Internal.ChunkingCookieManager.ChunkSize">
+             <summary>
+             The maximum size of cookie to send back to the client. If a cookie exceeds this size it will be broken down into multiple
+             cookies. Set this value to null to disable this behavior. The default is 4090 characters, which is supported by all
+             common browsers.
+            
+             Note that browsers may also have limits on the total size of all cookies per domain, and on the number of cookies per domain.
+             </summary>
+        </member>
+        <member name="P:Microsoft.AspNetCore.Internal.ChunkingCookieManager.ThrowForPartialCookies">
+            <summary>
+            Throw if not all chunks of a cookie are available on a request for re-assembly.
+            </summary>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Internal.ChunkingCookieManager.GetRequestCookie(Microsoft.AspNetCore.Http.HttpContext,System.String)">
+            <summary>
+            Get the reassembled cookie. Non chunked cookies are returned normally.
+            Cookies with missing chunks just have their "chunks-XX" header returned.
+            </summary>
+            <param name="context"></param>
+            <param name="key"></param>
+            <returns>The reassembled cookie, if any, or null.</returns>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Internal.ChunkingCookieManager.AppendResponseCookie(Microsoft.AspNetCore.Http.HttpContext,System.String,System.String,Microsoft.AspNetCore.Http.CookieOptions)">
+            <summary>
+            Appends a new response cookie to the Set-Cookie header. If the cookie is larger than the given size limit
+            then it will be broken down into multiple cookies as follows:
+            Set-Cookie: CookieName=chunks-3; path=/
+            Set-Cookie: CookieNameC1=Segment1; path=/
+            Set-Cookie: CookieNameC2=Segment2; path=/
+            Set-Cookie: CookieNameC3=Segment3; path=/
+            </summary>
+            <param name="context"></param>
+            <param name="key"></param>
+            <param name="value"></param>
+            <param name="options"></param>
+        </member>
+        <member name="M:Microsoft.AspNetCore.Internal.ChunkingCookieManager.DeleteCookie(Microsoft.AspNetCore.Http.HttpContext,System.String,Microsoft.AspNetCore.Http.CookieOptions)">
+            <summary>
+            Deletes the cookie with the given key by setting an expired state. If a matching chunked cookie exists on
+            the request, delete each chunk.
+            </summary>
+            <param name="context"></param>
+            <param name="key"></param>
+            <param name="options"></param>
+        </member>
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="T:Microsoft.AspNetCore.Mvc.AcceptedAtActionResult">
             <summary>
             An <see cref="T:Microsoft.AspNetCore.Mvc.ActionResult"/> that returns a Accepted (202) response with a Location header.
@@ -13598,6 +13752,7 @@
             </param>
             <returns>A absolute URI, or <c>null</c> if a URI cannot be created.</returns>
         </member>
+<<<<<<< HEAD
         <member name="T:Microsoft.AspNetCore.Internal.ChunkingCookieManager">
             <summary>
             This handles cookies that are limited by per cookie length. It breaks down long cookies for responses, and reassembles them
@@ -13674,5 +13829,7 @@
             <remark>If the Range header exists but cannot be parsed correctly, or if the provided length is 0, then the range request cannot be satisfied (status 416). 
             This results in (<c>true</c>,<c>null</c>) return values.</remark>
         </member>
+=======
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
     </members>
 </doc>

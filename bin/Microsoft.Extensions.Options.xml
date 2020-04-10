@@ -855,6 +855,11 @@
             Returns a configured <typeparamref name="TOptions"/> instance with the given <paramref name="name"/>.
             </summary>
         </member>
+        <member name="M:Microsoft.Extensions.Options.OptionsFactory`1.CreateInstance(System.String)">
+            <summary>
+            Creates a new instance of options type
+            </summary>
+        </member>
         <member name="T:Microsoft.Extensions.Options.OptionsManager`1">
             <summary>
             Implementation of <see cref="T:Microsoft.Extensions.Options.IOptions`1"/> and <see cref="T:Microsoft.Extensions.Options.IOptionsSnapshot`1"/>.

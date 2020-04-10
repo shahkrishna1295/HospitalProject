@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Create</h2>
+<div class="container">
+    <form method="POST" action="/Job/Create">
+        <div class="form-group">
+            <label for="JobTitle">Job Title:</label>
+            <input type="text" class="form-control" placeholder="Job Title" name="JobTitle" id="JobTitle">
+        </div>
+        <div class="form-group">
+            <label for="JobDepartmentName">Department Name:</label>
+            <input type="text" class="form-control" placeholder="Job Department Name" id="JobDepartmentName" name="JobDepartmentName">
+        </div>
+        <div class="form-group">
+            <label for="JobPostedDate">Posted Date:</label>
+            <input type="datetime" class="form-control" id="JobPostedDate" name="JobPostedDate">
+        </div>
+        <div class="form-group">
+            <label for="JobDescription">Job Description:</label>
+            <textarea class="form-control" rows="5" id="JobDescription" name="JobDescription"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="JobRequirements">Job Requirements:</label>
+            <textarea class="form-control" id="JobRequirements" name="JobRequirements" rows="5"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+
+

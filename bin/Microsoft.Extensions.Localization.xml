@@ -4,6 +4,7 @@
         <name>Microsoft.Extensions.Localization</name>
     </assembly>
     <members>
+<<<<<<< HEAD
         <member name="T:Microsoft.Extensions.Localization.Internal.AssemblyWrapper">
             <summary>
             This API supports infrastructure and is not intended to be used
@@ -22,6 +23,8 @@
             directly from your code. This API may change or be removed in future releases.
             </summary>
         </member>
+=======
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="T:Microsoft.Extensions.Localization.IResourceNamesCache">
             <summary>
             Represents a cache of string names in resources.
@@ -40,6 +43,7 @@
             Provides programmatic configuration for localization.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="M:Microsoft.Extensions.Localization.LocalizationOptions.#ctor">
             <summary>
             Creates a new <see cref="T:Microsoft.Extensions.Localization.LocalizationOptions" />.
@@ -48,6 +52,31 @@
         <member name="P:Microsoft.Extensions.Localization.LocalizationOptions.ResourcesPath">
             <summary>
             The relative path under application root where resource files are located.
+=======
+        <member name="P:Microsoft.Extensions.Localization.LocalizationOptions.ResourcesPath">
+            <summary>
+            The relative path under application root where resource files are located.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Localization.Resources.Localization_MissingManifest">
+            <summary>
+            The manifest '{0}' was not found.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.Resources.FormatLocalization_MissingManifest(System.Object)">
+            <summary>
+            The manifest '{0}' was not found.
+            </summary>
+        </member>
+        <member name="P:Microsoft.Extensions.Localization.Resources.Localization_MissingManifest_Parent">
+            <summary>
+            No manifests exist for the current culture.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.Resources.FormatLocalization_MissingManifest_Parent">
+            <summary>
+            No manifests exist for the current culture.
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
             </summary>
         </member>
         <member name="T:Microsoft.Extensions.Localization.ResourceLocationAttribute">
@@ -99,6 +128,16 @@
         <member name="P:Microsoft.Extensions.Localization.ResourceManagerStringLocalizer.Item(System.String,System.Object[])">
             <inheritdoc />
         </member>
+<<<<<<< HEAD
+=======
+        <member name="M:Microsoft.Extensions.Localization.ResourceManagerStringLocalizer.WithCulture(System.Globalization.CultureInfo)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Extensions.Localization.ResourceManagerStringLocalizer"/> for a specific <see cref="T:System.Globalization.CultureInfo"/>.
+            </summary>
+            <param name="culture">The <see cref="T:System.Globalization.CultureInfo"/> to use.</param>
+            <returns>A culture-specific <see cref="T:Microsoft.Extensions.Localization.ResourceManagerStringLocalizer"/>.</returns>
+        </member>
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="M:Microsoft.Extensions.Localization.ResourceManagerStringLocalizer.GetAllStrings(System.Boolean)">
             <inheritdoc />
         </member>
@@ -106,7 +145,11 @@
             <summary>
             Returns all strings in the specified culture.
             </summary>
+<<<<<<< HEAD
             <param name="includeParentCultures">Whether to include parent cultures in the search for a resource.</param>
+=======
+            <param name="includeParentCultures"></param>
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
             <param name="culture">The <see cref="T:System.Globalization.CultureInfo"/> to get strings for.</param>
             <returns>The strings.</returns>
         </member>
@@ -208,6 +251,7 @@
             <returns>The <see cref="T:Microsoft.Extensions.Localization.RootNamespaceAttribute"/> associated with the given <see cref="T:System.Reflection.Assembly"/>.</returns>
             <remarks>This method is protected and virtual for testing purposes only.</remarks>
         </member>
+<<<<<<< HEAD
         <member name="T:Microsoft.Extensions.Localization.ResourceNamesCache">
             <summary>
             An implementation of <see cref="T:Microsoft.Extensions.Localization.IResourceNamesCache"/> backed by a <see cref="T:System.Collections.Concurrent.ConcurrentDictionary`2"/>.
@@ -216,6 +260,48 @@
         <member name="M:Microsoft.Extensions.Localization.ResourceNamesCache.#ctor">
             <summary>
             Creates a new <see cref="T:Microsoft.Extensions.Localization.ResourceNamesCache" />
+=======
+        <member name="T:Microsoft.Extensions.Localization.ResourceManagerWithCultureStringLocalizer">
+            <summary>
+            An <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer"/> that uses the <see cref="T:System.Resources.ResourceManager"/> and
+            <see cref="T:System.Resources.ResourceReader"/> to provide localized strings for a specific <see cref="T:System.Globalization.CultureInfo"/>.
+            </summary>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.ResourceManagerWithCultureStringLocalizer.#ctor(System.Resources.ResourceManager,Microsoft.Extensions.Localization.Internal.IResourceStringProvider,System.String,Microsoft.Extensions.Localization.IResourceNamesCache,System.Globalization.CultureInfo,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Extensions.Localization.ResourceManagerWithCultureStringLocalizer"/>.
+            </summary>
+            <param name="resourceManager">The <see cref="T:System.Resources.ResourceManager"/> to read strings from.</param>
+            <param name="resourceStringProvider">The <see cref="T:Microsoft.Extensions.Localization.Internal.IResourceStringProvider"/> that can find the resources.</param>
+            <param name="baseName">The base name of the embedded resource that contains the strings.</param>
+            <param name="resourceNamesCache">Cache of the list of strings for a given resource assembly name.</param>
+            <param name="culture">The specific <see cref="T:System.Globalization.CultureInfo"/> to use.</param>
+            <param name="logger">The <see cref="T:Microsoft.Extensions.Logging.ILogger"/>.</param>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.ResourceManagerWithCultureStringLocalizer.#ctor(System.Resources.ResourceManager,System.Reflection.Assembly,System.String,Microsoft.Extensions.Localization.IResourceNamesCache,System.Globalization.CultureInfo,Microsoft.Extensions.Logging.ILogger)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Extensions.Localization.ResourceManagerWithCultureStringLocalizer"/>.
+            </summary>
+            <param name="resourceManager">The <see cref="T:System.Resources.ResourceManager"/> to read strings from.</param>
+            <param name="resourceAssembly">The <see cref="T:System.Reflection.Assembly"/> that contains the strings as embedded resources.</param>
+            <param name="baseName">The base name of the embedded resource that contains the strings.</param>
+            <param name="resourceNamesCache">Cache of the list of strings for a given resource assembly name.</param>
+            <param name="culture">The specific <see cref="T:System.Globalization.CultureInfo"/> to use.</param>
+            <param name="logger">The <see cref="T:Microsoft.Extensions.Logging.ILogger"/>.</param>
+        </member>
+        <member name="P:Microsoft.Extensions.Localization.ResourceManagerWithCultureStringLocalizer.Item(System.String)">
+            <inheritdoc />
+        </member>
+        <member name="P:Microsoft.Extensions.Localization.ResourceManagerWithCultureStringLocalizer.Item(System.String,System.Object[])">
+            <inheritdoc />
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.ResourceManagerWithCultureStringLocalizer.GetAllStrings(System.Boolean)">
+            <inheritdoc />
+        </member>
+        <member name="T:Microsoft.Extensions.Localization.ResourceNamesCache">
+            <summary>
+            An implementation of <see cref="T:Microsoft.Extensions.Localization.IResourceNamesCache"/> backed by a <see cref="T:System.Collections.Concurrent.ConcurrentDictionary`2"/>.
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
             </summary>
         </member>
         <member name="M:Microsoft.Extensions.Localization.ResourceNamesCache.GetOrAdd(System.String,System.Func{System.String,System.Collections.Generic.IList{System.String}})">
@@ -239,6 +325,7 @@
             determine the resource name to look for when RootNamespace differs from the AssemblyName.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="P:Microsoft.Extensions.Localization.Resources.Localization_MissingManifest">
             <summary>The manifest '{0}' was not found.</summary>
         </member>
@@ -248,6 +335,8 @@
         <member name="P:Microsoft.Extensions.Localization.Resources.Localization_MissingManifest_Parent">
             <summary>No manifests exist for the current culture.</summary>
         </member>
+=======
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="T:Microsoft.Extensions.DependencyInjection.LocalizationServiceCollectionExtensions">
             <summary>
             Extension methods for setting up localization services in an <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" />.

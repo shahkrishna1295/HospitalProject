@@ -4,6 +4,7 @@
         <name>Microsoft.AspNetCore.Http.Features</name>
     </assembly>
     <members>
+<<<<<<< HEAD
         <member name="T:Microsoft.AspNetCore.Http.Features.HttpsCompressionMode">
             <summary>
             Use to dynamically control response compression for HTTPS requests.
@@ -26,6 +27,8 @@
             may expose security problems.
             </summary>
         </member>
+=======
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="T:Microsoft.AspNetCore.Http.Features.IFeatureCollection">
             <summary>
             Represents a collection of HTTP features.
@@ -240,6 +243,7 @@
             RequestAborted being triggered.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="T:Microsoft.AspNetCore.Http.Features.IHttpRequestTrailersFeature">
             <summary>
             This feature exposes HTTP request trailer headers, either for HTTP/1.1 chunked bodies or HTTP/2 trailing headers.
@@ -311,6 +315,8 @@
             </summary>
             <returns></returns>
         </member>
+=======
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="T:Microsoft.AspNetCore.Http.Features.IHttpResponseFeature">
             <summary>
             Represents the fields and state of an HTTP response.
@@ -360,6 +366,7 @@
             <param name="callback">The callback to invoke after the response has completed.</param>
             <param name="state">The state to pass into the callback.</param>
         </member>
+<<<<<<< HEAD
         <member name="T:Microsoft.AspNetCore.Http.Features.IHttpsCompressionFeature">
             <summary>
             Configures response compression behavior for HTTPS on a per-request basis.
@@ -370,6 +377,8 @@
             The <see cref="T:Microsoft.AspNetCore.Http.Features.HttpsCompressionMode"/> to use.
             </summary>
         </member>
+=======
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="T:Microsoft.AspNetCore.Http.Features.IHttpSendFileFeature">
             <summary>
             Provides an efficient mechanism for transferring files from disk to the network.
@@ -412,6 +421,7 @@
             <param name="context"></param>
             <returns></returns>
         </member>
+<<<<<<< HEAD
         <member name="T:Microsoft.AspNetCore.Http.Features.IRequestBodyPipeFeature">
             <summary>
             Represents the HttpRequestBody as a PipeReader.
@@ -422,6 +432,8 @@
             A <see cref="T:System.IO.Pipelines.PipeReader"/> representing the request body, if any.
             </summary>
         </member>
+=======
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="T:Microsoft.AspNetCore.Http.Features.IResponseCookiesFeature">
             <summary>
             A helper for creating the response Set-Cookie header.
@@ -432,6 +444,7 @@
             Gets the wrapper for the response Set-Cookie header.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="T:Microsoft.AspNetCore.Http.Features.IServerVariablesFeature">
             <summary>
             This feature provides access to request server variables set.
@@ -444,6 +457,8 @@
             <param name="variableName">The variable name</param>
             <returns>May return null or empty if the variable does not exist or is not set.</returns>
         </member>
+=======
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="P:Microsoft.AspNetCore.Http.Features.ITlsConnectionFeature.ClientCertificate">
             <summary>
             Synchronously retrieves the client certificate, if any.
@@ -558,7 +573,11 @@
         </member>
         <member name="P:Microsoft.AspNetCore.Http.CookieOptions.SameSite">
             <summary>
+<<<<<<< HEAD
             Gets or sets the value for the SameSite attribute of the cookie. The default value is <see cref="F:Microsoft.AspNetCore.Http.SameSiteMode.Unspecified"/>
+=======
+            Gets or sets the value for the SameSite attribute of the cookie. The default value is <see cref="F:Microsoft.AspNetCore.Http.SameSiteMode.Lax"/>
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
             </summary>
             <returns>The <see cref="T:Microsoft.AspNetCore.Http.SameSiteMode"/> representing the enforcement mode of the cookie.</returns>
         </member>
@@ -723,6 +742,7 @@
             Represents the collection of files sent with the HttpRequest.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="P:Microsoft.AspNetCore.Http.IFormFileCollection.Item(System.String)">
             <summary>
             Gets the first file with the specified name.
@@ -752,6 +772,8 @@
                 that implements <see cref="T:Microsoft.AspNetCore.Http.IFormFileCollection" />.
             </returns>
         </member>
+=======
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="T:Microsoft.AspNetCore.Http.IHeaderDictionary">
             <summary>
             Represents HttpRequest and HttpResponse headers
@@ -1019,6 +1041,7 @@
             The session cookie is not removed.
             </summary>
         </member>
+<<<<<<< HEAD
         <member name="T:Microsoft.AspNetCore.Http.SameSiteMode">
             <summary>
             Used to set the SameSite field on response cookies to indicate if those cookies should be included by the client on future "same-site" or "cross-site" requests.
@@ -1037,5 +1060,7 @@
         <member name="F:Microsoft.AspNetCore.Http.SameSiteMode.Strict">
             <summary>Indicates the client should only send the cookie with "same-site" requests.</summary>
         </member>
+=======
+>>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
     </members>
 </doc>

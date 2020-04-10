@@ -6,7 +6,7 @@
     <members>
         <member name="T:Microsoft.Extensions.Configuration.ChainedBuilderExtensions">
             <summary>
-            IConfigurationBuilder extension methods for the chaind configuration provider.
+            Extension methods for adding <see cref="T:Microsoft.Extensions.Configuration.IConfiguration"/> to an <see cref="T:Microsoft.Extensions.Configuration.IConfigurationBuilder"/>.
             </summary>
         </member>
         <member name="M:Microsoft.Extensions.Configuration.ChainedBuilderExtensions.AddConfiguration(Microsoft.Extensions.Configuration.IConfigurationBuilder,Microsoft.Extensions.Configuration.IConfiguration)">
