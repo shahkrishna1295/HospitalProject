@@ -17,9 +17,13 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HospitalProject</RootNamespace>
     <AssemblyName>HospitalProject</AssemblyName>
+<<<<<<< Updated upstream
 
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
 
+=======
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+>>>>>>> Stashed changes
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
