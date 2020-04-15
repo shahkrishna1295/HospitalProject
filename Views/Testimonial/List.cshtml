@@ -1,22 +1,53 @@
-﻿@model HospitalProject.Models.TestimonialModel
+﻿@model List<HospitalProject.Models.TestimonialModels>
 @{
     ViewBag.Title = "List";
 }
 
 <h2>StaffView</h2>
+
+<div class="pagination">
+    @{
+        <a class="page-link" href="/Testimonial/List?pagenum=@((int)ViewData["pagenum"]-1)&testimonialsearchkey=@ViewData["testimonialsearchkey"]">Prev</a>
+        @ViewData["pagesummary"]
+        <a class="page-link" href="/Testimonial/List?pagenum=@((int)ViewData["pagenum"]+1)&testimonialsearchkey=@ViewData["testimonialsearchkey"]">Next</a>
+    }
+</div>
+
+<form action="/Testimonial/List" method="GET">
+    <input type="text" name="testimonialsearchkey" id="testimonialsearchkey" />
+    <input type="submit" value="Search" />
+</form>
+
 <div class="row">
     <div class="col-sm-2">Title</div>
     <div class="col-sm-2">Name of Patient</div>
     <div class="col-sm-2">Message</div>
     <div class="col-sm-2">Attachment</div>
     <div class="col-sm-2">Status</div>
+    <div class="col-sm-2">Actions</div>
 </div>
-foreach(var testimonial in Model){
-<div class="row">
-    <div class="col-sm-2">@Model.TestimonialTitle</div>
-    <div class="col-sm-2">@Model.NameOfPatient</div>
-    <div class="col-sm-2">@Model.TestimonialMessage</div>
-    <div class="col-sm-2">@Model.TestimonialAttachment</div>
-    <div class="col-sm-2">@Model.Status</div>
+<div>
+    @{
+        foreach (var testimonial in Model)
+        {
+            <div class="row">
+                <div class="col-sm-2">@testimonial.TestimonialTitle</div>
+                <div class="col-sm-2">@testimonial.NameOfPatient</div>
+                <div class="col-sm-2">@testimonial.TestimonialMessage</div>
+                <div class="col-sm-2">@testimonial.TestimonialAttachment</div>
+                <div class="col-sm-2">@testimonial.Status</div>
+                @{
+                    if (@testimonial.Status == true) { 
+                        <div class="actionlink"><a href="/Testimonial/Unpublish/@testimonial.TestimonialID">UnPublish</a></div>
+                    }
+                    else{
+                        <div class="actionlink"><a href="/Testimonial/Publish/@testimonial.TestimonialID">Publish</a></div>
+                    }
+                }
+                <div><a href="/Testimonial/DeleteConfirm/@testimonial.TestimonialID"> Delete</a></div>
+                <div><a href="/Testimonial/Update/@testimonial.TestimonialID"> Update</a></div>
+            </div>
+        }
+    }
 </div>
-}
+
