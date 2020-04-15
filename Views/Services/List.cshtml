@@ -1,0 +1,25 @@
+﻿@model List<HospitalProject.Models.ServiceModel>
+@{
+    ViewBag.Title = "List";
+}
+<div class="row">
+    <div class="col-sm-2">Name</div>
+    <div class="col-sm-2">Category</div>
+    <div class="col-sm-2">Location</div>
+    <div class="col-sm-2">Actions</div>
+</div>
+<div>
+    @{
+        foreach (var service in Model)
+        {
+            <div class="row">
+                <div class="col-sm-2">@service.ServiceID</div>
+                <div class="col-sm-2">@service.ServiceTitle</div>
+                <div class="col-sm-2">@service.ServiceCategory</div>
+                <div><a href="/Services/DeleteConfirm/@service.ServiceID"> Delete</a></div>
+                <div><a href="/Services/Update/@service.ServiceID"> Update</a></div>
+            </div>
+        }
+    }
+</div>
+

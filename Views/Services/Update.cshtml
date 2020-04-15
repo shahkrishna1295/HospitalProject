@@ -1,0 +1,50 @@
+﻿@model HospitalProject.Models.ViewModels.UpdateServiceModel
+@{
+    ViewBag.Title = "Update";
+}
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="navbar">
+        <a class="navbar-link" href="/Services/List">Back to List</a>
+    </div>
+
+    <form action="/Services/Create" method="post">
+        <div class="form-horizontal">
+            <div>
+                <label>Name : </label>
+                <input type="text" name="testimonialTitle" id="testimonialTitle" />
+            </div>
+            <div>
+                <label>Category : </label>
+                <select id="serviceCategory" name="serviceCategory">
+                    <option value="Dermatology">Dermatology</option>
+                    <option value="ENT">ENT</option>
+                    <option value="Laboratory">Laboratory</option>
+                    <option value="Neurological">Neurological</option>
+                    <option value="Radiology">Radiology</option>
+                    <option value="Consulting Room Tests">Consulting Room Tests</option>
+                </select>
+            </div>
+            <div>
+                <label>Branch</label>
+                @foreach (var branch in Model.Branch)
+                {
+                    var selected = "";
+                    if (Model.Services.ServiceID == branch.BranchID)
+                    {
+                        selected = "selected";
+                    }
+
+                    <input type="checkbox" value="@branch.BranchName" name="selectedLocation" id="selectedLocation" @selected/><span>@branch.BranchName</span>
+                }
+
+            </div>
+            <div>
+                <input class="btn btn-primary" type="submit" value="Submit Service" />
+            </div>
+        </div>
+    </form>
+}
+
