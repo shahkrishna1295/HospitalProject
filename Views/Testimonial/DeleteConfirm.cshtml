@@ -1,0 +1,23 @@
+﻿@model HospitalProject.Models.TestimonialModels
+@{
+    ViewBag.Title = "Delete";
+}
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div>
+        <h2 class="text-danger">Are you sure you want to delete the testimonial? </h2>
+    </div>
+    <div class="col-sm-2">
+        <a class="btn btn-primary" href="/Testimonial/List">Cancel</a>
+    </div>
+    <div class="col-sm-2">
+        <form method="POST" action="/Testimonial/Delete/@Model.TestimonialID">
+            <div><input class="btn btn-primary" type="submit" value="Confirm" /></div>
+        </form>
+    </div>
+    
+}
+

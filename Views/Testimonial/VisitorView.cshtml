@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewBag.Title = "VisitorView";
+}
+
+<h2>VisitorView</h2>
+
+<div class="navbar">
+    <a class="navbar-link" href="/Testimonial/Create">Create Testimonial</a>
+</div>
+
+<div class="paginate">
+    @{
+        <a href="/Testimonial/List?pagenum=@((int)ViewData["pagenum"]-1)&testimonialsearchkey=@ViewData["testimonialsearchkey"]">Prev</a>
+        @ViewData["pagesummary"]
+        <a href="/Testimonial/List?pagenum=@((int)ViewData["pagenum"]+1)&testimonialsearchkey=@ViewData["testimonialsearchkey"]">Next</a>
+    }
+</div>
+
+<form action="/Testimonial/List" method="GET">
+    <input type="text" name="testimonialsearchkey" id="testimonialsearchkey" />
+    <input type="submit" value="Search" />
+</form>
+
+<div>
+    @{
+        foreach (var testimonial in Model)
+        {
+            <div class="row">
+                    <div class="row"> @testimonial.TestimonialTitle </div>
+                    <div class="row">@testimonial.NameOfPatient</div>   
+                    <div class="row">
+                        <div class="col-sm-2">@testimonial.TestimonialAttachment</div>
+                        <div class="col-sm-6">@testimonial.TestimonialMessage</div>
+                    </div>
+            </div>
+        }
+    }
+</div>
