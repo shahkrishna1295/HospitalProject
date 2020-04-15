@@ -2699,8 +2699,6 @@
             Gets the required route values.
             </summary>
         </member>
-<<<<<<< HEAD
-=======
         <member name="M:Microsoft.AspNetCore.Routing.RouteValuesAddressScheme.GetOutboundMatches">
             Decision tree is built using the 'required values' of actions.
             - When generating a url using route values, decision tree checks the explicitly supplied route values +
@@ -2720,7 +2718,6 @@
               A call to GetLink("OrdersApi", new { id = "10" }) cannot generate url as neither the supplied values or
               current ambient values do not satisfy the decision tree that is built based on the required values.
         </member>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="T:Microsoft.AspNetCore.Routing.SuppressLinkGenerationMetadata">
             <summary>
             Represents metadata used during link generation. If <see cref="P:Microsoft.AspNetCore.Routing.SuppressLinkGenerationMetadata.SuppressLinkGeneration"/> is <c>true</c> 

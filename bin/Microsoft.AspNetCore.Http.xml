@@ -4,8 +4,6 @@
         <name>Microsoft.AspNetCore.Http</name>
     </assembly>
     <members>
-<<<<<<< HEAD
-=======
         <member name="T:Microsoft.Extensions.DependencyInjection.HttpServiceCollectionExtensions">
             <summary>
             Extension methods for configuring HttpContext services.
@@ -18,7 +16,6 @@
             <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</param>
             <returns>The service collection.</returns>
         </member>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="P:Microsoft.AspNetCore.Http.DefaultHttpContext.Authentication">
             <summary>
             This is obsolete and will be removed in a future version. 
@@ -512,20 +509,5 @@
             <param name="cancellationToken"></param>
             <returns>The parsed form.</returns>
         </member>
-<<<<<<< HEAD
-        <member name="T:Microsoft.Extensions.DependencyInjection.HttpServiceCollectionExtensions">
-            <summary>
-            Extension methods for configuring HttpContext services.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Extensions.DependencyInjection.HttpServiceCollectionExtensions.AddHttpContextAccessor(Microsoft.Extensions.DependencyInjection.IServiceCollection)">
-            <summary>
-            Adds a default implementation for the <see cref="T:Microsoft.AspNetCore.Http.IHttpContextAccessor"/> service.
-            </summary>
-            <param name="services">The <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection"/>.</param>
-            <returns>The service collection.</returns>
-        </member>
-=======
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
     </members>
 </doc>

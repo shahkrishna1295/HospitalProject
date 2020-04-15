@@ -363,22 +363,13 @@
             Converts an <see cref="T:Microsoft.AspNetCore.DataProtection.ISecret"/> to an &lt;masterKey&gt; element which is marked
             as requiring encryption.
             </summary>
-<<<<<<< HEAD
-            <param name="secret">The secret for accessing the master key.</param>
-            <returns>The master key <see cref="T:System.Xml.Linq.XElement"/>.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.SecretExtensions.ToSecret(System.String)">
             <summary>
             Converts a base64-encoded string into an <see cref="T:Microsoft.AspNetCore.DataProtection.ISecret"/>.
             </summary>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.DataProtection.Secret"/>.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.XmlExtensions.MarkAsRequiresEncryption(System.Xml.Linq.XElement)">
             <summary>
@@ -503,35 +494,6 @@
             </summary>
         </member>
         <member name="M:Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.IOptimizedAuthenticatedEncryptor.Encrypt(System.ArraySegment{System.Byte},System.ArraySegment{System.Byte},System.UInt32,System.UInt32)">
-<<<<<<< HEAD
-             <summary>
-             Encrypts and tamper-proofs a piece of data.
-             </summary>
-             <param name="plaintext">The plaintext to encrypt. This input may be zero bytes in length.</param>
-             <param name="additionalAuthenticatedData">A piece of data which will not be included in
-             the returned ciphertext but which will still be covered by the authentication tag.
-             This input may be zero bytes in length. The same AAD must be specified in the corresponding
-             call to Decrypt.</param>
-             <param name="preBufferSize">The number of bytes to pad before the ciphertext in the output.</param>
-             <param name="postBufferSize">The number of bytes to pad after the ciphertext in the output.</param>
-             <returns>
-             The ciphertext blob, including authentication tag. The ciphertext blob will be surrounded by
-             the number of padding bytes requested. For instance, if the given (plaintext, AAD) input results
-             in a (ciphertext, auth tag) output of 0x0102030405, and if 'preBufferSize' is 3 and
-             'postBufferSize' is 5, then the return value will be 0xYYYYYY0102030405ZZZZZZZZZZ, where bytes
-             YY and ZZ are undefined.
-             </returns>
-             <remarks>
-             This method allows for a slight performance improvement over IAuthenticatedEncryptor.Encrypt
-             in the case where the caller needs to prepend or append some data to the resulting ciphertext.
-             For instance, if the caller needs to append a 32-bit header to the resulting ciphertext, then
-             specify 4 for 'preBufferSize' and overwrite the first 32 bits of the buffer returned
-             by this function. This saves the caller from having to allocate a new buffer to hold the final
-             transformed result.
-            
-             All cryptography-related exceptions should be homogenized to CryptographicException.
-             </remarks>
-=======
             <summary>
             Encrypts and tamper-proofs a piece of data.
             </summary>
@@ -559,7 +521,6 @@
             
             All cryptography-related exceptions should be homogenized to CryptographicException.
             </remarks>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="T:Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ManagedAuthenticatedEncryptorFactory">
             <summary>
@@ -919,22 +880,14 @@
             <remarks>
             <para>
             If the developer changes the at-rest key protection mechanism, it is intended that
-<<<<<<< HEAD
-            they also change the key storage location, and vice versa. For instance, a call to
-=======
             he also change the key storage location, and vice versa. For instance, a call to
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
             <see cref="M:Microsoft.AspNetCore.DataProtection.DataProtectionBuilderExtensions.ProtectKeysWithCertificate(Microsoft.AspNetCore.DataProtection.IDataProtectionBuilder,System.String)" /> should generally be accompanied by
             a call to <see cref="M:Microsoft.AspNetCore.DataProtection.DataProtectionBuilderExtensions.PersistKeysToFileSystem(Microsoft.AspNetCore.DataProtection.IDataProtectionBuilder,System.IO.DirectoryInfo)"/>, or exceptions may
             occur at runtime due to the data protection system not knowing where to persist keys.
             </para>
             <para>
             Similarly, when a developer modifies the default protected payload cryptographic
-<<<<<<< HEAD
-            algorithms, they should also set an explicit key storage location.
-=======
             algorithms, it is intended that he also select an explitiy key storage location.
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
             A call to <see cref="M:Microsoft.AspNetCore.DataProtection.DataProtectionBuilderExtensions.UseCryptographicAlgorithms(Microsoft.AspNetCore.DataProtection.IDataProtectionBuilder,Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.AuthenticatedEncryptorConfiguration)"/>
             should therefore generally be paired with a call to <see cref="M:Microsoft.AspNetCore.DataProtection.DataProtectionBuilderExtensions.PersistKeysToFileSystem(Microsoft.AspNetCore.DataProtection.IDataProtectionBuilder,System.IO.DirectoryInfo)"/>,
             for example.
@@ -1120,11 +1073,7 @@
             Stores the given key material to the escrow service.
             </summary>
             <param name="keyId">The id of the key being persisted to escrow.</param>
-<<<<<<< HEAD
-            <param name="element">The unencrypted key material in XML form.</param>
-=======
             <param name="element">The unencrypted XML element that comprises the key material.</param>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="T:Microsoft.AspNetCore.DataProtection.KeyManagement.IKeyManager">
             <summary>
@@ -1205,15 +1154,6 @@
             is also disconnected.
             </summary>
         </member>
-<<<<<<< HEAD
-        <member name="T:Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.DefaultKeyResolution">
-            <summary>
-            This API supports infrastructure and is not intended to be used
-            directly from your code. This API may change or be removed in future releases.
-            </summary>
-        </member>
-=======
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="F:Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.DefaultKeyResolution.DefaultKey">
             <summary>
             The default key, may be null if no key is a good default candidate.
@@ -1240,15 +1180,6 @@
             This value may be 'true' even if a valid default key was found.
             </summary>
         </member>
-<<<<<<< HEAD
-        <member name="T:Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.ICacheableKeyRingProvider">
-            <summary>
-            This API supports infrastructure and is not intended to be used
-            directly from your code. This API may change or be removed in future releases.
-            </summary>
-        </member>
-=======
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="T:Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IDefaultKeyResolver">
             <summary>
             Implements policy for resolving the default key from a candidate keyring.
@@ -1259,15 +1190,6 @@
             Locates the default key from the keyring.
             </summary>
         </member>
-<<<<<<< HEAD
-        <member name="T:Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IInternalXmlKeyManager">
-            <summary>
-            This API supports infrastructure and is not intended to be used
-            directly from your code. This API may change or be removed in future releases.
-            </summary>
-        </member>
-=======
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="T:Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IKeyRing">
             <summary>
             The basic interface for accessing a read-only keyring.
@@ -1295,15 +1217,6 @@
             Activation of the encryptor instance is deferred until first access.
             </remarks>
         </member>
-<<<<<<< HEAD
-        <member name="T:Microsoft.AspNetCore.DataProtection.KeyManagement.Internal.IKeyRingProvider">
-            <summary>
-            This API supports infrastructure and is not intended to be used
-            directly from your code. This API may change or be removed in future releases.
-            </summary>
-        </member>
-=======
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="T:Microsoft.AspNetCore.DataProtection.KeyManagement.Key">
             <summary>
             The basic implementation of <see cref="T:Microsoft.AspNetCore.DataProtection.KeyManagement.IKey"/>, where the <see cref="T:Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationModel.IAuthenticatedEncryptorDescriptor"/>
@@ -1438,8 +1351,6 @@
             Wrappers around CryptProtectMemory / CryptUnprotectMemory.
             </summary>
         </member>
-<<<<<<< HEAD
-=======
         <member name="P:Microsoft.AspNetCore.DataProtection.Resources.CryptCommon_GenericError">
             <summary>
             An error occurred during a cryptographic operation.
@@ -1700,7 +1611,6 @@
             Storing keys in a directory '{path}' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.
             </summary>
         </member>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="T:Microsoft.AspNetCore.DataProtection.RegistryPolicyResolver">
             <summary>
             A type which allows reading policy from the system registry.
@@ -1850,11 +1760,7 @@
         </member>
         <member name="M:Microsoft.AspNetCore.DataProtection.Secret.Random(System.Int32)">
             <summary>
-<<<<<<< HEAD
-            Returns a Secret made entirely of random bytes retrieved from
-=======
             Returns a Secret comprised entirely of random bytes retrieved from
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
             a cryptographically secure RNG.
             </summary>
         </member>
@@ -2300,120 +2206,6 @@
             CryptographicException before being rethrown.
             </summary>
         </member>
-<<<<<<< HEAD
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.CryptCommon_GenericError">
-            <summary>An error occurred during a cryptographic operation.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.Common_BufferIncorrectlySized">
-            <summary>The provided buffer is of length {0} byte(s). It must instead be exactly {1} byte(s) in length.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.DataProtection.Resources.FormatCommon_BufferIncorrectlySized(System.Object,System.Object)">
-            <summary>The provided buffer is of length {0} byte(s). It must instead be exactly {1} byte(s) in length.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.CryptCommon_PayloadInvalid">
-            <summary>The payload was invalid.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.Common_PropertyCannotBeNullOrEmpty">
-            <summary>Property {0} cannot be null or empty.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.DataProtection.Resources.FormatCommon_PropertyCannotBeNullOrEmpty(System.Object)">
-            <summary>Property {0} cannot be null or empty.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.Common_DecryptionFailed">
-            <summary>The provided payload could not be decrypted. Refer to the inner exception for more information.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.Common_EncryptionFailed">
-            <summary>An error occurred while trying to encrypt the provided data. Refer to the inner exception for more information.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.Common_KeyNotFound">
-            <summary>The key {0:B} was not found in the key ring.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.Common_KeyRevoked">
-            <summary>The key {0:B} has been revoked.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.ProtectionProvider_BadMagicHeader">
-            <summary>The provided payload cannot be decrypted because it was not protected with this protection provider.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.ProtectionProvider_BadVersion">
-            <summary>The provided payload cannot be decrypted because it was protected with a newer version of the protection provider.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.Common_ValueMustBeNonNegative">
-            <summary>Value must be non-negative.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.TypeExtensions_BadCast">
-            <summary>The type '{1}' is not assignable to '{0}'.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.DataProtection.Resources.FormatTypeExtensions_BadCast(System.Object,System.Object)">
-            <summary>The type '{1}' is not assignable to '{0}'.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.KeyManagementOptions_MinNewKeyLifetimeViolated">
-            <summary>The new key lifetime must be at least one week.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.XmlKeyManager_DuplicateKey">
-            <summary>The key {0:B} already exists in the keyring.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.Common_ArgumentCannotBeNullOrEmpty">
-            <summary>Argument cannot be null or empty.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.Common_PropertyMustBeNonNegative">
-            <summary>Property {0} must have a non-negative value.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.DataProtection.Resources.FormatCommon_PropertyMustBeNonNegative(System.Object)">
-            <summary>Property {0} must have a non-negative value.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.Platform_WindowsRequiredForGcm">
-            <summary>GCM algorithms require the Windows platform.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.CertificateXmlEncryptor_CertificateNotFound">
-            <summary>A certificate with the thumbprint '{0}' could not be found.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.DataProtection.Resources.FormatCertificateXmlEncryptor_CertificateNotFound(System.Object)">
-            <summary>A certificate with the thumbprint '{0}' could not be found.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.EncryptedXmlDecryptor_DoesNotWorkOnCoreClr">
-            <summary>Decrypting EncryptedXml-encapsulated payloads is not yet supported on Core CLR.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.AlgorithmAssert_BadBlockSize">
-            <summary>The symmetric algorithm block size of {0} bits is invalid. The block size must be between 64 and 2048 bits, inclusive, and it must be a multiple of 8 bits.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.DataProtection.Resources.FormatAlgorithmAssert_BadBlockSize(System.Object)">
-            <summary>The symmetric algorithm block size of {0} bits is invalid. The block size must be between 64 and 2048 bits, inclusive, and it must be a multiple of 8 bits.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.AlgorithmAssert_BadDigestSize">
-            <summary>The validation algorithm digest size of {0} bits is invalid. The digest size must be between 128 and 2048 bits, inclusive, and it must be a multiple of 8 bits.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.DataProtection.Resources.FormatAlgorithmAssert_BadDigestSize(System.Object)">
-            <summary>The validation algorithm digest size of {0} bits is invalid. The digest size must be between 128 and 2048 bits, inclusive, and it must be a multiple of 8 bits.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.AlgorithmAssert_BadKeySize">
-            <summary>The symmetric algorithm key size of {0} bits is invalid. The key size must be between 128 and 2048 bits, inclusive, and it must be a multiple of 8 bits.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.DataProtection.Resources.FormatAlgorithmAssert_BadKeySize(System.Object)">
-            <summary>The symmetric algorithm key size of {0} bits is invalid. The key size must be between 128 and 2048 bits, inclusive, and it must be a multiple of 8 bits.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.KeyRingProvider_NoDefaultKey_AutoGenerateDisabled">
-            <summary>The key ring does not contain a valid default protection key. The data protection system cannot create a new key because auto-generation of keys is disabled.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.LifetimeMustNotBeNegative">
-            <summary>{0} must not be negative</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.DataProtection.Resources.FormatLifetimeMustNotBeNegative(System.Object)">
-            <summary>{0} must not be negative</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.XmlKeyManager_IXmlRepositoryNotFound">
-            <summary>The '{0}' instance could not be found. When an '{1}' instance is set, a corresponding '{0}' instance must also be set.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.DataProtection.Resources.FormatXmlKeyManager_IXmlRepositoryNotFound(System.Object,System.Object)">
-            <summary>The '{0}' instance could not be found. When an '{1}' instance is set, a corresponding '{0}' instance must also be set.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.DataProtection.Resources.FileSystem_EphemeralKeysLocationInContainer">
-            <summary>Storing keys in a directory '{path}' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.DataProtection.Resources.FormatFileSystem_EphemeralKeysLocationInContainer(System.Object)">
-            <summary>Storing keys in a directory '{path}' that may not be persisted outside of the container. Protected data will be unavailable when container is destroyed.</summary>
-        </member>
-=======
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="T:Microsoft.Extensions.DependencyInjection.DataProtectionServiceCollectionExtensions">
             <summary>
             Extension methods for setting up data protection services in an <see cref="T:Microsoft.Extensions.DependencyInjection.IServiceCollection" />.

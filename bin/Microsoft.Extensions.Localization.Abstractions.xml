@@ -33,6 +33,13 @@
             </param>
             <returns>The strings.</returns>
         </member>
+        <member name="M:Microsoft.Extensions.Localization.IStringLocalizer.WithCulture(System.Globalization.CultureInfo)">
+            <summary>
+            Creates a new <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer"/> for a specific <see cref="T:System.Globalization.CultureInfo"/>.
+            </summary>
+            <param name="culture">The <see cref="T:System.Globalization.CultureInfo"/> to use.</param>
+            <returns>A culture-specific <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer"/>.</returns>
+        </member>
         <member name="T:Microsoft.Extensions.Localization.IStringLocalizerFactory">
             <summary>
             Represents a factory that creates <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer"/> instances.
@@ -89,12 +96,6 @@
             <param name="resourceNotFound">Whether the string was not found in a resource. Set this to <c>true</c> to indicate an alternate string value was used.</param>
             <param name="searchedLocation">The location which was searched for a localization value.</param>
         </member>
-        <member name="M:Microsoft.Extensions.Localization.LocalizedString.op_Implicit(Microsoft.Extensions.Localization.LocalizedString)~System.String">
-            <summary>
-            Implicitly converts the <see cref="T:Microsoft.Extensions.Localization.LocalizedString"/> to a <see cref="T:System.String"/>.
-            </summary>
-            <param name="localizedString">The string to be implicitly converted.</param>
-        </member>
         <member name="P:Microsoft.Extensions.Localization.LocalizedString.Name">
             <summary>
             The name of the string in the resource it was loaded from.
@@ -120,11 +121,6 @@
             Returns the actual string.
             </summary>
             <returns>The actual string.</returns>
-        </member>
-        <member name="T:Microsoft.Extensions.Localization.StringLocalizerExtensions">
-            <summary>
-            Extension methods for operating on <see cref="T:Microsoft.Extensions.Localization.IStringLocalizer" /> instances.
-            </summary>
         </member>
         <member name="M:Microsoft.Extensions.Localization.StringLocalizerExtensions.GetString(Microsoft.Extensions.Localization.IStringLocalizer,System.String)">
             <summary>
@@ -161,6 +157,9 @@
             Creates a new <see cref="T:Microsoft.Extensions.Localization.StringLocalizer`1"/>.
             </summary>
             <param name="factory">The <see cref="T:Microsoft.Extensions.Localization.IStringLocalizerFactory"/> to use.</param>
+        </member>
+        <member name="M:Microsoft.Extensions.Localization.StringLocalizer`1.WithCulture(System.Globalization.CultureInfo)">
+            <inheritdoc />
         </member>
         <member name="P:Microsoft.Extensions.Localization.StringLocalizer`1.Item(System.String)">
             <inheritdoc />

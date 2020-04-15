@@ -4,8 +4,6 @@
         <name>Microsoft.AspNetCore.JsonPatch</name>
     </assembly>
     <members>
-<<<<<<< HEAD
-=======
         <member name="T:Microsoft.Extensions.Internal.ClosedGenericMatcher">
             <summary>
             Helper related to generic interface definitions and implementing classes.
@@ -29,7 +27,6 @@
             <c>typeof(KeyValuePair{string, object})</c>.
             </remarks>
         </member>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="T:Microsoft.AspNetCore.JsonPatch.Adapters.AdapterFactory">
             <summary>
             The default AdapterFactory to be used for resolving <see cref="T:Microsoft.AspNetCore.JsonPatch.Internal.IAdapter"/>.
@@ -45,11 +42,7 @@
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.Adapters.IAdapterFactory.Create(System.Object,Newtonsoft.Json.Serialization.IContractResolver)">
             <summary>
-<<<<<<< HEAD
-            Creates an <see cref="T:Microsoft.AspNetCore.JsonPatch.Internal.IAdapter"/> for the current object
-=======
             Creates an <see cref="T:Microsoft.AspNetCore.JsonPatch.Internal.IAdapter"/> for the current object 
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
             </summary>
             <param name="target">The target object</param>
             <param name="contractResolver">The current contract resolver</param>
@@ -58,30 +51,18 @@
         <member name="T:Microsoft.AspNetCore.JsonPatch.Adapters.IObjectAdapter">
             <summary>
             Defines the operations that can be performed on a JSON patch document.
-<<<<<<< HEAD
-            </summary>
-=======
             </summary>  
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.Adapters.IObjectAdapter.Add(Microsoft.AspNetCore.JsonPatch.Operations.Operation,System.Object)">
              <summary>
              Using the "add" operation a new value is inserted into the root of the target
              document, into the target array at the specified valid index, or to a target object at
              the specified location.
-<<<<<<< HEAD
-            
-             When adding to arrays, the specified index MUST NOT be greater than the number of elements in the array.
-             To append the value to the array, the index of "-" character is used (see [RFC6901]).
-            
-             When adding to an object, if an object member does not already exist, a new member is added to the object at the
-=======
              
              When adding to arrays, the specified index MUST NOT be greater than the number of elements in the array.  
              To append the value to the array, the index of "-" character is used (see [RFC6901]).
              
              When adding to an object, if an object member does not already exist, a new member is added to the object at the 
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
              specified location or if an object member does exist, that member's value is replaced.
             
              The operation object MUST contain a "value" member whose content
@@ -109,11 +90,7 @@
               For example:
             
               { "op": "copy", "from": "/a/b/c", "path": "/a/b/e" }
-<<<<<<< HEAD
-            
-=======
               
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
              See RFC 6902 https://tools.ietf.org/html/rfc6902#page-7
              </summary>
              <param name="operation">The copy operation.</param>
@@ -134,11 +111,7 @@
              { "op": "move", "from": "/a/b/c", "path": "/a/b/d" }
             
              A location cannot be moved into one of its children.
-<<<<<<< HEAD
-            
-=======
              
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
              See RFC 6902 https://tools.ietf.org/html/rfc6902#page-6
              </summary>
              <param name="operation">The move operation.</param>
@@ -156,11 +129,7 @@
             
              If removing an element from an array, any elements above the
              specified index are shifted one position to the left.
-<<<<<<< HEAD
-            
-=======
              
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
              See RFC 6902 https://tools.ietf.org/html/rfc6902#page-6
              </summary>
              <param name="operation">The remove operation.</param>
@@ -168,11 +137,7 @@
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.Adapters.IObjectAdapter.Replace(Microsoft.AspNetCore.JsonPatch.Operations.Operation,System.Object)">
              <summary>
-<<<<<<< HEAD
-             Using the "replace" operation the value at the target location is replaced
-=======
              Using the "replace" operation he value at the target location is replaced
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
              with a new value.  The operation object MUST contain a "value" member
              which specifies the replacement value.
             
@@ -181,11 +146,7 @@
              For example:
             
              { "op": "replace", "path": "/a/b/c", "value": 42 }
-<<<<<<< HEAD
-            
-=======
              
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
              See RFC 6902 https://tools.ietf.org/html/rfc6902#page-6
              </summary>
              <param name="operation">The replace operation.</param>
@@ -278,11 +239,7 @@
         </member>
         <member name="P:Microsoft.AspNetCore.JsonPatch.Helpers.GetValueResult.HasError">
             <summary>
-<<<<<<< HEAD
-            HasError: true when an error occurred, the operation didn't complete successfully
-=======
             HasError: true when an error occurred, the operation didn't complete succesfully
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
             </summary>
         </member>
         <member name="T:Microsoft.AspNetCore.JsonPatch.JsonPatchProperty">
@@ -305,69 +262,6 @@
             Gets or sets Parent.
             </summary>
         </member>
-<<<<<<< HEAD
-        <member name="T:Microsoft.AspNetCore.JsonPatch.Internal.ConversionResult">
-            <summary>
-            This API supports infrastructure and is not intended to be used
-            directly from your code. This API may change or be removed in future releases.
-            </summary>
-        </member>
-        <member name="T:Microsoft.AspNetCore.JsonPatch.Internal.ConversionResultProvider">
-            <summary>
-            This API supports infrastructure and is not intended to be used
-            directly from your code. This API may change or be removed in future releases.
-            </summary>
-        </member>
-        <member name="T:Microsoft.AspNetCore.JsonPatch.Internal.DictionaryAdapter`2">
-            <summary>
-            This API supports infrastructure and is not intended to be used
-            directly from your code. This API may change or be removed in future releases.
-            </summary>
-        </member>
-        <member name="T:Microsoft.AspNetCore.JsonPatch.Internal.DynamicObjectAdapter">
-            <summary>
-            This API supports infrastructure and is not intended to be used
-            directly from your code. This API may change or be removed in future releases.
-            </summary>
-        </member>
-        <member name="T:Microsoft.AspNetCore.JsonPatch.Internal.IAdapter">
-            <summary>
-            This API supports infrastructure and is not intended to be used
-            directly from your code. This API may change or be removed in future releases.
-            </summary>
-        </member>
-        <member name="T:Microsoft.AspNetCore.JsonPatch.Internal.ListAdapter">
-            <summary>
-            This API supports infrastructure and is not intended to be used
-            directly from your code. This API may change or be removed in future releases.
-            </summary>
-        </member>
-        <member name="T:Microsoft.AspNetCore.JsonPatch.Internal.ListAdapter.PositionInfo">
-            <summary>
-            This API supports infrastructure and is not intended to be used
-            directly from your code. This API may change or be removed in future releases.
-            </summary>
-        </member>
-        <member name="T:Microsoft.AspNetCore.JsonPatch.Internal.ListAdapter.PositionType">
-            <summary>
-            This API supports infrastructure and is not intended to be used
-            directly from your code. This API may change or be removed in future releases.
-            </summary>
-        </member>
-        <member name="T:Microsoft.AspNetCore.JsonPatch.Internal.ListAdapter.OperationType">
-            <summary>
-            This API supports infrastructure and is not intended to be used
-            directly from your code. This API may change or be removed in future releases.
-            </summary>
-        </member>
-        <member name="T:Microsoft.AspNetCore.JsonPatch.Internal.ObjectVisitor">
-            <summary>
-            This API supports infrastructure and is not intended to be used
-            directly from your code. This API may change or be removed in future releases.
-            </summary>
-        </member>
-=======
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="M:Microsoft.AspNetCore.JsonPatch.Internal.ObjectVisitor.#ctor(Microsoft.AspNetCore.JsonPatch.Internal.ParsedPath,Newtonsoft.Json.Serialization.IContractResolver)">
             <summary>
             Initializes a new instance of <see cref="T:Microsoft.AspNetCore.JsonPatch.Internal.ObjectVisitor"/>.
@@ -383,21 +277,6 @@
             <param name="contractResolver">The <see cref="T:Newtonsoft.Json.Serialization.IContractResolver"/>.</param>
             <param name="adapterFactory">The <see cref="T:Microsoft.AspNetCore.JsonPatch.Adapters.IAdapterFactory"/> to use when creating adaptors.</param>
         </member>
-<<<<<<< HEAD
-        <member name="T:Microsoft.AspNetCore.JsonPatch.Internal.ParsedPath">
-            <summary>
-            This API supports infrastructure and is not intended to be used
-            directly from your code. This API may change or be removed in future releases.
-            </summary>
-        </member>
-        <member name="T:Microsoft.AspNetCore.JsonPatch.Internal.PocoAdapter">
-            <summary>
-            This API supports infrastructure and is not intended to be used
-            directly from your code. This API may change or be removed in future releases.
-            </summary>
-        </member>
-=======
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument.Add(System.String,System.Object)">
             <summary>
             Add operation.  Will result in, for example,
@@ -405,11 +284,7 @@
             </summary>
             <param name="path">target location</param>
             <param name="value">value</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument.Remove(System.String)">
             <summary>
@@ -417,11 +292,7 @@
             { "op": "remove", "path": "/a/b/c" }
             </summary>
             <param name="path">target location</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument.Replace(System.String,System.Object)">
             <summary>
@@ -430,11 +301,7 @@
             </summary>
             <param name="path">target location</param>
             <param name="value">value</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument.Test(System.String,System.Object)">
             <summary>
@@ -443,11 +310,7 @@
             </summary>
             <param name="path">target location</param>
             <param name="value">value</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument.Move(System.String,System.String)">
             <summary>
@@ -456,11 +319,7 @@
             </summary>
             <param name="from">source location</param>
             <param name="path">target location</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument.Copy(System.String,System.String)">
             <summary>
@@ -469,11 +328,7 @@
             </summary>
             <param name="from">source location</param>
             <param name="path">target location</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument.ApplyTo(System.Object)">
             <summary>
@@ -511,11 +366,7 @@
             <typeparam name="TProp">value type</typeparam>
             <param name="path">target location</param>
             <param name="value">value</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Add``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},``0,System.Int32)">
             <summary>
@@ -525,11 +376,7 @@
             <param name="path">target location</param>
             <param name="value">value</param>
             <param name="position">position</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Add``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},``0)">
             <summary>
@@ -538,11 +385,7 @@
             <typeparam name="TProp">value type</typeparam>
             <param name="path">target location</param>
             <param name="value">value</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Remove``1(System.Linq.Expressions.Expression{System.Func{`0,``0}})">
             <summary>
@@ -550,11 +393,7 @@
             { "op": "remove", "path": "/a/b/c" }
             </summary>
             <param name="path">target location</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Remove``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},System.Int32)">
             <summary>
@@ -563,11 +402,7 @@
             <typeparam name="TProp">value type</typeparam>
             <param name="path">target location</param>
             <param name="position">position</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Remove``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}})">
             <summary>
@@ -575,11 +410,7 @@
             </summary>
             <typeparam name="TProp">value type</typeparam>
             <param name="path">target location</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Replace``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0)">
             <summary>
@@ -588,11 +419,7 @@
             </summary>
             <param name="path">target location</param>
             <param name="value">value</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Replace``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},``0,System.Int32)">
             <summary>
@@ -602,11 +429,7 @@
             <param name="path">target location</param>
             <param name="value">value</param>
             <param name="position">position</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Replace``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},``0)">
             <summary>
@@ -615,11 +438,7 @@
             <typeparam name="TProp">value type</typeparam>
             <param name="path">target location</param>
             <param name="value">value</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Test``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},``0)">
             <summary>
@@ -628,11 +447,7 @@
             </summary>
             <param name="path">target location</param>
             <param name="value">value</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Test``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},``0,System.Int32)">
             <summary>
@@ -642,11 +457,7 @@
             <param name="path">target location</param>
             <param name="value">value</param>
             <param name="position">position</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Test``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},``0)">
             <summary>
@@ -655,11 +466,7 @@
             <typeparam name="TProp">value type</typeparam>
             <param name="path">target location</param>
             <param name="value">value</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Move``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{`0,``0}})">
             <summary>
@@ -668,11 +475,7 @@
             </summary>
             <param name="from">source location</param>
             <param name="path">target location</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Move``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},System.Int32,System.Linq.Expressions.Expression{System.Func{`0,``0}})">
             <summary>
@@ -682,11 +485,7 @@
             <param name="from">source location</param>
             <param name="positionFrom">position</param>
             <param name="path">target location</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Move``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},System.Int32)">
             <summary>
@@ -696,11 +495,7 @@
             <param name="from">source location</param>
             <param name="path">target location</param>
             <param name="positionTo">position</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Move``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},System.Int32,System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},System.Int32)">
             <summary>
@@ -711,11 +506,7 @@
             <param name="positionFrom">position (source)</param>
             <param name="path">target location</param>
             <param name="positionTo">position (target)</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Move``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},System.Int32,System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}})">
             <summary>
@@ -725,11 +516,7 @@
             <param name="from">source location</param>
             <param name="positionFrom">position</param>
             <param name="path">target location</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Move``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}})">
             <summary>
@@ -738,28 +525,16 @@
             <typeparam name="TProp"></typeparam>
             <param name="from">source location</param>
             <param name="path">target location</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Copy``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{`0,``0}})">
-            <summary>
-            Copy the value at specified location to the target location.  Will result in, for example:
-=======
             <returns></returns>
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Copy``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{`0,``0}})">
             <summary>
             Copy the value at specified location to the target location.  Willr esult in, for example:
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
             { "op": "copy", "from": "/a/b/c", "path": "/a/b/e" }
             </summary>
             <param name="from">source location</param>
             <param name="path">target location</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Copy``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},System.Int32,System.Linq.Expressions.Expression{System.Func{`0,``0}})">
             <summary>
@@ -769,11 +544,7 @@
             <param name="from">source location</param>
             <param name="positionFrom">position</param>
             <param name="path">target location</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Copy``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},System.Int32)">
             <summary>
@@ -783,11 +554,7 @@
             <param name="from">source location</param>
             <param name="path">target location</param>
             <param name="positionTo">position</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Copy``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},System.Int32,System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},System.Int32)">
             <summary>
@@ -798,11 +565,7 @@
             <param name="positionFrom">position (source)</param>
             <param name="path">target location</param>
             <param name="positionTo">position (target)</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Copy``1(System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}},System.Int32,System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}})">
             <summary>
@@ -812,11 +575,7 @@
             <param name="from">source location</param>
             <param name="positionFrom">position</param>
             <param name="path">target location</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.Copy``1(System.Linq.Expressions.Expression{System.Func{`0,``0}},System.Linq.Expressions.Expression{System.Func{`0,System.Collections.Generic.IList{``0}}})">
             <summary>
@@ -825,11 +584,7 @@
             <typeparam name="TProp"></typeparam>
             <param name="from">source location</param>
             <param name="path">target location</param>
-<<<<<<< HEAD
-            <returns>The <see cref="T:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1"/> for chaining.</returns>
-=======
             <returns></returns>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
         <member name="M:Microsoft.AspNetCore.JsonPatch.JsonPatchDocument`1.ApplyTo(`0)">
             <summary>
@@ -888,155 +643,6 @@
             </summary>
         </member>
         <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.CannotCopyProperty">
-<<<<<<< HEAD
-            <summary>The property at '{0}' could not be copied.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatCannotCopyProperty(System.Object)">
-            <summary>The property at '{0}' could not be copied.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.CannotDeterminePropertyType">
-            <summary>The type of the property at path '{0}' could not be determined.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatCannotDeterminePropertyType(System.Object)">
-            <summary>The type of the property at path '{0}' could not be determined.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.CannotPerformOperation">
-            <summary>The '{0}' operation at path '{1}' could not be performed.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatCannotPerformOperation(System.Object,System.Object)">
-            <summary>The '{0}' operation at path '{1}' could not be performed.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.CannotReadProperty">
-            <summary>The property at '{0}' could not be read.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatCannotReadProperty(System.Object)">
-            <summary>The property at '{0}' could not be read.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.CannotUpdateProperty">
-            <summary>The property at path '{0}' could not be updated.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatCannotUpdateProperty(System.Object)">
-            <summary>The property at path '{0}' could not be updated.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.ExpressionTypeNotSupported">
-            <summary>The expression '{0}' is not supported. Supported expressions include member access and indexer expressions.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatExpressionTypeNotSupported(System.Object)">
-            <summary>The expression '{0}' is not supported. Supported expressions include member access and indexer expressions.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.IndexOutOfBounds">
-            <summary>The index value provided by path segment '{0}' is out of bounds of the array size.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatIndexOutOfBounds(System.Object)">
-            <summary>The index value provided by path segment '{0}' is out of bounds of the array size.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.InvalidIndexValue">
-            <summary>The path segment '{0}' is invalid for an array index.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatInvalidIndexValue(System.Object)">
-            <summary>The path segment '{0}' is invalid for an array index.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.InvalidJsonPatchDocument">
-            <summary>The JSON patch document was malformed and could not be parsed.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.InvalidJsonPatchOperation">
-            <summary>Invalid JsonPatch operation '{0}'.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatInvalidJsonPatchOperation(System.Object)">
-            <summary>Invalid JsonPatch operation '{0}'.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.InvalidPathSegment">
-            <summary>The provided path segment '{0}' cannot be converted to the target type.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatInvalidPathSegment(System.Object)">
-            <summary>The provided path segment '{0}' cannot be converted to the target type.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.InvalidValueForPath">
-            <summary>The provided string '{0}' is an invalid path.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatInvalidValueForPath(System.Object)">
-            <summary>The provided string '{0}' is an invalid path.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.InvalidValueForProperty">
-            <summary>The value '{0}' is invalid for target location.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatInvalidValueForProperty(System.Object)">
-            <summary>The value '{0}' is invalid for target location.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.ParameterMustMatchType">
-            <summary>'{0}' must be of type '{1}'.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatParameterMustMatchType(System.Object,System.Object)">
-            <summary>'{0}' must be of type '{1}'.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.PatchNotSupportedForArrays">
-            <summary>The type '{0}' which is an array is not supported for json patch operations as it has a fixed size.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatPatchNotSupportedForArrays(System.Object)">
-            <summary>The type '{0}' which is an array is not supported for json patch operations as it has a fixed size.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.PatchNotSupportedForNonGenericLists">
-            <summary>The type '{0}' which is a non generic list is not supported for json patch operations. Only generic list types are supported.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatPatchNotSupportedForNonGenericLists(System.Object)">
-            <summary>The type '{0}' which is a non generic list is not supported for json patch operations. Only generic list types are supported.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.TargetLocationAtPathSegmentNotFound">
-            <summary>The target location specified by path segment '{0}' was not found.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatTargetLocationAtPathSegmentNotFound(System.Object)">
-            <summary>The target location specified by path segment '{0}' was not found.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.TargetLocationNotFound">
-            <summary>For operation '{0}', the target location specified by path '{1}' was not found.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatTargetLocationNotFound(System.Object,System.Object)">
-            <summary>For operation '{0}', the target location specified by path '{1}' was not found.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.TestOperationNotSupported">
-            <summary>The test operation is not supported.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.ValueAtListPositionNotEqualToTestValue">
-            <summary>The current value '{0}' at position '{2}' is not equal to the test value '{1}'.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatValueAtListPositionNotEqualToTestValue(System.Object,System.Object,System.Object)">
-            <summary>The current value '{0}' at position '{2}' is not equal to the test value '{1}'.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.ValueForTargetSegmentCannotBeNullOrEmpty">
-            <summary>The value at '{0}' cannot be null or empty to perform the test operation.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatValueForTargetSegmentCannotBeNullOrEmpty(System.Object)">
-            <summary>The value at '{0}' cannot be null or empty to perform the test operation.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.JsonPatch.Resources.ValueNotEqualToTestValue">
-            <summary>The current value '{0}' at path '{2}' is not equal to the test value '{1}'.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.JsonPatch.Resources.FormatValueNotEqualToTestValue(System.Object,System.Object,System.Object)">
-            <summary>The current value '{0}' at path '{2}' is not equal to the test value '{1}'.</summary>
-        </member>
-        <member name="T:Microsoft.Extensions.Internal.ClosedGenericMatcher">
-            <summary>
-            Helper related to generic interface definitions and implementing classes.
-            </summary>
-        </member>
-        <member name="M:Microsoft.Extensions.Internal.ClosedGenericMatcher.ExtractGenericInterface(System.Type,System.Type)">
-            <summary>
-            Determine whether <paramref name="queryType"/> is or implements a closed generic <see cref="T:System.Type"/>
-            created from <paramref name="interfaceType"/>.
-            </summary>
-            <param name="queryType">The <see cref="T:System.Type"/> of interest.</param>
-            <param name="interfaceType">The open generic <see cref="T:System.Type"/> to match. Usually an interface.</param>
-            <returns>
-            The closed generic <see cref="T:System.Type"/> created from <paramref name="interfaceType"/> that
-            <paramref name="queryType"/> is or implements. <c>null</c> if the two <see cref="T:System.Type"/>s have no such
-            relationship.
-            </returns>
-            <remarks>
-            This method will return <paramref name="queryType"/> if <paramref name="interfaceType"/> is
-            <c>typeof(KeyValuePair{,})</c>, and <paramref name="queryType"/> is
-            <c>typeof(KeyValuePair{string, object})</c>.
-            </remarks>
-=======
             <summary>
             The property at '{0}' could not be copied.
             </summary>
@@ -1255,7 +861,6 @@
             <summary>
             The current value '{0}' at path '{2}' is not equal to the test value '{1}'.
             </summary>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         </member>
     </members>
 </doc>

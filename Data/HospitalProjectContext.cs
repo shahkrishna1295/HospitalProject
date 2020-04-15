@@ -28,8 +28,8 @@ namespace HospitalProject.Data
         public System.Data.Entity.DbSet<HospitalProject.Models.JobModel> Job { get; set; }
 
         //contact form feature
-        public System.Data.Entity.DbSet<HospitalProject.Models.ContactForm> ContactForms { get; set; }
-        public System.Data.Entity.DbSet<HospitalProject.Models.ContactStatus> ContactStatuses { get; set; }
+        //public System.Data.Entity.DbSet<HospitalProject.Models.ContactForm> ContactForms { get; set; }
+        //public System.Data.Entity.DbSet<HospitalProject.Models.ContactStatus> ContactStatuses { get; set; }
         public System.Data.Entity.DbSet<HospitalProject.Models.RespondWay> RespondWays { get; set; }
 
     }

@@ -20,8 +20,6 @@
             Callers should use caution never to dispose of the algorithm provider instances returned by this type.
             </summary>
         </member>
-<<<<<<< HEAD
-=======
         <member name="P:Microsoft.AspNetCore.Cryptography.Internal.Resources.BCryptAlgorithmHandle_ProviderNotFound">
             <summary>
             A provider could not be found for algorithm '{0}'.
@@ -62,7 +60,6 @@
             This operation requires Windows 8 / Windows Server 2012 or later.
             </summary>
         </member>
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
         <member name="T:Microsoft.AspNetCore.Cryptography.SafeHandles.BCryptAlgorithmHandle">
             <summary>
             Represents a handle to a BCrypt algorithm provider from which keys and hashes can be created.
@@ -185,26 +182,5 @@
             Securely clears a memory buffer.
             </summary>
         </member>
-<<<<<<< HEAD
-        <member name="P:Microsoft.AspNetCore.Cryptography.Internal.Resources.BCryptAlgorithmHandle_ProviderNotFound">
-            <summary>A provider could not be found for algorithm '{0}'.</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.Cryptography.Internal.Resources.FormatBCryptAlgorithmHandle_ProviderNotFound(System.Object)">
-            <summary>A provider could not be found for algorithm '{0}'.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.Cryptography.Internal.Resources.BCRYPT_KEY_LENGTHS_STRUCT_InvalidKeyLength">
-            <summary>The key length {0} is invalid. Valid key lengths are {1} to {2} bits (step size {3}).</summary>
-        </member>
-        <member name="M:Microsoft.AspNetCore.Cryptography.Internal.Resources.FormatBCRYPT_KEY_LENGTHS_STRUCT_InvalidKeyLength(System.Object,System.Object,System.Object,System.Object)">
-            <summary>The key length {0} is invalid. Valid key lengths are {1} to {2} bits (step size {3}).</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.Cryptography.Internal.Resources.Platform_Windows7Required">
-            <summary>This operation requires Windows 7 / Windows Server 2008 R2 or later.</summary>
-        </member>
-        <member name="P:Microsoft.AspNetCore.Cryptography.Internal.Resources.Platform_Windows8Required">
-            <summary>This operation requires Windows 8 / Windows Server 2012 or later.</summary>
-        </member>
-=======
->>>>>>> 282e63e3940f7cc9067420bba67b1211d107af38
     </members>
 </doc>
