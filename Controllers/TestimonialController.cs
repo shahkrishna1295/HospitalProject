@@ -22,8 +22,8 @@ namespace HospitalProject.Controllers
     public class TestimonialController : Controller
     {
         private HospitalProjectContext db = new HospitalProjectContext();
-        // GET: all Testimonial
-        public ActionResult List(string searchkey, int pagenum = 0)
+        // GET: Testimonial
+        public ActionResult List(string searchkey)
         {
             string query = "Select * from TestimonialModel";
             
@@ -34,53 +34,9 @@ namespace HospitalProject.Controllers
                 Console.WriteLine("The query is" + query);
             }
             
-            List<TestimonialModels> testimonials = db.Testimonial.SqlQuery(query).ToList();
-
-            //Pagination code starts here
-            int perpage = 5; //setting boundary as 5 testimonial per page
-            int testimonialcount = testimonials.Count(); //total testimonal
-            int maxpage = (int)Math.Ceiling((decimal)testimonialcount / perpage) - 1;
-            if (maxpage < 0) maxpage = 0;
-            if (pagenum < 0) pagenum = 0;
-            if (pagenum > maxpage) pagenum = maxpage;
-            int start = (int)(perpage * pagenum);
-            ViewData["pagenum"] = pagenum;
-            ViewData["pagesummary"] = "";
-
-            //starts viewing data
-            if (maxpage > 0)
-            {
-                //fetching the content of the page
-                ViewData["pagesummary"] = (pagenum + 1) + " of " + (maxpage + 1);
-
-                List<SqlParameter> newparams = new List<SqlParameter>();
-
-                //checking if user have search of any particular result 
-                if (searchkey != "")
-                {
-                    newparams.Add(new SqlParameter("@searchkey", "%" + searchkey + "%"));
-                    ViewData["testimonialsearchkey"] = searchkey;
-                }
-
-                newparams.Add(new SqlParameter("@start", start));
-                newparams.Add(new SqlParameter("@perpage", perpage));
-
-                //query to get data row by row and stops at boundary here its 5
-                string pagedquery = query + " order by testimonialid offset @start rows fetch first @perpage rows only ";
-
-                
-                Debug.WriteLine(pagedquery);
-                Debug.WriteLine("offset " + start);
-                Debug.WriteLine("fetch first " + perpage);
-
-                //passing query for execution
-                testimonials = db.Testimonial.SqlQuery(pagedquery, newparams.ToArray()).ToList();
-            }
-            //pagination ends here
-
+            List<TestimonialModel> testimonials = db.Testimonial.SqlQuery(query).ToList();
             return View(testimonials);
         }
-
         // GET: Testimonial/Create
         public ActionResult Create()
         {
@@ -88,35 +44,30 @@ namespace HospitalProject.Controllers
         }
 
         // POST: Testimonial/Create
-        //adding a new testimonial in the database using parameterized method
+        // To protect from overposting attacks, please enable the specific properties you want to bind to, for 
+        // more details see https://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(string TestimonialTitle, string NameOfPatient, string TestimonialMessage)
+        public ActionResult Create([Bind(Include = "TestimonialTitle,TestimonialMessage,TestimonialAttachment,NameOfPatient")] TestimonialModel testimonial)
         {
-            string query = "insert into TestimonialModel (TestimonialTitle, NameOfPatient, TestimonialMessage) values (@TestimonialTitle,@NameOfPatient,@TestimonialMessage)";
+            if (ModelState.IsValid)
+            {
+                db.Testimonial.Add(testimonial);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
 
-            //query before the parameters
-            Debug.WriteLine(query);
-            Console.WriteLine(query);
-
-            //insert query parameters
-            SqlParameter[] sqlparams = new SqlParameter[3];
-            sqlparams[0] = new SqlParameter("@TestimonialTitle", TestimonialTitle);
-            sqlparams[1] = new SqlParameter("@NameOfPatient", NameOfPatient);
-            sqlparams[2] = new SqlParameter("@TestimonialMessage", TestimonialMessage);
-            
-            db.Database.ExecuteSqlCommand(query, sqlparams);
-            return RedirectToAction("ThankVisitor");
+            return View(testimonial);
         }
 
-        // GET: Testimonial/Update/id
+        // GET: Testimonial/Edit/id
         public ActionResult Update(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            TestimonialModels testimonial = db.Testimonial.Find(id);
+            TestimonialModel testimonial = db.Testimonial.Find(id);
             if (testimonial == null)
             {
                 return HttpNotFound();
@@ -124,12 +75,11 @@ namespace HospitalProject.Controllers
             return View(testimonial);
         }
 
-        // POST: Testimonial/Update/id
-        //updating the testimonial using entity framework
-        //it is not reasonable to do update the testimonial but my concept is if patient has submitted a testimonial with spelling mistake then staff can change it.
+        // POST: Testimonial/Edit/id
+        
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Updtae([Bind(Include = "TestimonialTitle,TestimonialMessage,TestimonialAttachment,NameOfPatient")] TestimonialModels testimonial)
+        public ActionResult Update([Bind(Include = "TestimonialTitle,TestimonialMessage,TestimonialAttachment,NameOfPatient")] TestimonialModel testimonial)
         {
             if (ModelState.IsValid)
             {
@@ -140,38 +90,28 @@ namespace HospitalProject.Controllers
             return View(testimonial);
         }
 
-        // GET: Testimonial/Delete/id
-        public ActionResult DeleteConfirm(int? id)
+        // GET: Emergencies/Delete/id
+        public ActionResult Delete(int? id)
         {
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-
-            //finding testimonial by id
-            TestimonialModels testimonial = db.Testimonial.Find(id);
-
+            TestimonialModel testimonial = db.Testimonial.Find(id);
             if (testimonial == null)
             {
                 return HttpNotFound();
             }
-
             return View(testimonial);
         }
 
-        // POST: Testimonial/Delete/id
+        // POST: Emergencies/Delete/id
         [HttpPost, ActionName("Delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id)
+        public ActionResult DeleteConfirmed(int id)
         {
-            //getting the testimonial details by id
-            TestimonialModels testimonial = db.Testimonial.Find(id);
-
-            //simply removing the testimonial from database
-            //here REMOVE(testimonial) works as delete query
+            TestimonialModel testimonial = db.Testimonial.Find(id);
             db.Testimonial.Remove(testimonial);
-
-            //saving changes to database
             db.SaveChanges();
             return RedirectToAction("Index");
         }
