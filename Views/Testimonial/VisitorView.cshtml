@@ -1,4 +1,4 @@
-﻿
+﻿@model HospitalProject.Models.TestimonialModel
 @{
     ViewBag.Title = "VisitorView";
 }
@@ -11,9 +11,9 @@
 
 <div class="paginate">
     @{
-        <a href="/Testimonial/List?pagenum=@((int)ViewData["pagenum"]-1)&testimonialsearchkey=@ViewData["testimonialsearchkey"]">Prev</a>
+        <a href="/Testimonial/List?pagenum=@((int)ViewData['pagenum']-1)&testimonialsearchkey=@ViewData['testimonialsearchkey']">Prev</a>
         @ViewData["pagesummary"]
-        <a href="/Testimonial/List?pagenum=@((int)ViewData["pagenum"]+1)&testimonialsearchkey=@ViewData["testimonialsearchkey"]">Next</a>
+        <a href="/Testimonial/List?pagenum=@((int)ViewData['pagenum']+1)&testimonialsearchkey=@ViewData['testimonialsearchkey']">Next</a>
     }
 </div>
 
@@ -27,13 +27,14 @@
         foreach (var testimonial in Model)
         {
             <div class="row">
-                    <div class="row"> @testimonial.TestimonialTitle </div>
-                    <div class="row">@testimonial.NameOfPatient</div>   
-                    <div class="row">
-                        <div class="col-sm-2">@testimonial.TestimonialAttachment</div>
-                        <div class="col-sm-6">@testimonial.TestimonialMessage</div>
-                    </div>
+                <div class="row"> @testimonial.TestimonialTitle </div>
+                <div class="row">@testimonial.NameOfPatient</div>
+                <div class="row">
+                    <div class="col-sm-2">@testimonial.TestimonialAttachment</div>
+                    <div class="col-sm-6">@testimonial.TestimonialMessage</div>
+                </div>
             </div>
         }
     }
 </div>
+

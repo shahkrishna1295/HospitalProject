@@ -17,9 +17,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>HospitalProject</RootNamespace>
     <AssemblyName>HospitalProject</AssemblyName>
-
     <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
-
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <Use64BitIISExpress />
@@ -543,12 +541,14 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BranchController.cs" />
     <Compile Include="Controllers\ContactFormController.cs" />
     <Compile Include="Controllers\ContactStatusController.cs" />
     <Compile Include="Controllers\EmergenciesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ServicesController.cs" />
     <Compile Include="Controllers\TestimonialController.cs" />
     <Compile Include="Data\HospitalProjectContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -569,7 +569,6 @@
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\BranchModel.cs" />
-    <Compile Include="Models\BranchXServiceViewModel.cs" />
     <Compile Include="Models\ContactForm.cs" />
     <Compile Include="Models\ContactStatus.cs" />
     <Compile Include="Models\EmergencyModels.cs" />
@@ -655,11 +654,15 @@
     <Content Include="Views\Job\Update.cshtml" />
     <Content Include="Views\Job\Details.cshtml" />
     <Content Include="Views\Job\Delete.cshtml" />
+    <Content Include="Views\Testimonial\DeleteConfirm.cshtml" />
+    <Content Include="Views\Testimonial\VisitorView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Branch\" />
     <Folder Include="Views\ContactForm\" />
     <Folder Include="Views\ContactStatus\" />
+    <Folder Include="Views\Services\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
