@@ -1,0 +1,28 @@
+﻿@model List<HospitalProject.Models.DonationModel>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>List</h2>
+<div class="paginate">
+    @{
+        <a href="/Donation/List?pagenum=@((int)ViewData["pagenum"]-1)&namesearchkey=@ViewData["namesearchkey"]">Prev</a>
+        @ViewData["pagesummary"]
+        <a href="/Job/List?pagenum=@((int)ViewData["namesearchkey"]+1)&namesearchkey=@ViewData["namesearchkey"]">Next</a>
+    }
+</div>
+<form action="/Donation/List" method="GET">
+    <input type="text" name="namesearchkey" id="namesearchkey" />
+    <input type="submit" value="Search" />
+</form>
+@foreach (var donation in Model)
+{
+    <div class="card">
+        <div class="card-header"><a href="/Donation/Details/@donation.DonationID">@donation.DonatorName</a></div>
+        <div class="card-body">
+            <div>@donation.DonationAmount</div>
+            <div>@donation.DonationDate</div>
+        </div>
+    </div>
+}

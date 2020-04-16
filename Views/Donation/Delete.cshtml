@@ -1,0 +1,14 @@
+﻿@model HospitalProject.Models.DonationModel
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Are you sure you want to delete the donation of @Model.DonatorName?</h2>
+<div class="nav">
+    <a href="/Donation/Details/@Model.DonationID">Cancel</a>
+</div>
+<form method="POST" action="/Donation/Delete/@Model.DonationID">
+    <div>
+        <button type="submit" class="btn btn-danger">Delete</button>
+    </div>
+</form>

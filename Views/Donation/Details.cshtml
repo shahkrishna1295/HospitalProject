@@ -1,0 +1,36 @@
+﻿@model HospitalProject.Models.DonationModel
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div class="container">
+    <div class="navbar">
+        <a class="navlink" href="/Donation/List">Back to List</a>
+        <a class="navlink" href="/Donation/Update/@Model.DonationID ">Update</a>
+        <a class="navlink" href="/Donation/Delete/@Model.DonationID">Delete</a>
+    </div>
+    <div class="col-lg-12">
+        <div>
+            <strong>Name</strong>
+            <span>@Model.DonatorName</span>
+        </div>
+        <div>
+            <strong>Email</strong>
+            <span>@Model.DonatorEmail</span>
+        </div>
+        <div>
+            <strong>Phone</strong>
+            <span>@Model.DonatorPhone</span>
+        </div>
+        <div>
+            <strong>Amount</strong>
+            <span>@Model.DonationAmount</span>
+        </div>
+        <div>
+            <strong>Date</strong>
+            <span>@Model.DonationDate</span>
+        </div>
+    </div>
+</div>
+

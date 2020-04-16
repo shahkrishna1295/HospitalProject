@@ -543,6 +543,7 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicantController.cs" />
     <Compile Include="Controllers\BranchController.cs" />
+    <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\EmergenciesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobController.cs" />
@@ -576,6 +577,10 @@
     <Compile Include="Migrations\202004160445079_jobapplicantm2m.cs" />
     <Compile Include="Migrations\202004160445079_jobapplicantm2m.designer.cs">
       <DependentUpon>202004160445079_jobapplicantm2m.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004161938260_donation.cs" />
+    <Compile Include="Migrations\202004161938260_donation.designer.cs">
+      <DependentUpon>202004161938260_donation.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -680,6 +685,10 @@
     <Content Include="Views\Applicant\Update.cshtml" />
     <Content Include="Views\Applicant\Delete.cshtml" />
     <Content Include="Views\Donation\Create.cshtml" />
+    <Content Include="Views\Donation\Update.cshtml" />
+    <Content Include="Views\Donation\Details.cshtml" />
+    <Content Include="Views\Donation\List.cshtml" />
+    <Content Include="Views\Donation\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -718,6 +727,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004160445079_jobapplicantm2m.resx">
       <DependentUpon>202004160445079_jobapplicantm2m.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004161938260_donation.resx">
+      <DependentUpon>202004161938260_donation.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

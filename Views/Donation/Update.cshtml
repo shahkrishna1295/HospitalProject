@@ -1,0 +1,33 @@
+﻿@model HospitalProject.Models.DonationModel
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update Donation</h2>
+<div class="container">
+    <form method="POST" action="/Donation/Update/@Model.DonationID">
+        <div class="form-group">
+            <label for="DonatorName">Name:</label>
+            <input type="text" class="form-control" value="@Model.DonatorName" placeholder="Name" name="DonatorName" id="DonatorName">
+        </div>
+        <div class="form-group">
+            <label for="DonatorEmail">Email:</label>
+            <input type="email" class="form-control" value="@Model.DonatorEmail" placeholder="Email" name="DonatorEmail" id="DonatorEmail">
+        </div>
+        <div class="form-group">
+            <label for="DonationDate">Date:</label>
+            <input type="text" class="form-control" value="@Model.DonationDate" placeholder="Date" id="DonationDate" name="DonationDate">
+        </div>
+        <div class="form-group">
+            <label for="DonatorPhone">Phone:</label>
+            <input type="text" class="form-control" value="@Model.DonatorPhone" placeholder="Phone" id="DonatorPhone" name="DonatorPhone">
+        </div>
+        <div class="form-group">
+            <label for="DonationAmount">Phone:</label>
+            <input type="text" class="form-control" value="@Model.DonationAmount" id="DonationAmount" name="DonationAmount">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+</div>
+

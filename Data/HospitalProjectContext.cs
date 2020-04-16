@@ -29,6 +29,8 @@ namespace HospitalProject.Data
 
         public System.Data.Entity.DbSet<HospitalProject.Models.ApplicantModel> Applicant { get; set; }
 
+        public System.Data.Entity.DbSet<HospitalProject.Models.DonationModel> Donation { get; set; }
+
         //contact form feature
         //public System.Data.Entity.DbSet<HospitalProject.Models.ContactForm> ContactForms { get; set; }
         //public System.Data.Entity.DbSet<HospitalProject.Models.ContactStatus> ContactStatuses { get; set; }
