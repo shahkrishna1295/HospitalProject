@@ -3,11 +3,11 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>ADD Donation</h2>
 <div class="container">
     <form method="POST" action="/Donation/Create">
         <div class="form-group">
-            <label for="DonatorName">Name:</label>
+            <label for="DonatorName">Donation By(Name):</label>
             <input type="text" class="form-control" placeholder="Name" name="DonatorName" id="DonatorName">
         </div>
         <div class="form-group">
@@ -23,8 +23,8 @@
             <input type="text" class="form-control" placeholder="Phone"  id="DonatorPhone" name="DonatorPhone">
         </div>
         <div class="form-group">
-            <label for="DonationAmount">Phone:</label>
-            <input type="text" class="form-control" id="DonationAmount" name="DonationAmount">
+            <label for="DonationAmount">Amount:</label>
+            <input type="text" class="form-control" id="DonationAmount" name="DonationAmount">$
         </div>
         <button type="submit" class="btn btn-primary">Submit</button>
     </form>

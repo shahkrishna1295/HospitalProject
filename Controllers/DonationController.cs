@@ -104,14 +104,13 @@ namespace HospitalProject.Controllers
 
 
         [HttpPost]
-        [ValidateAntiForgeryToken]
         public ActionResult Update([Bind(Include = "DonatorName,DonatorEmail,DonationDate,DonatorPhone,DonationAmount")] DonationModel donation)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(donation).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             return View(donation);
         }

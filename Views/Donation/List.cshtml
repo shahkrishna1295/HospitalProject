@@ -9,9 +9,10 @@
     @{
         <a href="/Donation/List?pagenum=@((int)ViewData["pagenum"]-1)&namesearchkey=@ViewData["namesearchkey"]">Prev</a>
         @ViewData["pagesummary"]
-        <a href="/Job/List?pagenum=@((int)ViewData["namesearchkey"]+1)&namesearchkey=@ViewData["namesearchkey"]">Next</a>
+        <a href="/Donation/List?pagenum=@((int)ViewData["pagenum"]+1)&namesearchkey=@ViewData["namesearchkey"]">Next</a>
     }
 </div>
+
 <form action="/Donation/List" method="GET">
     <input type="text" name="namesearchkey" id="namesearchkey" />
     <input type="submit" value="Search" />
