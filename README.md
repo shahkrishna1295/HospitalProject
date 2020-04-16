@@ -1,7 +1,7 @@
 # HospitalProject Team 1 for MICs Group of Health Services
 ### Team Members
 * Krishna Shah N01318294
-* Ella Qi N01294329 
+* Chang Qi N01294329 
 * Amit Deka N01366094 
 * Yash Pathak N01364240 
 * Oswaldo Meza N01383041 
@@ -29,18 +29,29 @@
 -------- View ---------
 
 #### Testimonial
-* Create.cshtml
-* Delete.cshtml
-* Details.cshtml
-* List.cshtml
-* Update.cshtml
-* ThankVisitor.cshtml
+* Create.cshtml (view for the patients to give there testimonial by filling the form)
+* DeleteConfirm.cshtml (view for staff to delete the testimonial permanently)
+* List.cshtml (staff view, list of all the testimonials of the database) (has pagination)
+* Update.cshtml (staff view to update the existig testimonial)
+* ThankVisitor.cshtml (Visitor view with a success message after submitting the new testimonial)
+* VisitorView.cshtml (visitor view, list of all the testimonials that are published) (has pagination)
+
+#### Service Availibility
+* Create.cshtml (form view for staff to create new service and select @available location)
+* DeleteConfirm.cshtml (view for staff to delete the service permanently from the database)
+* List.cshtml (view for list of all services of all location)
+- future scope : to let staff search/filter the services by category wise) 
+* Update.cshtml : (view for staff to update the service to add/remove location or name)
+* Show.cshtml : (simply view the service for staff)
+
+#### Branch
+* VisitorView.cshtml (visitor can see the 3 locations and services offered by the locations)
 
 -------- Controller ---------
 
-* TestimonialController.cs
-* ServicesController.cs
-* BranchController.cs
+* TestimonialController.cs (methods for the crud functionalilites)
+* ServicesController.cs (methods for the crud functionalilites)
+* BranchController.cs (method for read function)
 
 
 ## Yash Pathak
@@ -83,29 +94,3 @@
 * ApplicantController.cs
 * DonationController.cs
 * JobController.cs
-
-
-## Ella Qi
--------- Models ---------
-
-* ContactForm.cs
-* ContactStatus.cs
-* RespondWay.cs
-
-#### ViewModel
-* AddContact.cs
-* UpdateContact.cs
-
--------- View ---------
-
-#### ContactForm
-* Create.cshtml
-* Delete.cshtml
-* Details.cshtml
-* List.cshtml
-* Update.cshtml
-
--------- Controller ---------
-
-* ContactFormController.cs
-* ContactStatusController.cs
