@@ -573,10 +573,15 @@
     <Compile Include="Migrations\202004152322161_applicant.designer.cs">
       <DependentUpon>202004152322161_applicant.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004160445079_jobapplicantm2m.cs" />
+    <Compile Include="Migrations\202004160445079_jobapplicantm2m.designer.cs">
+      <DependentUpon>202004160445079_jobapplicantm2m.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicantModel.cs" />
     <Compile Include="Models\BranchModel.cs" />
+    <Compile Include="Models\DonationModel.cs" />
     <Compile Include="Models\EmergencyModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JobModel.cs" />
@@ -585,7 +590,9 @@
     <Compile Include="Models\ServiceModel.cs" />
     <Compile Include="Models\TestimonialModel.cs" />
     <Compile Include="Models\ViewModels\ShowBranchModel.cs" />
+    <Compile Include="Models\ViewModels\ShowApplicant.cs" />
     <Compile Include="Models\ViewModels\ShowServiceModel.cs" />
+    <Compile Include="Models\ViewModels\UpdateJob.cs" />
     <Compile Include="Models\ViewModels\UpdateServiceModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -672,6 +679,7 @@
     <Content Include="Views\Applicant\Details.cshtml" />
     <Content Include="Views\Applicant\Update.cshtml" />
     <Content Include="Views\Applicant\Delete.cshtml" />
+    <Content Include="Views\Donation\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -707,6 +715,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004152322161_applicant.resx">
       <DependentUpon>202004152322161_applicant.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004160445079_jobapplicantm2m.resx">
+      <DependentUpon>202004160445079_jobapplicantm2m.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

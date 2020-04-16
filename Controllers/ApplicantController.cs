@@ -16,6 +16,7 @@ using System.IO;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
+using HospitalProject.Models.ViewModels;
 
 namespace HospitalProject.Controllers
 {
@@ -93,12 +94,65 @@ namespace HospitalProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
-            ApplicantModel Applicant = db.Applicant.Find(id);
-            if (Applicant == null)
+
+            ApplicantModel SelectedApplicant = db.Applicant.Find(id);
+            string aside_query = "select * from JobModels inner join JobModelApplicantModels on JobModels.JobID = JobModelApplicantModels.JobModel_JobID where JobModelApplicantModels.ApplicantModel_ApplicantID=@id";
+            var fk_parameter = new SqlParameter("@id", id);
+            List<JobModel> Jobs = db.Job.SqlQuery(aside_query, fk_parameter).ToList();
+
+            List<JobModel> all_jobs = db.Job
+                .ToList();
+            if (SelectedApplicant == null)
             {
                 return HttpNotFound();
             }
-            return View(Applicant);
+            ShowApplicant viewmodel = new ShowApplicant();
+            viewmodel.applicant = SelectedApplicant;
+            viewmodel.jobs = Jobs;
+            viewmodel.all_jobs = all_jobs;
+            return View(viewmodel);
+        }
+
+        [HttpPost]
+        public ActionResult AttachJob(string id, int JobID)
+        {
+            Debug.WriteLine("applicant id is" + id + " and jobid is " + JobID);
+
+            string check_query = "select * from JobModels inner join JobModelApplicantModels on JobModelApplicantModels.JobModel_JobID = JobModels.JobID where JobModel_JobID=@JobID and ApplicantModel_ApplicantID=@id";
+            SqlParameter[] check_params = new SqlParameter[2];
+            check_params[0] = new SqlParameter("@id", id);
+            check_params[1] = new SqlParameter("@JobID", JobID);
+            List<JobModel> jobs = db.Job.SqlQuery(check_query, check_params).ToList();
+            if (jobs.Count <= 0)
+            {
+                Debug.WriteLine("insidee", jobs.Count);
+
+                string query = "insert into JobModelApplicantModels (JobModel_JobID, ApplicantModel_ApplicantID) values (@JobID, @id)";
+                SqlParameter[] sqlparams = new SqlParameter[2];
+                sqlparams[0] = new SqlParameter("@id", id);
+                sqlparams[1] = new SqlParameter("@JobID", JobID);
+
+
+                db.Database.ExecuteSqlCommand(query, sqlparams);
+            }
+
+            return RedirectToAction("Details/" + id);
+
+        }
+
+        [HttpGet]
+        public ActionResult DetachJob(string id, int JobID)
+        {
+
+
+            string query = "delete from JobModelApplicantModels where JobModel_JobID=@JobID and ApplicantModel_ApplicantID=@id";
+            SqlParameter[] sqlparams = new SqlParameter[2];
+            sqlparams[0] = new SqlParameter("@JobID", JobID);
+            sqlparams[1] = new SqlParameter("@id", id);
+
+            db.Database.ExecuteSqlCommand(query, sqlparams);
+
+            return RedirectToAction("Details/" + id);
         }
 
         [HttpPost]

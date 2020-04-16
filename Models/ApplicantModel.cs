@@ -27,5 +27,8 @@ namespace HospitalProject.Models
         public string ApplicantWorkExperience { get; set; }
 
         public string ApplicantSkills { get; set; }
+
+        //Representing the "Many" in (Many Owners to Many Pets)
+        public ICollection<JobModel> Jobs { get; set; }
     }
 }

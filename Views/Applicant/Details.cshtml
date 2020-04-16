@@ -1,4 +1,4 @@
-﻿@model HospitalProject.Models.ApplicantModel
+﻿@model HospitalProject.Models.ViewModels.ShowApplicant
 @{
     ViewBag.Title = "Details";
 }
@@ -7,39 +7,75 @@
 <div class="container">
     <div class="navbar">
         <a class="navlink" href="/Applicant/List">Back to List</a>
-        <a class="navlink" href="/Applicant/Update/@Model.ApplicantID ">Update</a>
-        <a class="navlink" href="/APplicant/Delete/@Model.ApplicantID">Delete</a>
+        <a class="navlink" href="/Applicant/Update/@Model.applicant.ApplicantID ">Update</a>
+        <a class="navlink" href="/Applicant/Delete/@Model.applicant.ApplicantID">Delete</a>
     </div>
-    <div class="col-lg-12 col-sm-12">
+    <div class="col-lg-6 col-sm-12">
         <div>
             <strong>Name</strong>
-            <span>@Model.ApplicantFirstName</span>
-            <span>@Model.ApplicantLastName</span>
+            <span>@Model.applicant.ApplicantFirstName</span>
+            <span>@Model.applicant.ApplicantLastName</span>
         </div>
         <div>
             <strong>Address</strong>
-            <span>@Model.ApplicantAddress</span>
+            <span>@Model.applicant.ApplicantAddress</span>
         </div>
         <div>
             <strong>Email</strong>
-            <span>@Model.ApplicantEmail</span>
+            <span>@Model.applicant.ApplicantEmail</span>
         </div>
         <div>
             <strong>Phone</strong>
-            <span>@Model.ApplicantPhone</span>
+            <span>@Model.applicant.ApplicantPhone</span>
         </div>
         <div>
             <strong>Skills</strong>
-            <span>@Model.ApplicantSkills</span>
+            <span>@Model.applicant.ApplicantSkills</span>
         </div>
         <div>
             <strong>Education Summary</strong>
-            <span>@Model.ApplicantEmail</span>
+            <span>@Model.applicant.ApplicantEmail</span>
         </div>
         <div>
             <strong>Work Experience</strong>
-            <span>@Model.ApplicantWorkExperience</span>
+            <span>@Model.applicant.ApplicantWorkExperience</span>
         </div>
     </div>
+
+    <div class="col-lg-6 col-sm-12">
+        <div class="sectionheader">Applied Jobs:</div>
+        @{
+
+            foreach (var job in @Model.jobs)
+            {
+                <div class="lineitem">
+                    <a href="/Job/Details/@job.JobID">@job.JobTitle</a>
+
+                    <a href="/Applicant/DetachJob/@Model.applicant.ApplicantID?JobID=@job.JobID">
+                        [x]
+                    </a>
+                </div>
+            }
+
+
+        }
+    </div>
+    <div class="col-lg-6 col-sm-12">
+        <form method="post" action="/Applicant/AttachJob/@Model.applicant.ApplicantID">
+            <select name="JobID" id="JobID">
+                @{
+
+                    foreach (var job in Model.all_jobs)
+                    {
+                        <option value="@job.JobID">
+                            @job.JobTitle
+                        </option>
+                    }
+                }
+            </select>
+            <input type="submit" class="btn-primary" value="Apply for Job" />
+        </form>
+    </div>
+
 </div>
 

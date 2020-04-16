@@ -21,5 +21,7 @@ namespace HospitalProject.Models
         public string JobDescription { get; set; }
 
         public string JobRequirements { get; set; }
+
+        public ICollection<ApplicantModel> Applicants { get; set; }
     }
 }
