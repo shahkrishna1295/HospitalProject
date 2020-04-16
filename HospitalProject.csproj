@@ -541,6 +541,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\ApplicantController.cs" />
     <Compile Include="Controllers\BranchController.cs" />
     <Compile Include="Controllers\EmergenciesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -568,8 +569,13 @@
     <Compile Include="Migrations\202004152217195_fixingthedatabase.designer.cs">
       <DependentUpon>202004152217195_fixingthedatabase.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004152322161_applicant.cs" />
+    <Compile Include="Migrations\202004152322161_applicant.designer.cs">
+      <DependentUpon>202004152322161_applicant.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\ApplicantModel.cs" />
     <Compile Include="Models\BranchModel.cs" />
     <Compile Include="Models\EmergencyModels.cs" />
     <Compile Include="Models\IdentityModels.cs" />
@@ -661,6 +667,11 @@
     <Content Include="Views\Services\List.cshtml" />
     <Content Include="Views\Services\DeleteConfirm.cshtml" />
     <Content Include="Views\Services\Show.cshtml" />
+    <Content Include="Views\Applicant\Create.cshtml" />
+    <Content Include="Views\Applicant\List.cshtml" />
+    <Content Include="Views\Applicant\Details.cshtml" />
+    <Content Include="Views\Applicant\Update.cshtml" />
+    <Content Include="Views\Applicant\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -693,6 +704,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004152217195_fixingthedatabase.resx">
       <DependentUpon>202004152217195_fixingthedatabase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004152322161_applicant.resx">
+      <DependentUpon>202004152322161_applicant.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
