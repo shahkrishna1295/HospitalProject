@@ -37,9 +37,12 @@ namespace HospitalProject.Controllers
         [HttpPost]
         public ActionResult Create([Bind(Include = "ApplicantFirstName,ApplicantLastName,ApplicantAddress,ApplicantEmail,ApplicantPhone,ApplicantEducationSummary,ApplicantWorkExperience,ApplicantSkills")] ApplicantModel applicant)
         {
+            //if the model state is valid then we can add the applicant
             if (ModelState.IsValid)
             {
+                //adding applicant
                 db.Applicant.Add(applicant);
+                //saving changes
                 db.SaveChanges();
                 return RedirectToAction("List");
             }

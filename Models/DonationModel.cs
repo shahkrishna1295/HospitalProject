@@ -19,5 +19,6 @@ namespace HospitalProject.Models
         public int DonatorPhone { get; set; }
         public int DonationAmount { get; set; }
 
+
     }
 }

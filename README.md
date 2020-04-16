@@ -41,3 +41,45 @@
 * TestimonialController.cs
 * ServicesController.cs
 * BranchController.cs
+
+
+## Yash Pathak
+-------- Models ---------
+
+* ApplicantModel.cs
+* DonationModel.cs
+* JobModel.cs
+
+#### ViewModel
+* ShowApplicant.cs
+* UpdateJob.cs
+
+-------- View ---------
+
+#### Applicant
+* Create.cshtml
+* Delete.cshtml
+* Details.cshtml
+* List.cshtml
+* Update.cshtml
+
+
+#### Job
+* Create.cshtml
+* Delete.cshtml
+* Details.cshtml
+* List.cshtml
+* Update.cshtml
+
+#### Donation
+* Create.cshtml
+* Delete.cshtml
+* Details.cshtml
+* List.cshtml
+* Update.cshtml
+
+-------- Controller ---------
+
+* ApplicantController.cs
+* DonationController.cs
+* JobController.cs
