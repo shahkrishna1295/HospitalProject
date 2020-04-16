@@ -22,7 +22,7 @@ namespace HospitalProject.Controllers
     public class TestimonialController : Controller
     {
         private HospitalProjectContext db = new HospitalProjectContext();
-        // GET: all Testimonial
+        // GET: all Testimonial list for staff
         public ActionResult List(string searchkey, int pagenum = 0)
         {
             string query = "Select * from TestimonialModel";
@@ -81,6 +81,66 @@ namespace HospitalProject.Controllers
            
             return View(testimonials);
         }
+
+        //GET : all testimonial for visitor view where status = true as true is published testimonial
+        public ActionResult VisitorView(string searchkey, int pagenum = 0)
+        {
+            string query = "Select * from TestimonialModel";
+
+            if (searchkey != "")
+            {
+
+                query = query + " where (testimonialtitle like '%" + searchkey + "%' or testimonialmessage like '%" + searchkey + "%') and status = 1";
+                Console.WriteLine("The query is" + query);
+            }
+
+            List<TestimonialModel> testimonials = db.Testimonial.SqlQuery(query).ToList();
+
+            //Pagination code starts here
+            int perpage = 5; //setting boundary as 5 testimonial per page
+            int testimonialcount = testimonials.Count(); //total testimonal
+            int maxpage = (int)Math.Ceiling((decimal)testimonialcount / perpage) - 1;
+            if (maxpage < 0) maxpage = 0;
+            if (pagenum < 0) pagenum = 0;
+            if (pagenum > maxpage) pagenum = maxpage;
+            int start = (int)(perpage * pagenum);
+            ViewData["pagenum"] = pagenum;
+            ViewData["pagesummary"] = "";
+
+            //starts viewing data
+            if (maxpage > 0)
+            {
+                //fetching the content of the page
+                ViewData["pagesummary"] = (pagenum + 1) + " of " + (maxpage + 1);
+
+                List<SqlParameter> newparams = new List<SqlParameter>();
+
+                //checking if user have search of any particular result 
+                if (searchkey != "")
+                {
+                    newparams.Add(new SqlParameter("@searchkey", "%" + searchkey + "%"));
+                    ViewData["testimonialsearchkey"] = searchkey;
+                }
+
+                newparams.Add(new SqlParameter("@start", start));
+                newparams.Add(new SqlParameter("@perpage", perpage));
+
+                //query to get data row by row and stops at boundary here its 5
+                string pagedquery = query + " order by testimonialid offset @start rows fetch first @perpage rows only ";
+
+
+                Debug.WriteLine(pagedquery);
+                Debug.WriteLine("offset " + start);
+                Debug.WriteLine("fetch first " + perpage);
+
+                //passing query for execution
+                testimonials = db.Testimonial.SqlQuery(pagedquery, newparams.ToArray()).ToList();
+            }
+            //pagination ends here
+
+
+            return View(testimonials);
+        }
         // GET: Testimonial/Create
         public ActionResult Create()
         {
@@ -93,34 +153,32 @@ namespace HospitalProject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(string TestimonialTitle, string NameOfPatient, string TestimonialMessage)
         {
-            string query = "insert into TestimonialModel (TestimonialTitle, NameOfPatient, TestimonialMessage) values (@TestimonialTitle,@NameOfPatient,@TestimonialMessage)";
-
+            Boolean status = false;
+            string query = "insert into TestimonialModel (TestimonialTitle, NameOfPatient, TestimonialMessage, Status) values (@TestimonialTitle,@NameOfPatient,@TestimonialMessage, @Status)";
+           
             //query before the parameters
             Debug.WriteLine(query);
             Console.WriteLine(query);
 
             //insert query parameters
-            SqlParameter[] sqlparams = new SqlParameter[3];
+            SqlParameter[] sqlparams = new SqlParameter[4];
             sqlparams[0] = new SqlParameter("@TestimonialTitle", TestimonialTitle);
             sqlparams[1] = new SqlParameter("@NameOfPatient", NameOfPatient);
             sqlparams[2] = new SqlParameter("@TestimonialMessage", TestimonialMessage);
 
+            //setting status as 0 = unpulish by defult
+            sqlparams[3] = new SqlParameter("@Status", status);
+
             db.Database.ExecuteSqlCommand(query, sqlparams);
-            return RedirectToAction("ThankVisitor");
+
+            return RedirectToAction("List");
         }
 
         // GET: Testimonial/Update/id
         public ActionResult Update(int? id)
         {
-            if (id == null)
-            {
-                return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
-            }
-            TestimonialModel testimonial = db.Testimonial.Find(id);
-            if (testimonial == null)
-            {
-                return HttpNotFound();
-            }
+            //getting the selected testimonial to update
+            TestimonialModel testimonial = db.Testimonial.SqlQuery("select * from testimonialmodel where testimonialid = @id", new SqlParameter("@id", id)).FirstOrDefault();
             return View(testimonial);
         }
 

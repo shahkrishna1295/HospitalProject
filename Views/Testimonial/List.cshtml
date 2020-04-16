@@ -1,4 +1,4 @@
-﻿@model List<HospitalProject.Models.TestimonialModels>
+﻿@model List<HospitalProject.Models.TestimonialModel>
     @{
         ViewBag.Title = "List";
     }
@@ -35,19 +35,17 @@
                     <div class="col-sm-2">@testimonial.NameOfPatient</div>
                     <div class="col-sm-2">@testimonial.TestimonialMessage</div>
                     <div class="col-sm-2">@testimonial.TestimonialAttachment</div>
-                    <div class="col-sm-2">@testimonial.Status</div>
                     @{
                         if (@testimonial.Status == true)
                         {
-                            <div class="actionlink"><a href="/Testimonial/Unpublish/@testimonial.TestimonialID">UnPublish</a></div>
+                            <div class="col-sm-2"><a href="/Testimonial/Unpublish/@testimonial.TestimonialID">UnPublish</a></div>
                         }
                         else
                         {
-                            <div class="actionlink"><a href="/Testimonial/Publish/@testimonial.TestimonialID">Publish</a></div>
+                            <div class="col-sm-2"><a href="/Testimonial/Publish/@testimonial.TestimonialID">Publish</a></div>
                         }
                     }
-                    <div><a href="/Testimonial/DeleteConfirm/@testimonial.TestimonialID"> Delete</a></div>
-                    <div><a href="/Testimonial/Update/@testimonial.TestimonialID"> Update</a></div>
+                    <div class="col-sm-2"><a href="/Testimonial/DeleteConfirm/@testimonial.TestimonialID"> Delete / </a><a href="/Testimonial/Update/@testimonial.TestimonialID"> Update</a></div>
                 </div>
             }
         }

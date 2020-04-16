@@ -1,4 +1,4 @@
-﻿@model HospitalProject.Models.TestimonialModel
+﻿@model List<HospitalProject.Models.TestimonialModel>
 @{
     ViewBag.Title = "VisitorView";
 }
@@ -11,27 +11,28 @@
 
 <div class="paginate">
     @{
-        <a href="/Testimonial/List?pagenum=@((int)ViewData['pagenum']-1)&testimonialsearchkey=@ViewData['testimonialsearchkey']">Prev</a>
+        <a href="/Testimonial/List?pagenum=@((int)ViewData["pagenum"]-1)&testimonialsearchkey=@ViewData["testimonialsearchkey"]">Prev</a>
         @ViewData["pagesummary"]
-        <a href="/Testimonial/List?pagenum=@((int)ViewData['pagenum']+1)&testimonialsearchkey=@ViewData['testimonialsearchkey']">Next</a>
+        <a href="/Testimonial/List?pagenum=@((int)ViewData["pagenum"]+1)&testimonialsearchkey=@ViewData["testimonialsearchkey"]">Next</a>
     }
 </div>
 
-<form action="/Testimonial/List" method="GET">
+<form action="/Testimonial/VisitorView" method="GET">
     <input type="text" name="testimonialsearchkey" id="testimonialsearchkey" />
     <input type="submit" value="Search" />
 </form>
 
 <div>
     @{
-        foreach (var testimonial in Model)
+        foreach (var item in Model)
         {
             <div class="row">
-                <div class="row"> @testimonial.TestimonialTitle </div>
-                <div class="row">@testimonial.NameOfPatient</div>
+                <div class="row hidden"> @item.TestimonialID </div>
+                <div class="row"> @item.TestimonialTitle </div>
+                <div class="row">@item.NameOfPatient</div>
                 <div class="row">
-                    <div class="col-sm-2">@testimonial.TestimonialAttachment</div>
-                    <div class="col-sm-6">@testimonial.TestimonialMessage</div>
+                    <div class="col-sm-2">@item.TestimonialAttachment</div>
+                    <div class="col-sm-6">@item.TestimonialMessage</div>
                 </div>
             </div>
         }
