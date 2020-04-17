@@ -2,13 +2,13 @@
 @{
     ViewBag.Title = "Delete";
 }
+<div class="bg-danger">
 
-<h2>Are you sure you want to delete the donation of @Model.DonatorName?</h2>
-<div class="nav">
-    <a href="/Donation/Details/@Model.DonationID">Cancel</a>
+    <h2>Are you sure you want to delete the donation of @Model.DonatorName?</h2>
+    <form method="POST" action="/Donation/Delete/@Model.DonationID">
+        <div class="text-center">
+            <a class="btn btn-success" href="/Donation/Details/@Model.DonationID">Cancel</a>
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
+    </form>
 </div>
-<form method="POST" action="/Donation/Delete/@Model.DonationID">
-    <div>
-        <button type="submit" class="btn btn-danger">Delete</button>
-    </div>
-</form>

@@ -96,6 +96,9 @@
 * DonationController.cs
 * JobController.cs
 
+-------- Miscellaneous ---------
+Error Fixing.
+Conflict Solving.
 
 ## Chang Qi
 -------- Models ---------

@@ -6,11 +6,11 @@
 <h2>Details</h2>
 <div class="container">
     <div class="navbar">
-        <a class="navlink" href="/Job/List">Back to List</a>
-        <a class="navlink" href="/Job/Update/@Model.JobID ">Update</a>
-        <a class="navlink" href="/Job/Delete/@Model.JobID">Delete</a>
+        <a class="btn-success btn" href="/Job/List">Back to List</a>
+        <a class="btn-warning btn" href="/Job/Update/@Model.JobID ">Update</a>
+        <a class="btn-danger btn" href="/Job/Delete/@Model.JobID">Delete</a>
     </div>
-    <div class="col-lg-12">
+    <div class="col-lg-12 bg-warning">
         <div>
             <strong>Job Title</strong>
             <span>@Model.JobTitle</span>
