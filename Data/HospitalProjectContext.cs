@@ -19,7 +19,7 @@ namespace HospitalProject.Data
         public HospitalProjectContext() : base("name=HospitalProjectContext")
         {
         }
-
+         
         public System.Data.Entity.DbSet<HospitalProject.Models.EmergencyModels> Emergency { get; set; } 
         public System.Data.Entity.DbSet<HospitalProject.Models.TestimonialModel> Testimonial { get; set; } 
         public System.Data.Entity.DbSet<HospitalProject.Models.BranchModel> Branch { get; set; } 

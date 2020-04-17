@@ -54,9 +54,5 @@ namespace HospitalProject.Controllers
 
         //show 
 
-
-
-
-
     }
 }

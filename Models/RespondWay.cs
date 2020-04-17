@@ -11,9 +11,10 @@ namespace HospitalProject.Models
          * Some things can describe a RespondWay:
          * RespondWay:
          *      - Email
-         *      - Call
+         *      - Phone call
          *      - SMS
          */
         public int RespondWayID { get; set; }
+        public string Way { get; set; }
     }
 }

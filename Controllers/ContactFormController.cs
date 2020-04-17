@@ -162,6 +162,6 @@ namespace HospitalProject.Controllers
                 .FirstOrDefault(c => c.ContactFormID == id);
             //Debug.WriteLine
             return View(contact);
-        }
+        } 
     }
 }
