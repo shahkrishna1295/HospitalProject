@@ -96,6 +96,41 @@
 * DonationController.cs
 * JobController.cs
 
+
+## Chang Qi
+-------- Models ---------
+
+* ContactForm.cs
+* ContactStatus.cs
+* RespondWay.cs
+
+#### ViewModel
+* AddContact.cs
+* UpdateContact.cs
+
+-------- View ---------
+
+#### ContactForm
+* Create.cshtml
+* Delete.cshtml
+* Details.cshtml
+* List.cshtml
+* Update.cshtml
+
+
+#### Registration
+* Create.cshtml
+* Delete.cshtml
+* Details.cshtml
+* List.cshtml
+* Update.cshtml
+
+-------- Controller ---------
+
+* ContactFormController.cs
+* RespondWayController.cs
+* ContactStatusController.cs
+
 ## Amit Deka
 -------- Models ---------
 
