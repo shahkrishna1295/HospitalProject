@@ -1,0 +1,142 @@
+﻿@model List<HospitalProject.Models.FaqCategory>
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="container">
+    <h1 class="h1 page-header" >Faq Categories</h1>
+    <button type="button" class="btn btn-md btn-outline-primary add-faq-btn" data-toggle='modal' data-target='#addFaqCat' style="margin-top:0; margin-left:0.5em">&#10133 Add new Category</button>
+</div>
+<div class="modal fade" id="addFaqCat" tabindex="-1" role="dialog" aria-labelledby="addFaqCatModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addFaqCatModalLabel">Add Category</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/FaqCategory/Add">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Category Name:</label>
+                        <input type="text" class="form-control" id="newFaqCatName" name="newFaqCatName">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick='addFaqCat()'>Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container">
+    <table class="table table-dark table-hover">
+        <thead>
+            <tr>
+                <th>Category Id</th>
+                <th>Category Name</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var cat in Model)
+            {
+                <tr>
+                    <td><a href="/Faq/Update/@cat.FaqCatID">@cat.FaqCatName</a></td>
+                    <td></td>
+                    <td><button type="button" class="btn btn-primary" data-toggle='modal' data-target='#update-@cat.FaqCatID'>Update</button></td>
+                    <td>
+                        <button type='button' class='btn btn-danger' data-toggle='modal' data-target='#delete-@cat.FaqCatID'>Delete</button>
+                    </td>
+                </tr>
+                <div class="modal fade" id="update-@cat.FaqCatID" tabindex="-1" role="dialog" aria-labelledby="updateFaqCatModalLabel" aria-hidden="true">
+                    <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="updateFaqCatModalLabel">Add Category</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <form method="post">
+                                    <div class="form-group">
+                                        <label for="recipient-name" class="col-form-label">Category Name:</label>
+                                        <input type="text" class="form-control" id="newFaqCatName" name="newFaqCatName" value="@cat.FaqCatName">
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-primary" onclick='updateFaqCat(@cat.FaqCatID)'>Update</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class='modal fade' id='delete-@cat.FaqCatID' tabindex='-1' role='dialog' aria-labelledby='deleteFaq-Title' aria-hidden='true'>
+                    <div class='modal-dialog modal-dialog-centered' role='document'>
+                        <div class='modal-content'>
+                            <div class='modal-header'>
+                                <h5 class='modal-title' id='deleteFaqTitle'>Delete Faq</h5>
+                                <button type='button' class='close' data-dismiss='modal' aria-label='Close'>
+                                    <span aria-hidden='true'>&times;</span>
+                                </button>
+                            </div>
+                            <div class='modal-body'>
+                                <p class='lead'>Are you sure you want to delete this faq category?</p>
+                            </div>
+                            <div class='modal-footer'>
+                                <button type='button' class='btn btn-secondary' data-dismiss='modal'>Close</button>
+                                <button type='button' class='btn btn-danger' onclick='deleteFaq("@cat.FaqCatID")'>Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </tbody>
+    </table>
+</div>
+<script>
+    function addFaqCat() {
+        newFaqCatName = $("#newFaqCatName").val();
+        if (newFaqCatName !== "") {
+            response = $.ajax({
+                type: "POST",
+                url: '/FaqCategory/Add',
+                data: { newfaqCatName: newFaqCatName },
+                success: function (data) {
+                    location.reload();
+                }
+            });
+        }
+    }
+    function updateFaqCat(id) {
+        newFaqCatName = $("#newFaqCatName").val();
+        if (newFaqCatName !== "") {
+            response = $.ajax({
+                type: "POST",
+                url: '/FaqCategory/Update/'+id,
+                data: { UpdatedFaqCatName: newFaqCatName },
+                success: function (data) {
+                    location.reload();
+                }
+            });
+        }
+    }
+    function deleteFaq(id) {
+        var xmlhttp = new XMLHttpRequest();
+        response = $.ajax({
+            type: "POST",
+            url: '/FaqCategory/Delete',
+            data: { id: id },
+            success: function (data) {
+                location.reload();
+            }
+        });
+    }
+</script>
+

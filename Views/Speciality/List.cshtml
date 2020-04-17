@@ -1,0 +1,53 @@
+﻿@model List<HospitalProject.Models.Speciality>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<h2>Specialities</h2>
+<a class="btn btn-lg btn-primary" onclick="displayForm('/Speciality/Add')">Add New Speciality</a>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <strong>Speciality Name</strong>
+        </div>
+        <div class="col-lg-6">
+            <strong>Actions</strong>
+        </div>
+    </div>
+    @{
+        foreach (var s in Model)
+        {
+            <div class="row">
+                <div class="col-lg-6">
+                    <a href="/Doctor/ListDoc/@s.SpecialityName">@s.SpecialityName</a>
+                </div>
+                <div class="col-lg-6">
+                    <div class="form-inline">
+                        <button class="btn btn-sm  btn-primary" onclick="displayForm('/Speciality/Update/@s.SpecialityID')">Update</button>
+                        <button class="btn btn-sm  btn-danger" onclick="displayForm('/Speciality/ConfirmDelete/@s.SpecialityID')">Delete</button>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    <div class="container" id="LoadForm"></div>
+</div>
+<!--Making Ajax request to load forms-->
+<script>
+    function displayForm(link) {
+        $.ajax({
+            url: link,
+            contentType: 'application/html; charset=utf-8', 
+            type: 'GET',
+            dataType: 'html',
+            success: function (result) {
+                $('#LoadForm').html(result);
+            },
+            error: function (xhr, status) {
+                alert(status);
+            }
+        })
+    }
+</script>
+

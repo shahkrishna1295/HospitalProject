@@ -1,0 +1,78 @@
+﻿@model List<HospitalProject.Models.FaqCategory>
+@{
+    ViewBag.Title = "Add";
+    
+}
+
+<div class="container">
+    <div>
+        <h1 class="h1 page-header">Add new faq</h1>
+        <a href="/Faq/List"><button type="button" class="btn btn-outline-primary add-faq-btn">List Faq</button></a>
+    </div>
+    <form method="post" action="/Faq/Add"class="crud-form">
+        <div class="form-group">
+            <label for="faqCatDD">FAQ Category</label>
+            <div class="row">
+                <div>
+                    <select class="form-control" id="faqCatDD" name="faqCatDD">
+                        <option value="">__Select one__</option>
+                        @foreach (var cat in Model)
+                        {
+                            <option value="@cat.FaqCatID">@cat.FaqCatName</option>
+                        }
+                    </select>
+                </div>
+                <button type="button" class="btn btn-md btn-outline-primary add-faq-btn" data-toggle='modal' data-target='#addFaqCat' style="margin-top:0; margin-left:0.5em">&#10133 Add new Category</button>
+            </div>
+        </div>
+        <div class="form-group">
+            <label for="faqQtn">Question:</label>
+            <input type="text" class="form-control" id="faqQtn" name="faqQtn" placeholder="Enter question here">
+        </div>
+        <div class="form-group">
+            <label for="faqAns">Answer:</label>
+            <textarea class="form-control" id="faqAns" name="faqAns" rows="3"></textarea>
+        </div>
+        <button type="submit" class="btn btn-primary" name="faq-submit">Submit</button>
+    </form>
+</div>
+
+<div class="modal fade" id="addFaqCat" tabindex="-1" role="dialog" aria-labelledby="addFaqCatModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="addFaqCatModalLabel">Add Category</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form method="post" action="/FaqCategory/Add">
+                    <div class="form-group">
+                        <label for="recipient-name" class="col-form-label">Category Name:</label>
+                        <input type="text" class="form-control" id="newFaqCatName" name="newFaqCatName">
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" onclick='addFaqCat()'>Add</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    function addFaqCat() {
+        newFaqCatName = $("#newFaqCatName").val();
+        if (newFaqCatName !== "") {
+            response = $.ajax({
+                type: "POST",
+                url: 'addFaqCat.php',
+                data: { faqCatName: newFaqCatName },
+                success: function (data) {
+                    location.reload();
+                }
+            });
+        }
+    }
+</script>

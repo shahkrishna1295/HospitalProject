@@ -1,0 +1,12 @@
+﻿@model HospitalProject.Models.Doctor
+
+@{
+    ViewBag.Title = "ConfirmDelete";
+}
+<h2>Are you sure you want to remove Dr. @Model.DocFname @Model.DocLname from the database?</h2>
+<div class="navbar">
+    <a href="/Speciality/List">Cancel</a>
+</div>
+<form method="POST" action="/Doctor/Delete/@Model.DocID">
+    <div class="inpfield"><input type="submit" value="Confirm" /></div>
+</form>

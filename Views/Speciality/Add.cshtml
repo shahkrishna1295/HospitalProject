@@ -1,0 +1,17 @@
+﻿@model HospitalProject.Models.Speciality
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<h2>Add New Speciality</h2>
+<form method="post" action="/Speciality/Add">
+    <div class="form-group">
+        <label>Speciality Name:</label>
+        <input type="text" id="NewSpeciality" name="newSpeciality" class="form-control" placeholder="Enter new speciality" />
+    </div>
+    <div class="form-group">
+        <input type="submit" id="AddSpeciality" name="AddSpeciality" value="Add" class="btn btn-lg btn-primary" />
+    </div>
+</form>
+

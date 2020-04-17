@@ -543,12 +543,16 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\ApplicantController.cs" />
     <Compile Include="Controllers\BranchController.cs" />
+    <Compile Include="Controllers\DoctorController.cs" />
     <Compile Include="Controllers\DonationController.cs" />
     <Compile Include="Controllers\EmergenciesController.cs" />
+    <Compile Include="Controllers\FaqCategoryController.cs" />
+    <Compile Include="Controllers\FaqController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\JobController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ServicesController.cs" />
+    <Compile Include="Controllers\SpecialityController.cs" />
     <Compile Include="Controllers\TestimonialController.cs" />
     <Compile Include="Data\HospitalProjectContext.cs" />
     <Compile Include="Global.asax.cs">
@@ -582,18 +586,35 @@
     <Compile Include="Migrations\202004161938260_donation.designer.cs">
       <DependentUpon>202004161938260_donation.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202004162200038_initial1.cs" />
+    <Compile Include="Migrations\202004162200038_initial1.designer.cs">
+      <DependentUpon>202004162200038_initial1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004162205129_initial2.cs" />
+    <Compile Include="Migrations\202004162205129_initial2.designer.cs">
+      <DependentUpon>202004162205129_initial2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202004170124137_inital.cs" />
+    <Compile Include="Migrations\202004170124137_inital.designer.cs">
+      <DependentUpon>202004170124137_inital.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\ApplicantModel.cs" />
     <Compile Include="Models\BranchModel.cs" />
+    <Compile Include="Models\DocReview.cs" />
+    <Compile Include="Models\Doctor.cs" />
     <Compile Include="Models\DonationModel.cs" />
     <Compile Include="Models\EmergencyModels.cs" />
+    <Compile Include="Models\FaqCategory.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\JobModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RespondWay.cs" />
     <Compile Include="Models\ServiceModel.cs" />
+    <Compile Include="Models\Speciality.cs" />
     <Compile Include="Models\TestimonialModel.cs" />
+    <Compile Include="Models\Faq.cs" />
     <Compile Include="Models\ViewModels\ShowBranchModel.cs" />
     <Compile Include="Models\ViewModels\ShowApplicant.cs" />
     <Compile Include="Models\ViewModels\ShowServiceModel.cs" />
@@ -689,6 +710,16 @@
     <Content Include="Views\Donation\Details.cshtml" />
     <Content Include="Views\Donation\List.cshtml" />
     <Content Include="Views\Donation\Delete.cshtml" />
+    <Content Include="Views\Faq\List.cshtml" />
+    <Content Include="Views\Faq\Add.cshtml" />
+    <Content Include="Views\FaqCategory\List.cshtml" />
+    <Content Include="Views\Doctor\Add.cshtml" />
+    <Content Include="Views\Doctor\ConfirmDelete.cshtml" />
+    <Content Include="Views\Doctor\List.cshtml" />
+    <Content Include="Views\Speciality\Add.cshtml" />
+    <Content Include="Views\Speciality\ConfirmDelete.cshtml" />
+    <Content Include="Views\Speciality\List.cshtml" />
+    <Content Include="Views\Speciality\Update.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -730,6 +761,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202004161938260_donation.resx">
       <DependentUpon>202004161938260_donation.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004162200038_initial1.resx">
+      <DependentUpon>202004162200038_initial1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004162205129_initial2.resx">
+      <DependentUpon>202004162205129_initial2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202004170124137_inital.resx">
+      <DependentUpon>202004170124137_inital.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>

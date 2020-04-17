@@ -1,0 +1,55 @@
+﻿@model List<HospitalProject.Models.Doctor>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="container">
+    <a href="/Doctor/Add">Register a doctor</a>
+    <h1>List of doctors</h1>
+    <table class="table table-dark">
+        <thead>
+            <tr>
+                <th scope="col">id</th>
+                <th scope="col">First Name</th>
+                <th scope="col">Last Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Hospital Location</th>
+                <th scope="col">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var doc in Model)
+            {
+                <tr>
+                    <th>@doc.DocID</th>
+                    <td>@doc.DocFname</td>
+                    <td>@doc.DocLname</td>
+                    <td>@doc.DocEmail</td>
+                    <td>@doc.DocHLoc</td>
+                    <td><button type='button' class='btn btn-primary' onclick="displayForm('/Doctor/Update/@doc.DocID')">Update</button></td>
+                    <td><button type='button' class='btn btn-danger' data-toggle='modal' data-target='' onclick="displayForm('/Doctor/ConfirmDelete/@doc.DocID')">Delete</button>
+                </tr>
+            }
+        </tbody>
+    </table>
+    <div id="LoadForm"></div>
+</div>
+<!--Making Ajax request to load forms-->
+<script>
+    function displayForm(link,) {
+        $.ajax({
+            url: link,
+            contentType: 'application/html; charset=utf-8',
+            type: 'GET',
+            dataType: 'html',
+            success: function (result) {
+                $('#LoadForm').html(result);
+            },
+            error: function (xhr, status) {
+                alert(status);
+            }
+        })
+    }
+</script>
+

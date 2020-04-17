@@ -1,0 +1,19 @@
+﻿@model HospitalProject.Models.Speciality
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<h2>Update</h2>
+
+<form method="post" action="/Speciality/Update/@Model.SpecialityID">
+    <div class="form-group">
+        <label>Speciality Name:</label>
+        <input type="text" id="NewSpeciality" name="UpdatedSpeciality" class="form-control" placeholder="Enter new speciality" value="@Model.SpecialityName" />
+    </div>
+    <div class="form-group">
+        <input type="submit" id="AddSpeciality" name="AddSpeciality" value="Update" class="btn btn-lg btn-primary" />
+    </div>
+</form>
+
+

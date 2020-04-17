@@ -36,5 +36,12 @@ namespace HospitalProject.Data
         //public System.Data.Entity.DbSet<HospitalProject.Models.ContactStatus> ContactStatuses { get; set; }
         public System.Data.Entity.DbSet<HospitalProject.Models.RespondWay> RespondWays { get; set; }
 
+        public System.Data.Entity.DbSet<HospitalProject.Models.Faq> Faqs { get; set; }
+        public System.Data.Entity.DbSet<HospitalProject.Models.FaqCategory> FaqCategories { get; set; }
+        public System.Data.Entity.DbSet<HospitalProject.Models.Doctor> Doctor { get; set; }
+        public System.Data.Entity.DbSet<HospitalProject.Models.DocReview> DocReview { get; set; }
+
+        public System.Data.Entity.DbSet<HospitalProject.Models.Speciality> Speciality { get; set; }
+
     }
 }
