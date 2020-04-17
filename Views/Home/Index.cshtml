@@ -1,31 +1,118 @@
 ﻿@{
-    ViewBag.Title = "Home Page";
+    ViewBag.Title = "MICs Group of Health Services";
 }
 
-<div class="jumbotron">
-    <h1>ASP.NET</h1>
-    <p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</p>
-    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
-</div>
+<!----------------------- header --------------------->
+    <div class="jumbotron" style="border-bottom:0.5px lightgray solid; padding:0;">
 
-<div class="row">
-    <div class="col-md-4">
-        <h2>Getting started</h2>
-        <p>
-            ASP.NET MVC gives you a powerful, patterns-based way to build dynamic websites that
-            enables a clean separation of concerns and gives you full control over markup
-            for enjoyable, agile development.
-        </p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></p>
+        <!-- *** using inline CSS -->
+        <div class="row">
+            <div class="col-md-3 logo" style="text-align: center;
+">
+                <div style="font-size: 1em; padding-bottom:1vw;">Emergency number|416 000 9999</div>
+                <img style="width:150px;" src="../Content/img/mics-logo.png" alt="mics logo" />
+            </div>
+            <div class="col-md-6">
+                <h1 style="font-size:2.3em; line-height:10vw; text-align:center;">M.I.C.s Group of Health Services</h1>
+            </div>
+            <div class="col-md-3" style="text-align:center;">
+                <div class="btn-primary btn-lg" style="width:5em; margin:4em auto;">Donate</div>
+            </div>
+
+        </div>
+
+        <!--p class="lead">ASP.NET is a free web framework for building great Web sites and Web applications using HTML, CSS and JavaScript.</!--p>
+    <p><a href="https://asp.net" class="btn btn-primary btn-lg">Learn more &raquo;</a></p>
+    -->
     </div>
-    <div class="col-md-4">
-        <h2>Get more libraries</h2>
-        <p>NuGet is a free Visual Studio extension that makes it easy to add, remove, and update libraries and tools in Visual Studio projects.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Learn more &raquo;</a></p>
-    </div>
-    <div class="col-md-4">
-        <h2>Web Hosting</h2>
-        <p>You can easily find a web hosting company that offers the right mix of features and price for your applications.</p>
-        <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301867">Learn more &raquo;</a></p>
-    </div>
-</div>
+
+<!----------------------- nav --------------------->
+
+
+
+<!----------------------- main content(sub-links, banner, features bar) --------------------->
+    <div class="row">
+        <div class="col-md-3">
+
+            <div style="text-align:center; margin:2vw auto;">
+                <form action="" method="get">
+                    <input type="search" placeholder=" Input your key words" name="homesearch" id="homesearch" />
+                    <input type="submit" value="Search" class="btn btn-default" />
+                </form>
+            </div>
+
+            <div>
+                <ul>
+                    <li style="list-style:none; padding:0.5vw;"><a href="">Bingham Memorial Hospital</a></li>
+                    <li style="list-style:none; padding:0.5vw;"><a href="">Rosedale Centre</a></li>
+                    <li style="list-style:none; padding:0.5vw;"><a href="">Anson General Hospital</a></li>
+                    <li style="list-style:none; padding:0.5vw;"><a href="">South Centennial Manor</a></li>
+                    <li style="list-style:none; padding:0.5vw;"><a href="">Lady Minto Hospital</a></li>
+                    <li style="list-style:none; padding:0.5vw;"><a href="">Villa Minto</a></li>
+                </ul>
+            </div>
+
+            <!-- p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301865">Learn more &raquo;</a></!--p> -->
+        </div>
+        <div class="col-md-6" style="margin:1.5vw auto; background: url(../Content/img/PhotobyiMattSmartonUnsplash.jpg) center no-repeat; background-size: cover;">
+            <h3 style="padding-top:9.5em; font-size:1.5em; padding-left:1.5vw; padding-right:1.5vw;">The MICs Group of Health Services consists of three hospitals and their associated long-term care facilities located in the Northern Ontario communities of Matheson, Iroquois Falls and Cochrane.</h3>
+            <p><a class="btn btn-default" href="https://go.microsoft.com/fwlink/?LinkId=301866">Latest news &raquo;</a></p>
+        </div>
+        <div class="col-md-3" style="padding:2vw; text-align:center;">
+            <div>
+                <ul style="margin:0; padding:0;">
+                    <li style="list-style:none; padding:0.5vw;"><a href="">Become a volunteer</a></li>
+                    <li style="list-style:none; padding:0.5vw;"><a href="">COVID-19 Symptom Checker</a></li>
+                    <li style="list-style:none; padding:0.5vw;"><a href="">Check-up Package</a></li>
+                    <li style="list-style:none; padding:0.5vw;"><a href="">Donate Blood/Organ</a></li>
+                    <li style="list-style:none; padding:0.5vw;"><a href="">Get Well Soon Card</a></li>
+                </ul>
+                <div style="height: 10vw; margin: 1vw; padding:0.5vw; border: 0.5px solid gray; text-align:center;">
+                    Notice Board
+                </div>
+
+                <div class="btn btn-default" style="margin: 1vw auto; border: 0.5px solid gray; text-align:center;">
+                    <a href="">Chat Bot</a>
+                </div>
+
+            </div>
+        </div>
+
+        <!------------ footer ------------>
+        <div style="margin: 0 5vw;">
+            <div class="col-md-4" style="padding:2vw; text-align:center; border-right: 0.5px lightgray solid;">
+                <div>
+                    <ul style="margin:0; padding:0;">
+                        <li style="list-style:none; padding:0.5vw;"><a href="">Careers</a></li>
+                        <li style="list-style:none; padding:0.5vw;"><a href="">Contact Us</a></li>
+                        <li style="list-style:none; padding:0.5vw;"><a href="">Locations</a></li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="col-md-4" style="padding:2vw; text-align:center;">
+                <div>
+                    <ul style="margin:0; padding:0;">
+                        <li style="list-style:none; padding:0.5vw;"><a href="">Testimonials</a></li>
+                        <li style="list-style:none; padding:0.5vw;"><a href="">Sitemap</a></li>
+                        <li style="list-style:none; padding:0.5vw;"><a href="">Privacy Policy</a></li>
+                    </ul>
+
+                </div>
+            </div>
+
+            <div class="col-md-4" style="padding:2vw; text-align:center; border-left: 0.5px lightgray solid;">
+                <div>
+                    <ul style="margin:0; padding:0;">
+                        <li style="list-style:none; padding:0.5vw;"><i class="fab fa-facebook-square"><img style="width: 20px;" src="../Content/img/facebook-square-brands.svg" alt="facebook icon" /></i></li>
+                        <li style="list-style:none; padding:0.5vw;"><i class="fab fa-twitter-square"><img style="width: 20px;" src="../Content/img/twitter-square-brands.svg" alt="twitter" /></i></li>
+                        <li style="list-style:none; padding:0.5vw;"><i class="fas fa-envelope-square"><img style="width:20px;" src="../Content/img/envelope-square-solid.svg" alt="email icon" /></i></li>
+                        
+                    </ul>
+
+                </div>
+            </div>
+        </div>
+        </div>
+
