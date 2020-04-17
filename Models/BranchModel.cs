@@ -19,6 +19,6 @@ namespace HospitalProject.Models
         public string BranchImage { get; set; }
 
         //representing the many to many of branches and servcies
-        public ICollection<ServiceXBranchModel> ServiceXBranch { get; set; }
+        //public ICollection<ServiceXBranchModel> ServiceXBranch { get; set; }
     }
 }

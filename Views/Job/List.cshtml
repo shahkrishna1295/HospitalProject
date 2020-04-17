@@ -5,26 +5,32 @@
 }
 
 <h2>List</h2>
-<div class="paginate">
-    @{
-        <a href="/Job/List?pagenum=@((int)ViewData["pagenum"]-1)&jobsearchkey=@ViewData["jobsearchkey"]">Prev</a>
-        @ViewData["pagesummary"]
-        <a href="/Job/List?pagenum=@((int)ViewData["pagenum"]+1)&jobsearchkey=@ViewData["jobsearchkey"]">Next</a>
-    }
-</div>
 <form action="/Job/List" method="GET">
     <input type="text" name="jobsearchkey" id="jobsearchkey" />
-    <input type="submit" value="Search" />
+    <button type="submit" class="btn btn-info">
+        <span class="glyphicon glyphicon-search"></span> Search
+    </button>
 </form>
 @foreach(var job in Model){
-    <div class="card">
+    <div class="card bg-success col-lg-6 col-sm-12">
         <div class="card-header"><a href="/Job/Details/@job.JobID">@job.JobTitle</a></div>
         <div class="card-body">
-            <div>@job.JobPostedDate</div>
-            <div>@job.JobDepartmentName</div>
+            <span><strong>Posted Date</strong></span><div>@job.JobPostedDate</div>
+            <strong>Department Name</strong><div>@job.JobDepartmentName</div>
             <div>@job.JobDescription</div>
             <div>@job.JobRequirements</div>
         </div>
     </div>
 }
+<div class="col-lg-12">
+    @{
+        <a href="/Job/List?pagenum=@((int)ViewData["pagenum"]-1)&jobsearchkey=@ViewData["jobsearchkey"]" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-backward"></span> Prev
+        </a>
+        @ViewData["pagesummary"]
+        <a href="/Job/List?pagenum=@((int)ViewData["pagenum"]+1)&jobsearchkey=@ViewData["jobsearchkey"]" class="btn btn-info btn-lg">
+            <span class="glyphicon glyphicon-forward"></span> Next
+        </a>
+    }
+</div>
 
