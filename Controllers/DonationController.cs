@@ -23,7 +23,8 @@ namespace HospitalProject.Controllers
     {
         // GET: Donation
         private HospitalProjectContext db = new HospitalProjectContext();
-        // GET: Job
+        // TO DO: Add payment gateway
+        // Send receipt when payment is done
         public ActionResult Index()
         {
             return View();
@@ -39,6 +40,8 @@ namespace HospitalProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                //creating a new donation
+                Debug.WriteLine("adding the donation" + donation);
                 db.Donation.Add(donation);
                 db.SaveChanges();
                 return RedirectToAction("List");
@@ -49,13 +52,14 @@ namespace HospitalProject.Controllers
 
         public ActionResult List(string namesearchkey, int pagenum = 0)
         {
-            //How could we modify this to include a search bar?
+            //search bar
+            Debug.WriteLine("searching for" + namesearchkey);
             List<DonationModel> donationmodel = db
                 .Donation
                 .Where(g => (namesearchkey != null) ? g.DonatorName.Contains(namesearchkey) : true)
                 .ToList();
 
-            //start of pagination algorithm (LINQ techniques)
+            //pagination ref: PetGrooming
             int perpage = 3;
             int petcount = donationmodel.Count();
             int maxpage = (int)Math.Ceiling((decimal)petcount / perpage) - 1;
@@ -75,7 +79,7 @@ namespace HospitalProject.Controllers
                     .Take(perpage)
                     .ToList();
             }
-            //end of pagination algorithm (LINQ techniques)
+            //returning the donation model
 
             return View(donationmodel);
 
@@ -83,35 +87,45 @@ namespace HospitalProject.Controllers
 
         public ActionResult Update(int id)
         {
+            //finding the opened donation
             DonationModel OpenedDonation = db.Donation.Find(id);
-
+            Debug.WriteLine("updating the donation with id" + id);
+            //returnig the view
             return View(OpenedDonation);
         }
 
         public ActionResult Details(int? id)
         {
+            //error handelling
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //finding the donation
             DonationModel donation = db.Donation.Find(id);
+            Debug.WriteLine("donation is" + donation);
             if (donation == null)
             {
                 return HttpNotFound();
             }
+            //returning the view of donation
             return View(donation);
         }
 
 
         [HttpPost]
+        //update of donation
         public ActionResult Update([Bind(Include = "DonatorName,DonatorEmail,DonationDate,DonatorPhone,DonationAmount")] DonationModel donation)
         {
             if (ModelState.IsValid)
             {
                 db.Entry(donation).State = EntityState.Modified;
+                //saving the changes
                 db.SaveChanges();
                 return RedirectToAction("List");
             }
+            //returning the view
+            Debug.WriteLine("donation is" + donation);
             return View(donation);
         }
 
@@ -122,22 +136,27 @@ namespace HospitalProject.Controllers
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //finding the donation
+            Debug.WriteLine("deleting job with id" + id);
             DonationModel donation = db.Donation.Find(id);
             if (donation == null)
             {
                 return HttpNotFound();
             }
+            //returning the view
             return View(donation);
         }
 
         [HttpPost]
         public ActionResult Delete(int id)
         {
+            //finding the donation
             DonationModel Donation = db.Donation.Find(id);
-            // Equivalent to SQL delete statement:
+            Debug.WriteLine("deleting the job with id" + id);
+            // removing the donation
             db.Donation.Remove(Donation);
             db.SaveChanges();
-
+            //returning the list view
             return RedirectToAction("List");
         }
 

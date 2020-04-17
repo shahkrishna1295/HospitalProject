@@ -21,6 +21,8 @@ namespace HospitalProject.Controllers
 {
     public class JobController : Controller
     {
+        //TO DO: add applicant list in job view
+        //Applicant profile
         private HospitalProjectContext db = new HospitalProjectContext();
         // GET: Job
         public ActionResult Index()
@@ -38,8 +40,12 @@ namespace HospitalProject.Controllers
         {
             if (ModelState.IsValid)
             {
+                Debug.WriteLine("adding the job" + job);
+                //adding job
                 db.Job.Add(job);
+                //saving the changes to database
                 db.SaveChanges();
+                //redirecting to list view
                 return RedirectToAction("List");
             }
 
@@ -48,13 +54,14 @@ namespace HospitalProject.Controllers
 
         public ActionResult List(string jobsearchkey,int pagenum = 0)
         {
-            //How could we modify this to include a search bar?
+            //search bar
+            Debug.WriteLine("searching for" + jobsearchkey);
             List<JobModel> jobmodel = db
                 .Job
                 .Where(g => (jobsearchkey != null) ? g.JobTitle.Contains(jobsearchkey) : true)
                 .ToList();
 
-            //start of pagination algorithm (LINQ techniques)
+            //pagination: ref: PetGrooming
             int perpage = 3;
             int petcount = jobmodel.Count();
             int maxpage = (int)Math.Ceiling((decimal)petcount / perpage) - 1;
@@ -74,7 +81,7 @@ namespace HospitalProject.Controllers
                     .Take(perpage)
                     .ToList();
             }
-            //end of pagination algorithm (LINQ techniques)
+            //returning the view
 
             return View(jobmodel);
 
@@ -82,17 +89,22 @@ namespace HospitalProject.Controllers
 
         public ActionResult Update(int id)
         {
+            //update method
+            //finding the opened job
             JobModel OpenedJob = db.Job.Find(id);
 
+            //returning the view
             return View(OpenedJob);
         }
 
         public ActionResult Details(int? id)
         {
+            //error handelling
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //finding the job
             JobModel Job = db.Job.Find(id);
             if (Job == null)
             {
@@ -104,38 +116,45 @@ namespace HospitalProject.Controllers
         [HttpPost]
         public ActionResult Update(int id, string JobTitle, string JobDescription, DateTime JobPostedDate , string JobDepartmentName, string JobRequirements)
         {
+            //updating the job
+            Debug.WriteLine("finding the job with id" + id);
             JobModel Job = db.Job.Find(id);
             Job.JobTitle = JobTitle;
             Job.JobDescription = JobDescription;
             Job.JobPostedDate = JobPostedDate;
             Job.JobDepartmentName = JobDepartmentName;
             Job.JobRequirements = JobRequirements;
-
+            //saving the chnages to database
             db.SaveChanges();
-
+            //returning the view
             return RedirectToAction("List");
 
         }
 
         public ActionResult Delete(int? id)
         {
+            //error handelling
             if (id == null)
             {
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
+            //finding the job
+            Debug.WriteLine("deleting job with id" + id);
             JobModel Job = db.Job.Find(id);
             if (Job == null)
             {
                 return HttpNotFound();
             }
+            //returning the view
             return View(Job);
         }
 
         [HttpPost]
         public ActionResult Delete(int id)
         {
+            Debug.WriteLine("deleting job" + id);
             JobModel Job = db.Job.Find(id);
-            // Equivalent to SQL delete statement:
+            // deleting the job from database
             db.Job.Remove(Job);
             db.SaveChanges();
 

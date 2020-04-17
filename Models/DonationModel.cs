@@ -17,6 +17,8 @@ namespace HospitalProject.Models
         public string DonatorEmail { get; set; }
         public DateTime DonationDate { get; set; }
         public int DonatorPhone { get; set; }
+
+        //considering the amount in canadian dollars. No decimal allowed
         public int DonationAmount { get; set; }
 
 

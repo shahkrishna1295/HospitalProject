@@ -22,6 +22,8 @@ namespace HospitalProject.Models
 
         public string JobRequirements { get; set; }
 
+
+        //representing many applicants to many jobs
         public ICollection<ApplicantModel> Applicants { get; set; }
     }
 }
