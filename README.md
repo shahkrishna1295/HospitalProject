@@ -97,8 +97,8 @@
 * JobController.cs
 
 -------- Miscellaneous ---------
-Error Fixing.
-Conflict Solving.
+* Error Fixing.
+* Conflict Solving.
 
 ## Chang Qi
 -------- Models ---------
