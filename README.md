@@ -94,3 +94,27 @@
 * ApplicantController.cs
 * DonationController.cs
 * JobController.cs
+
+## Amit Deka
+-------- Models ---------
+
+* Doctor.cs
+* DocReview.cs
+* Speciality.cs
+* Faq.cs
+* FaqCategory.cs
+
+
+
+-------- View ---------
+* Doctor
+* Speciality
+* Faq
+
+
+-------- Controller ---------
+* DoctorController.cs
+* SpecialityController.cs
+* FaqCategoryController.cs
+* FaqController.cs
+
