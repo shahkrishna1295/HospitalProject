@@ -2,13 +2,12 @@
 @{
     ViewBag.Title = "Delete";
 }
-
-<h2>Are you sure you want to delete @Model.ApplicantFirstName?</h2>
-<div class="nav">
-    <a href="/Applicant/Show/@Model.ApplicantID">Cancel</a>
+<div class="bg-danger">
+    <h2>Are you sure you want to delete @Model.ApplicantFirstName?</h2>
+    <form method="POST" action="/Applicant/Delete/@Model.ApplicantID">
+        <div class="text-center">
+            <a class="btn btn-success" href="/Applicant/Show/@Model.ApplicantID">Cancel</a>
+            <button type="submit" class="btn btn-danger">Delete</button>
+        </div>
+    </form>
 </div>
-<form method="POST" action="/Applicant/Delete/@Model.ApplicantID">
-    <div>
-        <button type="submit" class="btn btn-danger">Delete</button>
-    </div>
-</form>

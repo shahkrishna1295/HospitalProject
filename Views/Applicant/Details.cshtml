@@ -6,11 +6,11 @@
 <h2>Details</h2>
 <div class="container">
     <div class="navbar">
-        <a class="navlink" href="/Applicant/List">Back to List</a>
-        <a class="navlink" href="/Applicant/Update/@Model.applicant.ApplicantID ">Update</a>
-        <a class="navlink" href="/Applicant/Delete/@Model.applicant.ApplicantID">Delete</a>
+        <a class="btn-success btn" href="/Applicant/List">Back to List</a>
+        <a class="btn-warning btn" href="/Applicant/Update/@Model.applicant.ApplicantID ">Update</a>
+        <a class="btn-danger btn" href="/Applicant/Delete/@Model.applicant.ApplicantID">Delete</a>
     </div>
-    <div class="col-lg-6 col-sm-12">
+    <div class="col-lg-6 col-sm-12 bg-warning">
         <div>
             <strong>Name</strong>
             <span>@Model.applicant.ApplicantFirstName</span>
@@ -42,7 +42,7 @@
         </div>
     </div>
 
-    <div class="col-lg-6 col-sm-12">
+    <div class="col-lg-6 col-sm-12 bg-info">
         <div class="sectionheader">Applied Jobs:</div>
         @{
 
@@ -51,8 +51,8 @@
                 <div class="lineitem">
                     <a href="/Job/Details/@job.JobID">@job.JobTitle</a>
 
-                    <a href="/Applicant/DetachJob/@Model.applicant.ApplicantID?JobID=@job.JobID">
-                        [x]
+                    <a class="text-danger" href="/Applicant/DetachJob/@Model.applicant.ApplicantID?JobID=@job.JobID">
+                        <span class="glyphicon glyphicon-remove"></span>
                     </a>
                 </div>
             }
@@ -60,7 +60,7 @@
 
         }
     </div>
-    <div class="col-lg-6 col-sm-12">
+    <div class="col-lg-6 col-sm-12 bg-info">
         <form method="post" action="/Applicant/AttachJob/@Model.applicant.ApplicantID">
             <select name="JobID" id="JobID">
                 @{

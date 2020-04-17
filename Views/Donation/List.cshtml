@@ -5,25 +5,35 @@
 }
 
 <h2>List</h2>
-<div class="paginate">
-    @{
-        <a href="/Donation/List?pagenum=@((int)ViewData["pagenum"]-1)&namesearchkey=@ViewData["namesearchkey"]">Prev</a>
-        @ViewData["pagesummary"]
-        <a href="/Donation/List?pagenum=@((int)ViewData["pagenum"]+1)&namesearchkey=@ViewData["namesearchkey"]">Next</a>
-    }
-</div>
-
-<form action="/Donation/List" method="GET">
-    <input type="text" name="namesearchkey" id="namesearchkey" />
-    <input type="submit" value="Search" />
-</form>
-@foreach (var donation in Model)
-{
-    <div class="card">
-        <div class="card-header"><a href="/Donation/Details/@donation.DonationID">@donation.DonatorName</a></div>
-        <div class="card-body">
-            <div>@donation.DonationAmount</div>
-            <div>@donation.DonationDate</div>
-        </div>
+<div class="bg-warning">
+    <form action="/Donation/List" method="GET">
+        <input type="text" name="namesearchkey" id="namesearchkey" />
+        <button type="submit" class="btn btn-info">
+            <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+    </form>
+    <div>
+        <a class="btn btn-success" href="/Donation/Create">Add</a>
     </div>
-}
+    @foreach (var donation in Model)
+    {
+        <div class="card bg-success col-lg-6 col-sm-12">
+            <div class="card-header"><a href="/Donation/Details/@donation.DonationID">@donation.DonatorName</a></div>
+            <div class="card-body">
+                <div><strong>Donation Amount: </strong>@donation.DonationAmount</div>
+                <div><strong>Donation Date: </strong>@donation.DonationDate</div>
+            </div>
+        </div>
+    }
+    <div class="col-lg-12 col-sm-6">
+        @{
+            <a href="/Donation/List?pagenum=@((int)ViewData["pagenum"]-1)&namesearchkey=@ViewData["namesearchkey"]" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-backward"></span> Prev
+            </a>
+            @ViewData["pagesummary"]
+            <a href="/Donation/List?pagenum=@((int)ViewData["pagenum"]+1)&namesearchkey=@ViewData["namesearchkey"]" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-forward"></span> Next
+            </a>
+        }
+    </div>
+</div>

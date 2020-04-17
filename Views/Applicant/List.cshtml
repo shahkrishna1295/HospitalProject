@@ -5,29 +5,38 @@
 }
 
 <h2>List</h2>
-<div class="paginate">
-    @{
-        <a href="/Applicant/List?pagenum=@((int)ViewData["pagenum"]-1)&applicantsearchkey=@ViewData["applicantsearchkey"]">Prev</a>
-        @ViewData["pagesummary"]
-        <a href="/Applicant/List?pagenum=@((int)ViewData["pagenum"]+1)&applicantsearchkey=@ViewData["applicantsearchkey"]">Next</a>
-    }
-</div>
-<form action="/Applicant/List" method="GET">
-    <input type="text" name="applicantsearchkey" id="applicantsearchkey" />
-    <input type="submit" value="Search" />
-</form>
-@foreach (var applicant in Model)
-{
-    <div class="card">
-        <div class="card-header"><a href="/Applicant/Details/@applicant.ApplicantID">@applicant.ApplicantFirstName @applicant.ApplicantLastName</a></div>
-        <div class="card-body">
-            <div>@applicant.ApplicantEmail</div>
-            <div>@applicant.ApplicantPhone</div>
-            <div>@applicant.ApplicantAddress</div>
-            <div>@applicant.ApplicantSkills</div>
-            <div>@applicant.ApplicantWorkExperience</div>
-            <div>@applicant.ApplicantEducationSummary</div>
-        </div>
+<div class="bg-warning">
+    <form action="/Applicant/List" method="GET">
+        <input type="text" name="applicantsearchkey" id="applicantsearchkey" />
+        <button type="submit" class="btn btn-info">
+            <span class="glyphicon glyphicon-search"></span> Search
+        </button>
+    </form>
+    <div>
+        <a class="btn btn-success" href="/Applicant/Create">Add</a>
     </div>
-}
+    @foreach (var applicant in Model)
+    {
+        <div class="card bg-success col-lg-6 col-sm-12">
+            <div class="card-header"><a href="/Applicant/Details/@applicant.ApplicantID">@applicant.ApplicantFirstName @applicant.ApplicantLastName</a></div>
+            <div class="card-body">
+                <div><strong>Applicant Email: </strong>@applicant.ApplicantEmail</div>
+                <div><strong>Applicant Phone: </strong>@applicant.ApplicantPhone</div>
+                <div><strong>Applicant Address: </strong>@applicant.ApplicantAddress</div>
+                <div><strong>Applicant Skills: </strong>@applicant.ApplicantSkills</div>
+            </div>
+        </div>
+    }
+    <div class="col-lg-12 col-sm-6">
+        @{
+            <a href="/Applicant/List?pagenum=@((int)ViewData["pagenum"]-1)&applicantsearchkey=@ViewData["applicantsearchkey"]" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-backward"></span> Prev
+            </a>
+            @ViewData["pagesummary"]
+            <a href="/Applicant/List?pagenum=@((int)ViewData["pagenum"]+1)&applicantsearchkey=@ViewData["applicantsearchkey"]" class="btn btn-info btn-lg">
+                <span class="glyphicon glyphicon-forward"></span> Next
+            </a>
+        }
+    </div>
+</div>
 

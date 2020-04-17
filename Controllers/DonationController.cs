@@ -115,20 +115,22 @@ namespace HospitalProject.Controllers
 
         [HttpPost]
         //update of donation
-        public ActionResult Update([Bind(Include = "DonatorName,DonatorEmail,DonationDate,DonatorPhone,DonationAmount")] DonationModel donation)
+        public ActionResult Update(int id, string DonatorName, string DonatorEmail, DateTime DonationDate, int DonatorPhone, int DonationAmount)
         {
-            if (ModelState.IsValid)
-            {
-                db.Entry(donation).State = EntityState.Modified;
-                //saving the changes
-                db.SaveChanges();
-                return RedirectToAction("List");
-            }
-            //returning the view
-            Debug.WriteLine("donation is" + donation);
-            return View(donation);
-        }
+            Debug.WriteLine("updating donation with id" + id);
+            //updating the applicant
+            DonationModel Donation = db.Donation.Find(id);
+            Donation.DonatorName = DonatorName;
+            Donation.DonatorEmail = DonatorEmail;
+            Donation.DonationDate = DonationDate;
+            Donation.DonatorPhone = DonatorPhone;
+            Donation.DonationAmount = DonationAmount;
+            //saving to database
+            db.SaveChanges();
+            //returning to list
+            return RedirectToAction("List");
 
+        }
 
         public ActionResult Delete(int? id)
         {
