@@ -46,6 +46,7 @@
 
 #### Branch
 * VisitorView.cshtml (visitor can see the 3 locations and services offered by the locations)
+* List.cshmtl (list of 3 locations with its information)
 
 -------- Controller ---------
 
