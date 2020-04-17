@@ -52,30 +52,30 @@ namespace HospitalProject.Controllers
 
         // POST: Testimonial/Create
         //adding a new testimonial in the database using parameterized method
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-        public ActionResult Create(string ServiceTitle, string ServiceCategory)
-        {
-            Boolean status = false;
-            string query = "insert into TestimonialModel (TestimonialTitle, NameOfPatient, TestimonialMessage, Status) values (@TestimonialTitle,@NameOfPatient,@TestimonialMessage, @Status)";
+        //[HttpPost]
+        //[ValidateAntiForgeryToken]
+        //public ActionResult Create(string ServiceTitle, string ServiceCategory)
+        //{
+        //    Boolean status = false;
+        //    string query = "insert into TestimonialModel (TestimonialTitle, NameOfPatient, TestimonialMessage, Status) values (@TestimonialTitle,@NameOfPatient,@TestimonialMessage, @Status)";
 
-            //query before the parameters
-            Debug.WriteLine(query);
-            Console.WriteLine(query);
+        //    //query before the parameters
+        //    Debug.WriteLine(query);
+        //    Console.WriteLine(query);
 
-            //insert query parameters
-            SqlParameter[] sqlparams = new SqlParameter[4];
-            sqlparams[0] = new SqlParameter("@TestimonialTitle", TestimonialTitle);
-            sqlparams[1] = new SqlParameter("@NameOfPatient", NameOfPatient);
-            sqlparams[2] = new SqlParameter("@TestimonialMessage", TestimonialMessage);
+        //    //insert query parameters
+        //    SqlParameter[] sqlparams = new SqlParameter[4];
+        //    sqlparams[0] = new SqlParameter("@TestimonialTitle", TestimonialTitle);
+        //    sqlparams[1] = new SqlParameter("@NameOfPatient", NameOfPatient);
+        //    sqlparams[2] = new SqlParameter("@TestimonialMessage", TestimonialMessage);
 
-            //setting status as 0 = unpulish by defult
-            sqlparams[3] = new SqlParameter("@Status", status);
+        //    //setting status as 0 = unpulish by defult
+        //    sqlparams[3] = new SqlParameter("@Status", status);
 
-            db.Database.ExecuteSqlCommand(query, sqlparams);
+        //    db.Database.ExecuteSqlCommand(query, sqlparams);
 
-            return RedirectToAction("List");
-        }
+        //    return RedirectToAction("List");
+        //}
 
     }
 }
