@@ -612,6 +612,7 @@
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\RespondWay.cs" />
     <Compile Include="Models\ServiceModel.cs" />
+    <Compile Include="Models\ServiceXBranchModel.cs" />
     <Compile Include="Models\Speciality.cs" />
     <Compile Include="Models\TestimonialModel.cs" />
     <Compile Include="Models\Faq.cs" />
@@ -720,10 +721,11 @@
     <Content Include="Views\Speciality\ConfirmDelete.cshtml" />
     <Content Include="Views\Speciality\List.cshtml" />
     <Content Include="Views\Speciality\Update.cshtml" />
+    <Content Include="Views\Branch\Show.cshtml" />
+    <Content Include="Views\Branch\List.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
-    <Folder Include="Views\Branch\" />
     <Folder Include="Views\ContactForm\" />
     <Folder Include="Views\ContactStatus\" />
   </ItemGroup>

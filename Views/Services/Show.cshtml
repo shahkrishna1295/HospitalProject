@@ -1,1 +1,41 @@
-﻿
+﻿@model HospitalProject.Models.ViewModels.ShowServiceModel
+@{ 
+    ViewBag.Title = "Show";
+}
+<div>
+    <div><label>Service Name : </label><span>@Model.Service.ServiceTitle</span></div>
+    <div><label>Service Category : </label><span>@Model.Service.ServiceCategory</span></div>
+</div>
+<div>
+    <div><label>Locations</label></div>
+    @{
+
+        foreach (var service in @Model.Branches)
+        {
+            <div class="lineitem">
+                <a href="/Branch/Show/@service.BranchID">@service.BranchName</a>
+                @{
+                }
+                <a href="/Service/DetachLocation/@Model.Service.ServiceID?branchid=@service.BranchID">
+                    Remove Location
+                </a>
+            </div>
+        }
+
+    }
+
+    <form method="post" action="/Service/AttachLocation/@Model.Service.ServiceID">
+        <select name="branchid" id="branchid">
+            @{
+
+                foreach (var service in @Model.all_Branches)
+                {
+                    <option value="@service.BranchID">
+                        @service.BranchName
+                    </option>
+                }
+            }
+        </select>
+        <input type="submit" value="Add Location" />
+    </form>
+</div>

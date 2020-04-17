@@ -1,0 +1,36 @@
+﻿@model HospitalProject.Models.ViewModels.ShowBranchModel
+@{ 
+    ViewBag.Title = "Show";
+}
+<div>
+    <a href="/Branch/List">Back to List</a>
+</div>
+    <div>
+        <div class="card col-sm-3">
+            <h3 class="card-header">@Model.Branch.BranchName</h3>
+
+            <img style="height: 200px; width: 100%; display: block;" src="@Model.Branch.BranchImage" alt="Card image">
+            <div class="card-body">
+                <p class="card-text">@Model.Branch.BranchLocation</p>
+            </div>
+            <div class="card-body">
+                <p class="card-text">@Model.Branch.BranchEmail</p>
+            </div>
+            <div class="card-body">
+                <p class="card-text">@Model.Branch.BranchContactNumber</p>
+            </div>
+            @{
+                //this can be further displayed in categorized manner 
+                //i.e. X-Ray is shown under scanning and imaging category
+
+                //this loop gives all the services offered by this branch
+                foreach (var branch in @Model.Services)
+                {
+                    <div class="lineitem">
+                        <a href="/Branch/Show/@branch.ServiceID">@branch.ServiceTitle</a>
+                    </div>
+                }
+            }
+
+        </div>
+    </div>

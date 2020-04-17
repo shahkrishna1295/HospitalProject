@@ -28,16 +28,6 @@
                 </select>
             </div>
             <div>
-                <label>Branch</label>
-                @foreach (var branch in Model)
-                {
-                    //admin or staff can choose more than one branch for a service
-                    //loop to display all the locations
-                    <input type="checkbox" value="@branch.BranchName" name="selectedLocation" id="selectedLocation" /><span>@branch.BranchName</span>
-                }
-                
-            </div>
-            <div>
                 <input class="btn btn-primary" type="submit" value="Submit Service" />
             </div>
         </div>

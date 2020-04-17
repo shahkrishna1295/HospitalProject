@@ -17,5 +17,8 @@ namespace HospitalProject.Models
         public string BranchContactNumber { get; set; }
         public string BranchEmail { get; set; }
         public string BranchImage { get; set; }
+
+        //representing the many to many of branches and servcies
+        public ICollection<ServiceXBranchModel> ServiceXBranch { get; set; }
     }
 }

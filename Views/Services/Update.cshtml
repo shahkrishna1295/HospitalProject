@@ -29,16 +29,19 @@
             </div>
             <div>
                 <label>Branch</label>
-                @foreach (var branch in Model.Branch)
-                {
-                    var selected = "";
-                    if (Model.Services.ServiceID == branch.BranchID)
+                @{
+                    foreach (var branch in Model.Branches)
                     {
-                        selected = "selected";
-                    }
+                        var selected = "";
+                        if (Model.Services.ServiceID == branch.BranchID)
+                        {
+                            selected = "selected";
+                        }
 
-                    <input type="checkbox" value="@branch.BranchName" name="selectedLocation" id="selectedLocation" @selected/><span>@branch.BranchName</span>
+                        <input type="checkbox" value="@branch.BranchName" name="selectedLocation" id="selectedLocation" @selected /><span>@branch.BranchName</span>
+                    }
                 }
+
 
             </div>
             <div>

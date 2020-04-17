@@ -193,7 +193,7 @@ namespace HospitalProject.Controllers
             {
                 db.Entry(testimonial).State = EntityState.Modified;
                 db.SaveChanges();
-                return RedirectToAction("Index");
+                return RedirectToAction("List");
             }
             return View(testimonial);
         }
@@ -227,7 +227,7 @@ namespace HospitalProject.Controllers
             //here REMOVE(testimonial) works as delete query
             db.Testimonial.Remove(testimonial);
             db.SaveChanges();
-            return RedirectToAction("Index");
+            return RedirectToAction("List");
         }
 
         protected override void Dispose(bool disposing)

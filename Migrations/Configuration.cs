@@ -9,7 +9,7 @@ namespace HospitalProject.Migrations
     {
         public Configuration()
         {
-            AutomaticMigrationsEnabled = false;
+            AutomaticMigrationsEnabled = true;
             ContextKey = "HospitalProject.Data.HospitalProjectContext";
         }
 

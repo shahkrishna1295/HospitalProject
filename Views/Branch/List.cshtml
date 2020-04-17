@@ -1,0 +1,30 @@
+﻿@model List<HospitalProject.Models.BranchModel>
+@{ 
+    ViewBag.Title = "List";
+}
+
+    <div>
+        @{
+            foreach (var location in Model)
+            {
+                <div class="card col-sm-3">
+                    <h3 class="card-header">@location.BranchName</h3>
+
+                    <img style="height: 200px; width: 100%; display: block;" src="@location.BranchImage" alt="Card image">
+                    <div class="card-body">
+                        <p class="card-text">@location.BranchLocation</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">@location.BranchEmail</p>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">@location.BranchContactNumber</p>
+                    </div>
+                    <div class="card-body">
+                        <a href="/Branch/Show/@location.BranchID" class="card-link">Services Offered</a>
+                    </div>
+                </div>
+            }
+        }
+
+    </div>
