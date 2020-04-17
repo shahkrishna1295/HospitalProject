@@ -51,8 +51,9 @@ namespace HospitalProject.Controllers
             return View();
         }
 
-         //POST: Testimonial/Create
-        //adding a new testimonial in the database using parameterized method
+         //POST: Service/Create
+        //adding a new Service in the database using parameterized method
+
         [HttpPost]
         [ValidateAntiForgeryToken]
         public ActionResult Create(string ServiceTitle, string ServiceCategory, string Location)
@@ -60,9 +61,9 @@ namespace HospitalProject.Controllers
             
             string query = "insert into ServiceModel (ServiceTitle, ServiceCategory) values (@ServiceTitle,@ServiceCategory)";
 
-            //query before the parameters
-            Debug.WriteLine(query);
-            Console.WriteLine(query);
+        //    //query before the parameters
+        //    Debug.WriteLine(query);
+        //    Console.WriteLine(query);
 
             //insert query parameters
             SqlParameter[] sqlparams = new SqlParameter[2];
@@ -141,9 +142,7 @@ namespace HospitalProject.Controllers
             SqlParameter[] sqlparams = new SqlParameter[2];
             sqlparams[0] = new SqlParameter("@branchid", branchid);
             sqlparams[1] = new SqlParameter("@id", id);
-
-            db.Database.ExecuteSqlCommand(query, sqlparams);
-
+			
             return RedirectToAction("Show/" + id);
         }
 
@@ -201,6 +200,7 @@ namespace HospitalProject.Controllers
             db.SaveChanges();
             return RedirectToAction("List");
         }
+
 
         protected override void Dispose(bool disposing)
         {
