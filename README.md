@@ -102,7 +102,8 @@
 
 
 ## Chang Qi
- * (To avoid conflicts, worked on personal branch "EllaQi" and didn't merge to the master branch)
+ (To avoid conflicts, worked on personal branch "EllaQi" and didn't merge to the master branch)
+ 
 -------- Models ---------
 
 * ContactForm.cs
