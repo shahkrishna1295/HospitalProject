@@ -5111,6 +5111,11 @@
     <Content Include="Scripts\src\utils\isNumeric.js" />
     <Content Include="Scripts\src\utils\isModifierRequired.js" />
     <Content Include="Scripts\src\utils\isModifierEnabled.js" />
+    <Content Include="Scripts\src\utils\isIE.js" />
+    <Content Include="Scripts\src\utils\isFunction.js" />
+    <Content Include="Scripts\src\utils\isFixed.js" />
+    <Content Include="Scripts\src\utils\isBrowser.js" />
+    <Content Include="Scripts\src\utils\index.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
