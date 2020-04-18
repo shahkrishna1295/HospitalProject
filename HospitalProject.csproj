@@ -5124,6 +5124,9 @@
     <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
     <Content Include="Scripts\src\utils\getScrollParent.js" />
     <Content Include="Scripts\src\utils\getScroll.js" />
+    <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
+    <Content Include="Scripts\src\utils\getRoot.js" />
+    <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
