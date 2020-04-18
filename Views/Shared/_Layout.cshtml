@@ -21,30 +21,22 @@
                 </button>
 
                 <!-- Have not figue the next line out:
-                Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { class = "navbar-brand" })
-                -->
-
+        Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { class = "navbar-brand" })
+        -->
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
                     <li>@Html.ActionLink("ABOUT MICs", "ABOUT MICs", "ABOUT MICs")</li>
-                    <li>@Html.ActionLink("PATIENTS&amp;VISITORS", "PATIENTS&amp;VISITORS", "PATIENTS&amp;VISITORS")</li>
-                    <li>@Html.ActionLink("PROGRAMS$ERVICES", "PROGRAMS$ERVICES", "PROGRAMS$ERVICES")</li>
-                    <li>@Html.ActionLink("QUALITY&amp;SAFETY", "QUALITY&amp;SAFETY", "QUALITY&amp;SAFETY")</li>
+                    <li>@Html.ActionLink("PATIENTS&VISITORS", "PATIENTS&VISITORS", "PATIENTS&VISITORS")</li>
+                    <li>@Html.ActionLink("PROGRAMS&ERVICES", "PROGRAMS&ERVICES", "PROGRAMS&ERVICES")</li>
+                    <li>@Html.ActionLink("QUALITY&SAFETY", "QUALITY&SAFETY", "QUALITY&SAFETY")</li>
                     <li>@Html.ActionLink("GOVERANCE", "GOVERANCE", "GOVERANCE")</li>
                 </ul>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("Donation", "/List", "Donation")</li>
-                    <li>@Html.ActionLink("Job", "/List", "Job")</li>
-                    <li>@Html.ActionLink("Applicants", "/List", "Applicant")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
-            </div>
+            @Html.Partial("_LoginPartial")
         </div>
     </div>
+
     <div class="container body-content">
         @RenderBody()
         <hr />
