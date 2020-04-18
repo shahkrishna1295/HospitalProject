@@ -5119,6 +5119,11 @@
     <Content Include="Scripts\src\utils\includeScroll.js" />
     <Content Include="Scripts\src\utils\getWindowSizes.js" />
     <Content Include="Scripts\src\utils\getWindow.js" />
+    <Content Include="Scripts\src\utils\getViewportOffsetRectRelativeToArtbitraryNode.js" />
+    <Content Include="Scripts\src\utils\getSupportedPropertyName.js" />
+    <Content Include="Scripts\src\utils\getStyleComputedProperty.js" />
+    <Content Include="Scripts\src\utils\getScrollParent.js" />
+    <Content Include="Scripts\src\utils\getScroll.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
