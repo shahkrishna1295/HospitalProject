@@ -5127,6 +5127,8 @@
     <Content Include="Scripts\src\utils\getRoundedOffsets.js" />
     <Content Include="Scripts\src\utils\getRoot.js" />
     <Content Include="Scripts\src\utils\getReferenceOffsets.js" />
+    <Content Include="Scripts\src\utils\getReferenceNode.js" />
+    <Content Include="Scripts\src\utils\getPopperOffsets.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
