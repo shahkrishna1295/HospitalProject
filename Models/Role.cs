@@ -8,17 +8,18 @@ using System.ComponentModel.DataAnnotations.Schema;
 
 namespace HospitalProject.Models
 {
-    public class RespondWay
+    public class Role
     {
-        /* RespondWay is describing the way of replying the users who submit contact forms
+        /* Role is describing the identity of a registered user (patient or volunteer)
          * Some things can describe a RespondWay:
-         * RespondWay:
-         *      - Email
-         *      - Phone call
-         *      - SMS
+         * Role:
+         *      - Patient
+         *      - Volunteer
          */
+
         [Key]
-        public int RespondWayID { get; set; }
-        public string Way { get; set; }
+        public int RoleID { get; set; }
+        public string RoleName { get; set; }
     }
 }
+

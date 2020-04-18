@@ -35,6 +35,9 @@ namespace HospitalProject.Data
         public System.Data.Entity.DbSet<HospitalProject.Models.ContactForm> ContactForms { get; set; }
         public System.Data.Entity.DbSet<HospitalProject.Models.ContactStatus> ContactStatuses { get; set; }
         public System.Data.Entity.DbSet<HospitalProject.Models.RespondWay> RespondWays { get; set; }
+        //user registration feature
+        public System.Data.Entity.DbSet<HospitalProject.Models.UserRegistration> UserRegistrations { get; set; }
+        public System.Data.Entity.DbSet<HospitalProject.Models.Role> Roles { get; set; }
 
     }
 }
