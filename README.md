@@ -126,14 +126,6 @@
 * List.cshtml
 * Update.cshtml
 
-
-#### Registration
-* Create.cshtml
-* Delete.cshtml
-* Details.cshtml
-* List.cshtml
-* Update.cshtml
-
 -------- Controller ---------
 
 #### ContactForm
