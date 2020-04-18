@@ -5140,6 +5140,8 @@
     <Content Include="Scripts\src\utils\getClientRect.js" />
     <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
     <Content Include="Scripts\src\utils\getBoundaries.js" />
+    <Content Include="Scripts\src\utils\getBordersSize.js" />
+    <Content Include="Scripts\src\utils\findIndex.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
