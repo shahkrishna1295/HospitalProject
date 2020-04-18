@@ -5116,6 +5116,9 @@
     <Content Include="Scripts\src\utils\isFixed.js" />
     <Content Include="Scripts\src\utils\isBrowser.js" />
     <Content Include="Scripts\src\utils\index.js" />
+    <Content Include="Scripts\src\utils\includeScroll.js" />
+    <Content Include="Scripts\src\utils\getWindowSizes.js" />
+    <Content Include="Scripts\src\utils\getWindow.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
