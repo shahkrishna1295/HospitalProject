@@ -148,6 +148,9 @@
    * Content/img/
      * mics-logo.png, PhotobyiMattSmartonUnsplash.jpg, facebook-square-brands.svg, twitter-square-brands.svg, envelope-square-solid.svg
 
+#### Other
+* Conflict Solving
+
 
 ## Amit Deka
 -------- Models ---------
