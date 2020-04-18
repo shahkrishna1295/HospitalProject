@@ -131,19 +131,22 @@
 
 -------- Controller ---------
 
+#### ContactForm
 * ContactFormController.cs
 * RespondWayController.cs
 * ContactStatusController.cs
 
 -------- Additional Duties --------
+
+#### Design
  * Update Views/Home/Index.cshtml
  * Update Content/bootstrap.css
  * Update Content/Site.css
  * Update Views/Shared/_Layout.cshtml
+ * Create Home page wireframes: 
+    * Documentation/EllaQi/Homepage-Wirerames/
+      * wireframe-desktop1.0.png, wireframe-tablet1.0.png, wireframe-phone1.0.png, navigation-clarification.png
  * Add logo, pictures, and icons for index page: 
-   * Create Home page wireframes: 
-     * Documentation/EllaQi/Homepage-Wirerames/
-     * wireframe-desktop1.0.png, wireframe-tablet1.0.png, wireframe-phone1.0.png, navigation-clarification.png
    * Content/img/
      * mics-logo.png, PhotobyiMattSmartonUnsplash.jpg, facebook-square-brands.svg, twitter-square-brands.svg, envelope-square-solid.svg
 
