@@ -100,6 +100,7 @@
 * Error Fixing.
 * Conflict Solving.
 
+
 ## Chang Qi
 -------- Models ---------
 
@@ -140,9 +141,11 @@
  * Update Content/Site.css
  * Update Views/Shared/_Layout.cshtml
  * Add logo, pictures, and icons for index page: 
-   * Content/img/mics-logo.png, PhotobyiMattSmartonUnsplash.jpg, facebook-square-brands.svg, twitter-square-brands.svg, envelope-square-solid.svg
- * Create Home page wireframes: 
-   * Documentation/EllaQi/Homepage-Wirerames/wireframe-desktop1.0.png, wireframe-tablet1.0.png, wireframe-phone1.0.png, navigation-clarification.png
+   * Create Home page wireframes: 
+     * Documentation/EllaQi/Homepage-Wirerames/
+     * wireframe-desktop1.0.png, wireframe-tablet1.0.png, wireframe-phone1.0.png, navigation-clarification.png
+   * Content/img/
+     * mics-logo.png, PhotobyiMattSmartonUnsplash.jpg, facebook-square-brands.svg, twitter-square-brands.svg, envelope-square-solid.svg
 
 
 ## Amit Deka
