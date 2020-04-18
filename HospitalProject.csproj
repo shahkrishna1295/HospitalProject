@@ -5137,6 +5137,9 @@
     <Content Include="Scripts\src\utils\getOffsetRect.js" />
     <Content Include="Scripts\src\utils\getOffsetParent.js" />
     <Content Include="Scripts\src\utils\getFixedPositionOffsetParent.js" />
+    <Content Include="Scripts\src\utils\getClientRect.js" />
+    <Content Include="Scripts\src\utils\getBoundingClientRect.js" />
+    <Content Include="Scripts\src\utils\getBoundaries.js" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
