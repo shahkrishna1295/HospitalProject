@@ -139,7 +139,7 @@
 -------- Additional Duties --------
 
 #### Design
- * Update Views/Home/Index.cshtml
+ * Update Views/Home/Index.cshtml (In order to edit index page styles more efficiently and intuitively, some of the code used inline CSS) 
  * Update Content/bootstrap.css
  * Update Content/Site.css
  * Update Views/Shared/_Layout.cshtml
