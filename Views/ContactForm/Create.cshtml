@@ -1,0 +1,60 @@
+﻿@model List<HospitalProject.Models.ViewModels.AddContact>
+
+@{
+    ViewBag.Title = "Add";
+}
+
+<div class="logo">
+    <img src="../Content/img/mics-logo.png" />
+</div>
+<h1> Add Contact Form </h1>
+<span class="errmsg">
+    *Required Field
+</span>
+
+<form action="/ContactForm/Create" method="post">
+    <label for="subject">Subject </label>
+    <!-- could replaced by a drop downlist after creating a subject table -->
+    <input type="text" name="subject" id="subject" placeholder="I have an inquiry about ..." />
+    <span class="errmsg">*</span>
+
+    <label for="fname">Firstname </label>
+    <input type="text" name="fname" id="fname" placeholder="e.g. John" />
+    <span class="errmsg">*</span>
+
+    <label for="lname">Lastname </label>
+    <input type="text" name="lname" id="lname" placeholder="e.g. Smith" />
+    <span class="errmsg">*</span>
+
+    <label for="email">Email </label>
+    <input type="text" name="email" id="email" placeholder="e.g. me@email.com" />
+    <span class="errmsg">*</span>
+
+    <label for="phone">Phone </label>
+    <input type="text" name="phone" id="phone" placeholder="e.g. 416 000 0000" />
+    <span class="errmsg">*</span>
+
+    <label for="message">Message </label>
+    <span class="errmsg">*</span>
+    <textarea name="message" id="message">
+    </textarea>
+
+    <label for="respondway">Prefer receivnig reply via </label>
+    <select name="respondway" id="respondway">
+        <option selected> Email </option>
+        <option> Phone call </option>
+        <option> SMS </option>
+    </select>
+
+    <!-- only avalible to admin -->
+    <label for="status"> Status </label>
+    <input type="radio" name="status" value="New" checked />
+    <input type="radio" name="status" value="Solved" />
+
+    <input type="submit" value="Submit" />
+</form>
+
+<!-- only avalible to admin -->
+<div class="navbar">
+    <a class="navlink" href="/ContactForm/List">Back to list</a>
+</div>

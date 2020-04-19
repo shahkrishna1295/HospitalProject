@@ -1,0 +1,30 @@
+﻿@model List<HospitalProject.Models.ContactForm>
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<div class="logo">
+    <img src="../Content/img/mics-logo.png" />
+</div>
+<h2>Do you want to delete this Contact form?</h2>
+
+<div>@Model.Subject</div>
+<div>@Model.Message</div>
+
+
+<form action="/ContactForm/Delete/@Model.ContactFormID">
+    <div class="inpfield"><input type="submit" value="Delete" /></div>
+</form>
+
+<div class="navbar">
+    <a class="navlink" href="/ContactForm/Details">Show Details</a>
+</div>
+
+<div class="navbar">
+    <a class="navlink" href="/ContactForm/Create">Add new contact form submission</a>
+</div>
+
+<div class="navbar">
+    <a class="navlink" href="/ContactForm/List">Back to list</a>
+</div>

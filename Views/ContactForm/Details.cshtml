@@ -1,0 +1,52 @@
+﻿@model List<HospitalProject.Models.ContactForm>
+
+@{
+    ViewBag.Title = "Show";
+}
+
+<div class="logo">
+    <img src="../Content/img/mics-logo.png" />
+</div>
+<h1> Contact Form Details </h1>
+
+<div class="inpfield">
+    <span>Subject </span>@Model.ContactForm.Subject
+</div>
+
+<div class="inpfield">
+    <span>Firstname </span>@Model.ContactForm.ContactFName
+</div>
+
+<div class="inpfield">
+    <span>Lastname </span>@Model.ContactForm.ContactLName
+</div>
+
+<div class="inpfield">
+    <span>Email </span>@Model.ContactForm.ContactEmail
+</div>
+
+<div class="inpfield">
+    <span>Phone </span>@Model.ContactForm.ContactPhone
+</div>
+
+<div class="inpfield">
+    <span>Message </span>@Model.ContactForm.ContactMessage
+</div>
+
+<div class="inpfield">
+    <!-- should be add an if statement, need to review Christine's PetGrooming repo to fix this -->
+    <span>Prefer receiving reply via </span>@ContactStatusID
+</div>
+
+<!-- could add reply feature:
+    for example,if the user preferred way is email,when admin click "Reply" button,
+    the mailbox software dedicated to replying to the user will be opened
+    and a new email interface will displayed,
+    and the "To" will automatically import the user's email address -->
+<input type="button" name="reply" id="reply" value="reply" />
+
+<div class="navbar">
+    <a class="navlink">Back to list</a>
+    <a class="navlink" href="/ContactForm/Update/@Model.ContactFormID">Edit</a>
+    <a class="navlink" href="/ContactForm/Delete/@Model.ContactFormID">Delete</a>
+</div>

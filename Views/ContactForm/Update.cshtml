@@ -1,0 +1,63 @@
+﻿@model List<HospitalProject.Models.ViewModels.UpdateContact>
+
+@{
+    ViewBag.Title = "Update";
+}
+
+<div class="logo">
+    <img src="../Content/img/mics-logo.png" />
+</div>
+<h1>Edit Contact Form Info</h1>
+<span class="errmsg">
+    *Required Field
+</span>
+
+<form action="/ContactForm/Update/@Model.Contact.ContactFormID" method="post">
+    <label for="subject">Subject </label>
+    <!-- could replaced by a drop downlist after creating a subject table -->
+    <input type="text" name="subject" id="subject" value="@Model.Contact.Subject" />
+    <span class="errmsg">*</span>
+
+    <label for="fname">Firstname </label>
+    <input type="text" name="fname" id="fname" value="@Model.Contact.ContactFName" />
+    <span class="errmsg">*</span>
+
+    <label for="lname">Lastname </label>
+    <input type="text" name="lname" id="lname" value="@Model.Contact.ContactLName" />
+    <span class="errmsg">*</span>
+
+    <label for="email">Email </label>
+    <input type="text" name="email" id="email" value="@Model.Contact.ContactEmail" />
+    <span class="errmsg">*</span>
+
+    <label for="phone">Phone </label>
+    <input type="text" name="phone" id="phone" value="@Model.Contact.ContactPhone" />
+    <span class="errmsg">*</span>
+
+    <label for="message">Message </label>
+    <span class="errmsg">*</span>
+    <textarea name="message" id="message">
+        @Model.Contact.ContactMessage
+    </textarea>
+
+    <!-- need to review Christine's PetGrooming repo to fix the dropdown list -->
+    <label for="respondway">Prefer receivnig reply via </label>
+    <select name="respondway" id="respondway">
+        <option selected> Email </option>
+        <option> Phone call </option>
+        <option> SMS </option>
+    </select>
+
+    <!-- need to review Christine's PetGrooming repo to fix the radio button -->
+    <label for="status"> Status </label>
+    <input type="radio" name="status" value="New" checked />
+    <input type="radio" name="status" value="Solved" />
+
+    <input type="submit" value="Submit" />
+</form>
+
+<div class="navbar">
+    <a class="navlink" href="/ContactForm/List">Back to list</a>
+</div>
+
+

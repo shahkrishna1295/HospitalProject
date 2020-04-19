@@ -1,0 +1,92 @@
+﻿@model List<HospitalProject.Models.ContactForm>
+
+@{
+    ViewBag.Title = "List";
+}
+
+<div class="logo">
+    <img src="../Content/img/mics-logo.png" />
+</div>
+<h2>List of Contact Form</h2>
+<div class="navbar">
+    <a class="navlink" href="/ContactForm/Create">Add new contact form submission</a>
+</div>
+
+<!-- try pagination -->
+<div class="paginate">
+    @{
+        //previous page
+        <a href="/ContactForm/List?pagenum=@((int)ViewData["pagenum"]-1)&contactsearchkey=@ViewData["contactsearchkey"]">Prev</a>
+        @ViewData["pagesummary"]
+        //next page
+        <a href="/ContactForm/List?pagenum=@((int)ViewData["pagenum"]+1)&contactsearchkey=@ViewData["contactsearchkey"]">Next</a>
+    }
+</div>
+
+<!-- search bar -->
+<form action="/ContactForm/List" method="get">
+    <input type="text" name="contactsearchkey" id="contactsearchkey" />
+    <input type="submit" value="Search" />
+</form>
+
+<!-- sort by: subject/Firstname/Lastname/RespondWay -->
+<div class="dropdown sortby">
+    <select name="sortby">
+        <option>- Sort By -</option>
+        <option>- Subject -</option>
+        <option>- Firstname -</option>
+        <option>- Lastname -</option>
+        <option>- Respond Way -</option>
+    </select>
+</div>
+
+<!-- change show number of results each time -->
+<div class="dropdown shownum">
+    <span>Show </span>
+    <span>
+        <select name="shownum">
+            <option> 10 </option>
+            <option> 20 </option>
+            <option> 50 </option>
+            <option> 100 </option>
+        </select>
+    </span>
+    <span> results each time </span>
+
+</div>
+
+<div class="tilecontainer">
+    <table class="table table-bordered tbl">
+        <thead>
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Subject</th>
+                <th scope="col">Firstname</th>
+                <th scope="col">Lastname</th>
+                <th scope="col">RespondWay</th>
+                <th scope="col"></th>
+                <th scope="col"></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Form in Model)
+            {
+                <tr>
+                    <td></td>
+                    <td>@Form.ContactFormID</td>
+                    <td>@Form.Subject</td>
+                    <td><a href="/ContactForm/Details/@Form.ContactFormID">@Form.ContactFName</a></td>
+                    <td>@Form.ContactLName</td>
+                    <td>@Form.RespondWay</td>
+                    <td>
+                        <a href="/ContactForm/Update/@Form.ContactFormID">Edit</a>
+                    </td>
+                    <td>
+                        <a href="/ContactForm/Delete/@Form.ContactFormID">Delete</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</div>
+
